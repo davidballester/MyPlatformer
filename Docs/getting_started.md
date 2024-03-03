@@ -36,6 +36,8 @@ In the main menu, I want the player to choose which character to use. For that p
 
 I've used some custom logic to allow toggling of a single button in the main menu, and a signal to notify to the main scene, _Game_, that the user is ready to start the game.
 
+The font I've used is [vini's](https://twitter.com/vmenezio) [monogram](https://datagoblin.itch.io/monogram).
+
 ## Music
 
 I've decided to use a single track list for the whole game. For that purpose, I've used [Seth_Makes_Sounds](https://freesound.org/people/Seth_Makes_Sounds/) songs, and played them in a loop right under the _Game_ scene.
