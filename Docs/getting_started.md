@@ -41,3 +41,7 @@ The font I've used is [vini's](https://twitter.com/vmenezio) [monogram](https://
 ## Music
 
 I've decided to use a single track list for the whole game. For that purpose, I've used [Seth_Makes_Sounds](https://freesound.org/people/Seth_Makes_Sounds/) songs, and played them in a loop right under the _Game_ scene.
+
+## HUD
+
+The HUD is very basic, an icon with a number of points. I've created a method to set the points, which effectively just sets the text of the label. Then, I added the HUD directly under _Game_, hidden by default. When starting the game, it is displayed programmatically.

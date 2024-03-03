@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfqri5qkehrvj"]
+[gd_scene load_steps=5 format=3 uid="uid://bfqri5qkehrvj"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_mbnal"]
 [ext_resource type="PackedScene" uid="uid://oowbs41rockj" path="res://scenes/MainMenu.tscn" id="1_n6yju"]
 [ext_resource type="Script" path="res://scripts/music_player.gd" id="3_sm5j8"]
+[ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/HUD.tscn" id="4_dxxas"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mbnal")
@@ -11,3 +12,7 @@ script = ExtResource("1_mbnal")
 
 [node name="music_player" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_sm5j8")
+
+[node name="HUD" parent="." instance=ExtResource("4_dxxas")]
+visible = false
+position = Vector2(25, 25)

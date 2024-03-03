@@ -11,7 +11,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="8_xglxu"]
 [ext_resource type="SpriteFrames" uid="uid://cc51fibjygw7" path="res://assets/characters/virtual_guy/sprite_frames.tres" id="9_wodjb"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_17g1l"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_jba72"]
 allow_unpress = true
 
 [node name="MainMenu" type="Node2D"]
@@ -43,6 +43,7 @@ expand_mode = 5
 stretch_mode = 4
 
 [node name="Start" type="Button" parent="Background"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -63,6 +64,7 @@ theme_override_font_sizes/font_size = 80
 text = "START"
 
 [node name="Label" type="Label" parent="Background"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,7 +100,7 @@ offset_left = 260.0
 offset_top = 280.0
 offset_right = 380.0
 offset_bottom = 400.0
-button_group = SubResource("ButtonGroup_17g1l")
+button_group = SubResource("ButtonGroup_jba72")
 
 [node name="Character" parent="CharacterSelectionButton2" instance=ExtResource("3_vgrrc")]
 position = Vector2(60, 56)
