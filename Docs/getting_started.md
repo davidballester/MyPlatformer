@@ -33,3 +33,9 @@ Then, I'll move to the Main Menu.
 I'll start with a background that cover the entire viewport. I won't be manually dragging it, but using transform to input the dimensions.
 
 In the main menu, I want the player to choose which character to use. For that purpose, I've created a _Character_ scene that accepts a `SpriteFrames` via `@export` and sets it to its internal `AnimatedSprite2D`. This allows me to create multiple characters at once to showcase them in the main menu.
+
+I've used some custom logic to allow toggling of a single button in the main menu, and a signal to notify to the main scene, _Game_, that the user is ready to start the game.
+
+## Music
+
+I've decided to use a single track list for the whole game. For that purpose, I've used [Seth_Makes_Sounds](https://freesound.org/people/Seth_Makes_Sounds/) songs, and played them in a loop right under the _Game_ scene.
