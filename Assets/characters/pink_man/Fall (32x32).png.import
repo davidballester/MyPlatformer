@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqqy6n5n4vq6"
-path="res://.godot/imported/Title.png-5a2bc7eff91db31adcded1fcae6ae2c7.ctex"
+uid="uid://qdpxx6di3xnq"
+path="res://.godot/imported/Fall (32x32).png-e46930f46bf519d4728cd2f0a003da62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Title.png"
-dest_files=["res://.godot/imported/Title.png-5a2bc7eff91db31adcded1fcae6ae2c7.ctex"]
+source_file="res://assets/characters/pink_man/Fall (32x32).png"
+dest_files=["res://.godot/imported/Fall (32x32).png-e46930f46bf519d4728cd2f0a003da62.ctex"]
 
 [params]
 
