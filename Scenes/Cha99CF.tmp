@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8awjrpsi2u8v"]
+
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_cml5k"]
+[ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://Assets/Characters/Mask Dude/sprite_frames.tres" id="2_c16xq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3iyh2"]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_cml5k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_c16xq")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3iyh2")

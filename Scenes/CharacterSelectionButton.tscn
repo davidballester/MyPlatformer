@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvo4ubpso1erk"]
+
+[ext_resource type="Script" path="res://Scripts/character_selection_button.gd" id="1_h0fnf"]
+
+[node name="CharacterSelectionButton" type="Button"]
+offset_right = 120.0
+offset_bottom = 120.0
+theme_type_variation = &"FlatButton"
+toggle_mode = true
+script = ExtResource("1_h0fnf")
