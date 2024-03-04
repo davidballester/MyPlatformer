@@ -45,3 +45,9 @@ I've decided to use a single track list for the whole game. For that purpose, I'
 ## HUD
 
 The HUD is very basic, an icon with a number of points. I've created a method to set the points, which effectively just sets the text of the label. Then, I added the HUD directly under _Game_, hidden by default. When starting the game, it is displayed programmatically.
+
+## Level loading
+
+I've created a base _Level_ component. Each individual level will be created via the editor extending this base scene.
+
+The _Game_ script loads the levels dynamically, when needed. The character is also dynamically added to the level.

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkupofjn60utk"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_ql2yr"]
+[ext_resource type="Texture2D" uid="uid://7q37jrt7l5ke" path="res://assets/background/Blue.png" id="2_umv73"]
+
+[node name="Level1" type="Node"]
+script = ExtResource("1_ql2yr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_umv73")
