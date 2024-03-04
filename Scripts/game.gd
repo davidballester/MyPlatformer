@@ -31,7 +31,7 @@ func set_up_character(character_sprite_frames: SpriteFrames, level: Level):
 	character.add_child(movement_input_component)
 	level.add_child(character)
 	character.ready.connect(position_character.bind(character, level))
-	character.ready.connect(add_camera.bind(character))
+	character.ready.connect(add_camera.bind(character, level))
 	return character
 
 func position_character(character: Character, level: Level):
@@ -42,6 +42,11 @@ func position_character(character: Character, level: Level):
 	character.position.x = x
 	character.position.y = y
 	
-func add_camera(character: Character):
+func add_camera(character: Character, level: Level):
 	var camera: Camera2D = load("res://scenes/level_components/Camera.tscn").instantiate()
+	camera.limit_left = 0
+	camera.limit_top = 0
+	var level_background: TextureRect = level.get_node("Background")
+	camera.limit_right = floori(level_background.offset_right)
+	camera.limit_bottom = floori(level_background.offset_bottom)
 	character.add_child(camera)
