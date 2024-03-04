@@ -51,3 +51,11 @@ The HUD is very basic, an icon with a number of points. I've created a method to
 I've created a base _Level_ component. Each individual level will be created via the editor extending this base scene.
 
 The _Game_ script loads the levels dynamically, when needed. The character is also dynamically added to the level.
+
+## Movement
+
+For the movement of the characters in the level, I've extended the _CharacterBody2D: Basic Movement_ template. In terms of behavior, I've added some inertia to the movement, so that running does not feel snappy, and the possibility of jumping within a 150ms. time window right after falling off an edge, for a more satisfying experience.
+
+Architecturally, the most interesting thing about this is I've created a dedicated component, _CharacterMovementInputComponent_ (quite a mouthfull, I know), that accepts a _Character_ as input and handles its position based in the input, and also the animation via an exposed `set_animation` method on said _Character_.
+
+The reason why I've detached this logic from the _Character_ script is that it feels quite isolated and specific, so I wanted it in its own script. And is not part of the _Character_ scene directly, because I'm using _Character_ in situations in which I do not want any input, such as the initial character selection on the main menu. Instead, I instantiate a _CharacterMovementInputComponent_ during the level creation, add it to my _Character_ and configure it.

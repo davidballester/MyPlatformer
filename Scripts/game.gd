@@ -26,6 +26,9 @@ func load_level(level: int, character_sprite_frames: SpriteFrames):
 func set_up_character(character_sprite_frames: SpriteFrames, level: Level):
 	var character: Character = load("res://scenes/Character.tscn").instantiate()
 	character.sprite_frames = character_sprite_frames
+	var movement_input_component: CharacterMovementInputComponent = load("res://scenes/CharacterMovementInputComponent.tscn").instantiate()
+	movement_input_component.character = character
+	character.add_child(movement_input_component)
 	level.add_child(character)
 	character.ready.connect(position_character.bind(character, level))
 	character.ready.connect(add_camera.bind(character))
