@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3iyh2"]
 
 [node name="Character" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_cml5k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
