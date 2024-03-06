@@ -8,6 +8,8 @@ signal collected
 
 func _ready():
 	animated_sprite.sprite_frames = sprite_frames
+	animated_sprite.animation = "default"
+	animated_sprite.play()
 
 func _on_body_entered(_body):
 	collected.emit()
