@@ -67,3 +67,5 @@ I dived into building a state machine for the character. This is an alternate mo
 I went all in: a state machine abstract class, a state abstract class and a specific implementation for my _Character_. Possible states were children of a _CharacterStateMachine_ scene, and each state was responsible for handling inputs, invoking methods on an exported `character` variable and transitioning to another states.
 
 Way too complex for such a simple manager, so I decided against it.
+
+## Collectibles

@@ -19,7 +19,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Hud" type="Node2D"]
+[node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_h4i35")
 
 [node name="Panel" type="Panel" parent="."]

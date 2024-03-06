@@ -7,4 +7,3 @@ func set_points(points: int):
 	if not label:
 		return
 	label.text = str(points)
-

@@ -3,6 +3,7 @@ extends Node
 @onready var main_menu: MainMenu = get_node("MainMenu")
 @onready var hud: HUD = get_node("HUD")
 @onready var level_container: Node = get_node("LevelContainer")
+var points = 0
 
 func _ready():
 	main_menu.started.connect(on_started)
@@ -22,7 +23,8 @@ func load_level(level: int, character_sprite_frames: SpriteFrames):
 	if existing_level:
 		existing_level.queue_free()
 	level_container.add_child(level_scene)
-	
+	manage_collectibles(level_scene)
+		
 func set_up_character(character_sprite_frames: SpriteFrames, level: Level):
 	var character: Character = load("res://scenes/character/Character.tscn").instantiate()
 	character.sprite_frames = character_sprite_frames
@@ -50,3 +52,13 @@ func add_camera(character: Character, level: Level):
 	camera.limit_right = floori(level_background.offset_right)
 	camera.limit_bottom = floori(level_background.offset_bottom)
 	character.add_child(camera)
+
+func manage_collectibles(level: Level):
+	for child in level.get_node("Collectibles").get_children():
+		print("Game.manage_collectibles ", child)
+		if child is Collectible:
+			child.collected.connect(on_collectible_collected)
+			
+func on_collectible_collected():
+	points += 1
+	hud.set_points(points)

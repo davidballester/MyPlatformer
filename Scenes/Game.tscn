@@ -2,20 +2,19 @@
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_mbnal"]
 [ext_resource type="PackedScene" uid="uid://oowbs41rockj" path="res://scenes/main_menu/MainMenu.tscn" id="1_n6yju"]
-[ext_resource type="Script" path="res://scripts/music_player.gd" id="3_sm5j8"]
 [ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/levels/HUD.tscn" id="4_dxxas"]
+[ext_resource type="PackedScene" uid="uid://clbhtuqxxk4bm" path="res://scenes/utils/MusicPlayer.tscn" id="4_pvx8x"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mbnal")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_n6yju")]
 
-[node name="music_player" type="AudioStreamPlayer" parent="."]
-script = ExtResource("3_sm5j8")
-
 [node name="HUD" parent="." instance=ExtResource("4_dxxas")]
 visible = false
-z_index = 1
-position = Vector2(25, 25)
+offset = Vector2(25, 25)
+transform = Transform2D(1, 0, 0, 1, 25, 25)
+
+[node name="MusicPlayer" parent="." instance=ExtResource("4_pvx8x")]
 
 [node name="LevelContainer" type="Node" parent="."]
