@@ -34,7 +34,8 @@ func _physics_process(delta):
 	if jumping:
 		character.velocity.y = JUMP_VELOCITY
 	elif not character.is_on_floor():
-		character.velocity.y += gravity * delta
+		var applied_gravity = gravity if character.velocity.y < 0 else gravity * 1.5
+		character.velocity.y += applied_gravity * delta
 	if direction:
 		character.velocity.x = direction * SPEED
 		last_direction = get_direction()
