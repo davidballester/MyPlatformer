@@ -24,9 +24,9 @@ func load_level(level: int, character_sprite_frames: SpriteFrames):
 	level_container.add_child(level_scene)
 	
 func set_up_character(character_sprite_frames: SpriteFrames, level: Level):
-	var character: Character = load("res://scenes/Character.tscn").instantiate()
+	var character: Character = load("res://scenes/character/Character.tscn").instantiate()
 	character.sprite_frames = character_sprite_frames
-	var movement_input_component: CharacterMovementInputComponent = load("res://scenes/CharacterMovementInputComponent.tscn").instantiate()
+	var movement_input_component: CharacterMovementInputComponent = load("res://scenes/character/CharacterMovementInputComponent.tscn").instantiate()
 	movement_input_component.character = character
 	character.add_child(movement_input_component)
 	level.add_child(character)
@@ -43,7 +43,7 @@ func position_character(character: Character, level: Level):
 	character.position.y = y
 	
 func add_camera(character: Character, level: Level):
-	var camera: Camera2D = load("res://scenes/level_components/Camera.tscn").instantiate()
+	var camera: Camera2D = load("res://scenes/levels/components/Camera.tscn").instantiate()
 	camera.limit_left = 0
 	camera.limit_top = 0
 	var level_background: TextureRect = level.get_node("Background")

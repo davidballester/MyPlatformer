@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4e8swx8ipneo"]
-
-[ext_resource type="Script" path="res://scripts/character_movement_input_component.gd" id="1_7cni1"]
-[ext_resource type="PackedScene" uid="uid://bkskyp351t7t4" path="res://scenes/InputBuffer.tscn" id="2_hr23p"]
-
-[node name="CharacterMovementInputComponent" type="Node"]
-script = ExtResource("1_7cni1")
-
-[node name="InputBuffer" parent="." instance=ExtResource("2_hr23p")]

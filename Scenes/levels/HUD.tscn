@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://o4cv1lb30iw5"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_h4i35"]
+[ext_resource type="Script" path="res://scenes/levels/HUD.gd" id="1_h4i35"]
 [ext_resource type="Texture2D" uid="uid://bnt025qmc1vkm" path="res://assets/items/fruits/Strawberry.png" id="1_m66sp"]
 [ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="2_qwjbt"]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkupofjn60utk"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_ql2yr"]
-[ext_resource type="PackedScene" uid="uid://cn750prf67vvm" path="res://scenes/level_components/Background.tscn" id="2_sh2wq"]
+[ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ql2yr"]
+[ext_resource type="PackedScene" uid="uid://cn750prf67vvm" path="res://scenes/levels/components/Background.tscn" id="2_sh2wq"]
 [ext_resource type="Texture2D" uid="uid://7q37jrt7l5ke" path="res://assets/background/Blue.png" id="2_umv73"]
-[ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/level_components/Terrain.tscn" id="4_bfn1s"]
+[ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/levels/components/Terrain.tscn" id="4_bfn1s"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_ql2yr")

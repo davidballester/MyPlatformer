@@ -17,3 +17,9 @@ Keeping dependencies tidy will keep the code organized, maintainable and extensi
 
 - **Parents know about their children.** They can set properties or call methods on them.
 - **Children do not know about their parents.** If they need to communicate something, a button being pressed, for example, they'll emit a signal, and it'll be the responsibility of the parent to react to that signal.
+
+## Conventions
+
+- Lower case folder names.
+- A dedicated folder for assets.
+- Scripts next to their scenes, with the same name.
