@@ -59,3 +59,11 @@ For the movement of the characters in the level, I've extended the _CharacterBod
 Architecturally, the most interesting thing about this is I've created a dedicated component, _CharacterMovementInputComponent_ (quite a mouthfull, I know), that accepts a _Character_ as input and handles its position based in the input, and also the animation via an exposed `set_animation` method on said _Character_.
 
 The reason why I've detached this logic from the _Character_ script is that it feels quite isolated and specific, so I wanted it in its own script. And is not part of the _Character_ scene directly, because I'm using _Character_ in situations in which I do not want any input, such as the initial character selection on the main menu. Instead, I instantiate a _CharacterMovementInputComponent_ during the level creation, add it to my _Character_ and configure it.
+
+## State machine
+
+I dived into building a state machine for the character. This is an alternate model to an omniscient controller that completely handles state for the character, and as such, more modular, more extensible and way more complex.
+
+I went all in: a state machine abstract class, a state abstract class and a specific implementation for my _Character_. Possible states were children of a _CharacterStateMachine_ scene, and each state was responsible for handling inputs, invoking methods on an exported `character` variable and transitioning to another states.
+
+Way too complex for such a simple manager, so I decided against it.
