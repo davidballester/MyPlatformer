@@ -31,7 +31,7 @@ func set_up_character(character_sprite_frames: SpriteFrames, level: Level):
 	var movement_input_component: CharacterMovementInputComponent = load("res://scenes/character/CharacterMovementInputComponent.tscn").instantiate()
 	movement_input_component.character = character
 	character.add_child(movement_input_component)
-	level.add_child(character)
+	level.character = character
 	character.ready.connect(position_character.bind(character, level))
 	character.ready.connect(add_camera.bind(character, level))
 	return character
@@ -62,3 +62,4 @@ func manage_collectibles(level: Level):
 func on_collectible_collected():
 	points += 1
 	hud.set_points(points)
+
