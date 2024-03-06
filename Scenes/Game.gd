@@ -12,7 +12,7 @@ func on_started(sprite_frames: SpriteFrames):
 	print("Game.on_character_selected ", sprite_frames)
 	load_level(1, sprite_frames)
 	hud.visible = true
-	main_menu.visible = false
+	main_menu.queue_free()
 
 func load_level(level: int, character_sprite_frames: SpriteFrames):
 	var level_path = "res://scenes/levels/Level" + str(level) + ".tscn"
