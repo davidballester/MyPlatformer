@@ -33,6 +33,7 @@ func _input(event: InputEvent) -> void:
 		transition_to_state(next_state)
 			
 func transition_to_state(state: State) -> void:
+	print("StateMachine.transition_to_state ", state)
 	if current_state:
 		current_state.exit()
 	current_state = state

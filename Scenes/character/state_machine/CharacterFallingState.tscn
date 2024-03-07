@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx32ifi760js7"]
+
+[ext_resource type="Script" path="res://scenes/character/state_machine/CharacterFallingState.gd" id="1_usveb"]
+
+[node name="CharacterFallingState" type="Node"]
+script = ExtResource("1_usveb")

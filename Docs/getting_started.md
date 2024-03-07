@@ -66,8 +66,8 @@ I dived into building a state machine for the character. This is an alternate mo
 
 I went all in: a state machine abstract class, a state abstract class and a specific implementation for my _Character_. Possible states were children of a _CharacterStateMachine_ scene, and each state was responsible for handling inputs, invoking methods on an exported `character` variable and transitioning to another states.
 
-Way too complex for such a simple manager, so I decided against it.
+Way too complex for such a simple manager, maybe, but it allows extensibility and it is quite clear, once you know what you're doing.
 
 ## Traps
 
-For my first trap, a simple fire trap, I decided to use a state machine, and it was a success! It's true that there's a lot of scafolding, but I can see the benefits for complex state machines.
+For my first trap, a simple fire trap, I decided to use a state machine as well!
