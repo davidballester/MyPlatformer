@@ -68,4 +68,6 @@ I went all in: a state machine abstract class, a state abstract class and a spec
 
 Way too complex for such a simple manager, so I decided against it.
 
-## Collectibles
+## Traps
+
+For my first trap, a simple fire trap, I decided to use a state machine, and it was a success! It's true that there's a lot of scafolding, but I can see the benefits for complex state machines.

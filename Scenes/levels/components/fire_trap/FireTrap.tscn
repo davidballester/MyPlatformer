@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccg4etn06jrcg"]
+
+[ext_resource type="SpriteFrames" uid="uid://bt53y5oiwxtlw" path="res://assets/traps/fire/sprite_frames.tres" id="1_4a12y"]
+[ext_resource type="Script" path="res://scenes/levels/components/fire_trap/FireTrap.gd" id="1_wkwcv"]
+[ext_resource type="PackedScene" uid="uid://d3dro4i4agegm" path="res://scenes/levels/components/fire_trap/FireTrapStateMachine.tscn" id="3_c0k36"]
+[ext_resource type="PackedScene" uid="uid://b8xt1isnkrote" path="res://scenes/levels/components/fire_trap/FireTrapIdleState.tscn" id="4_to0tk"]
+[ext_resource type="PackedScene" uid="uid://c3n42rw7uuoun" path="res://scenes/levels/components/fire_trap/FireTrapActiveState.tscn" id="5_go47l"]
+[ext_resource type="Script" path="res://scenes/levels/components/fire_trap/FireArea.gd" id="6_l18mx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j41f1"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6ndl"]
+size = Vector2(16, 11)
+
+[node name="FireTrap" type="StaticBody2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_wkwcv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_4a12y")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_j41f1")
+
+[node name="FireTrapStateMachine" parent="." node_paths=PackedStringArray("fire_trap", "initial_state") instance=ExtResource("3_c0k36")]
+fire_trap = NodePath("..")
+initial_state = NodePath("FireTrapIdleState")
+
+[node name="FireTrapIdleState" parent="FireTrapStateMachine" node_paths=PackedStringArray("active_state", "fire_trap") instance=ExtResource("4_to0tk")]
+active_state = NodePath("../FireTrapActiveState")
+fire_trap = NodePath("../..")
+
+[node name="FireTrapActiveState" parent="FireTrapStateMachine" node_paths=PackedStringArray("idle_state", "fire_trap") instance=ExtResource("5_go47l")]
+idle_state = NodePath("../FireTrapIdleState")
+fire_trap = NodePath("../..")
+
+[node name="FireArea" type="Area2D" parent="."]
+script = ExtResource("6_l18mx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireArea"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_s6ndl")
+
+[connection signal="body_entered" from="FireArea" to="FireArea" method="_on_body_entered"]
+[connection signal="body_exited" from="FireArea" to="FireArea" method="_on_body_exited"]

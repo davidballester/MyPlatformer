@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3dro4i4agegm"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/fire_trap/FireTrapStateMachine.gd" id="1_3huyc"]
+
+[node name="FireTrapStateMachine" type="Node"]
+script = ExtResource("1_3huyc")

@@ -23,6 +23,10 @@ func get_height():
 	
 func jump():
 	sfx_player.play(JUMP_SOUND)
+	
+func take_damage():
+	print("Character.take_damage")
+	pass
 
 func set_animation(animation: ANIMATION, direction: DIRECTION):
 	match animation:

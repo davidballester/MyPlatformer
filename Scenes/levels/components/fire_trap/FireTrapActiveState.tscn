@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3n42rw7uuoun"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/fire_trap/FireTrapActiveState.gd" id="1_4fiyx"]
+
+[node name="FireTrapActiveState" type="Node"]
+script = ExtResource("1_4fiyx")

@@ -11,7 +11,9 @@ func _ready():
 	animated_sprite.animation = "default"
 	animated_sprite.play()
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
+	if not body is Character:
+		return
 	collected.emit()
 	sfx_player.play("res://assets/sounds/collectible.wav")
 	queue_free()
