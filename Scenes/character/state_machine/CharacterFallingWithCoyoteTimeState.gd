@@ -16,5 +16,5 @@ func physics_process(delta):
 	var state = super.physics_process(delta)
 	if state:
 		return state
-	if input_buffer.is_action_buffered("jump"):
+	if character_input.wants_to_jump():
 		return jump_state

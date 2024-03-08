@@ -1,13 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6f3akonhwprv"]
+[gd_scene load_steps=2 format=3 uid="uid://c6f3akonhwprv"]
 
 [ext_resource type="Script" path="res://scenes/character/state_machine/CharacterStateMachine.gd" id="1_wop0m"]
-[ext_resource type="Script" path="res://scenes/utils/InputBuffer.gd" id="2_t51nh"]
 
 [node name="CharacterStateMachine" type="Node"]
 script = ExtResource("1_wop0m")
-
-[node name="InputBuffer" type="Node" parent="."]
-script = ExtResource("2_t51nh")
-action_to_grace_period_ms = {
-"jump": 150.0
-}

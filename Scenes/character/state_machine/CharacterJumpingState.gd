@@ -11,7 +11,7 @@ func physics_process(delta: float) -> State:
 	character.velocity.y += character.gravity * delta
 	if character.velocity.y > 0:
 		return falling_state
-	var direction = Input.get_axis("go_left", "go_right")
+	var direction = character_input.get_running_direction()
 	if direction:
 		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
 		character.velocity.x = direction * character.speed

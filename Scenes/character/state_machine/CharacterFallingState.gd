@@ -10,7 +10,7 @@ func enter() -> void:
 	
 func physics_process(delta: float) -> State:
 	character.velocity.y += character.gravity * 1.5 * delta
-	var direction = Input.get_axis("go_left", "go_right")
+	var direction = character_input.get_running_direction()
 	if direction:
 		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
 		character.velocity.x = direction * character.speed

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://boym5f7fnma0i"]
+[gd_scene load_steps=13 format=3 uid="uid://boym5f7fnma0i"]
 
 [ext_resource type="Script" path="res://scenes/character/PlayableCharacter.gd" id="1_y8we7"]
 [ext_resource type="PackedScene" uid="uid://cmwu0g1ltbi2n" path="res://scenes/character/Camera.tscn" id="3_2rhu2"]
+[ext_resource type="PackedScene" uid="uid://sluuwc6m70xj" path="res://scenes/character/CharacterInput.tscn" id="4_a6ohb"]
 [ext_resource type="PackedScene" uid="uid://c6f3akonhwprv" path="res://scenes/character/state_machine/CharacterStateMachine.tscn" id="4_kr8i7"]
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="4_pfd68"]
 [ext_resource type="PackedScene" uid="uid://04k08ultqr01" path="res://scenes/character/state_machine/CharacterIdleState.tscn" id="5_k6g8f"]
@@ -28,8 +29,11 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qikvj")
 
-[node name="CharacterStateMachine" parent="." node_paths=PackedStringArray("character", "initial_state") instance=ExtResource("4_kr8i7")]
+[node name="CharacterInput" parent="." instance=ExtResource("4_a6ohb")]
+
+[node name="CharacterStateMachine" parent="." node_paths=PackedStringArray("character", "character_input", "initial_state") instance=ExtResource("4_kr8i7")]
 character = NodePath("..")
+character_input = NodePath("../CharacterInput")
 initial_state = NodePath("CharacterIdleState")
 
 [node name="CharacterIdleState" parent="CharacterStateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "running_state", "character") instance=ExtResource("5_k6g8f")]

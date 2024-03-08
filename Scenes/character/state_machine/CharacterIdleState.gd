@@ -11,10 +11,10 @@ func enter() -> void:
 func physics_process(_delta: float) -> State:
 	character.velocity.x = move_toward(character.velocity.x, 0, character.inertia)
 	character.move_and_slide()
-	var direction = Input.get_axis("go_left", "go_right")
+	var direction = character_input.get_running_direction()
 	if direction:
 		return running_state
-	if input_buffer.is_action_buffered("jump"):
+	if character_input.wants_to_jump():
 		return jumping_state
 	if not character.is_on_floor():
 		return falling_state
