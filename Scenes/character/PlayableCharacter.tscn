@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://boym5f7fnma0i"]
+[gd_scene load_steps=12 format=3 uid="uid://boym5f7fnma0i"]
 
 [ext_resource type="Script" path="res://scenes/character/PlayableCharacter.gd" id="1_y8we7"]
 [ext_resource type="PackedScene" uid="uid://cmwu0g1ltbi2n" path="res://scenes/character/Camera.tscn" id="3_2rhu2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b2yxgbk16m6g0" path="res://scenes/character/state_machine/CharacterRunningState.tscn" id="7_l6dqn"]
 [ext_resource type="PackedScene" uid="uid://bx32ifi760js7" path="res://scenes/character/state_machine/CharacterFallingState.tscn" id="8_va1sg"]
 [ext_resource type="PackedScene" uid="uid://fggw8iwnbh3o" path="res://scenes/character/state_machine/CharacterFallingWithCoyoteTimeState.tscn" id="9_3vaq6"]
+[ext_resource type="PackedScene" uid="uid://c75qm4sjac4k3" path="res://scenes/character/state_machine/CharacterHurtState.tscn" id="10_22142"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikvj"]
 
@@ -56,5 +57,9 @@ character = NodePath("../..")
 falling_state = NodePath("../CharacterFallingState")
 jump_state = NodePath("../CharacterJumpingState")
 idle_state = NodePath("../CharacterIdleState")
+running_state = NodePath("../CharacterRunningState")
+character = NodePath("../..")
+
+[node name="CharacterHurtState" parent="CharacterStateMachine" node_paths=PackedStringArray("running_state", "character") instance=ExtResource("10_22142")]
 running_state = NodePath("../CharacterRunningState")
 character = NodePath("../..")

@@ -2,8 +2,9 @@ extends CharacterBody2D
 class_name Character
 
 const JUMP_SOUND = "res://assets/sounds/jump.wav"
+const HURT_SOUND = "res://assets/sounds/hurt.wav"
 
-enum AnimationType { IDLE, RUN, JUMP, FALL }
+enum AnimationType { IDLE, RUN, JUMP, FALL, HURT, DOUBLE_JUMP }
 enum Direction { LEFT, RIGHT }
 
 @export var sprite_frames: SpriteFrames
@@ -13,6 +14,7 @@ enum Direction { LEFT, RIGHT }
 		if not animated_sprite2d:
 			return
 		animated_sprite2d.flip_h = true if new_direction == Direction.LEFT else false
+		direction = new_direction
 @export var speed: float = 300.0
 @export var inertia: float = 50.0
 @export var jump_velocity: float = -900.0
@@ -30,9 +32,6 @@ func get_height():
 	print("Character.get_height ", height)
 	return height
 	
-func jump():
-	sfx_player.play(JUMP_SOUND)
-	
 func take_damage():
 	print("Character.take_damage")
 	pass
@@ -43,8 +42,16 @@ func set_animation(animation: AnimationType):
 			animated_sprite2d.animation = "idle"
 		AnimationType.JUMP:
 			animated_sprite2d.animation = "jump"
+			sfx_player.play(JUMP_SOUND)
 		AnimationType.FALL:
 			animated_sprite2d.animation = "fall"
 		AnimationType.RUN:
 			animated_sprite2d.animation = "run"
+		AnimationType.RUN:
+			animated_sprite2d.animation = "run"
+		AnimationType.HURT:
+			animated_sprite2d.animation = "hurt"
+			sfx_player.play(HURT_SOUND)
+		AnimationType.DOUBLE_JUMP:
+			animated_sprite2d.animation = "double_jump"
 	animated_sprite2d.play()

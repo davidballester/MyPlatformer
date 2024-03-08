@@ -6,7 +6,6 @@ class_name CharacterJumpingState
 func enter() -> void:
 	character.set_animation(Character.AnimationType.JUMP)
 	character.velocity.y = character.jump_velocity
-	character.jump()
 
 func physics_process(delta: float) -> State:
 	character.velocity.y += character.gravity * delta
