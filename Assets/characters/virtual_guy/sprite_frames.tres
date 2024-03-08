@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=45 format=3 uid="uid://cc51fibjygw7"]
+[gd_resource type="SpriteFrames" load_steps=51 format=3 uid="uid://cc51fibjygw7"]
 
 [ext_resource type="Texture2D" uid="uid://is3jjuc7dxmq" path="res://assets/characters/virtual_guy/Double Jump (32x32).png" id="1_rt6ih"]
 [ext_resource type="Texture2D" uid="uid://jba8xgx5a3bf" path="res://assets/characters/virtual_guy/Fall (32x32).png" id="1_ycs04"]
@@ -28,6 +28,30 @@ atlas = ExtResource("1_rt6ih")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7345g"]
+atlas = ExtResource("1_rt6ih")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pijyx"]
+atlas = ExtResource("1_rt6ih")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xgs1"]
+atlas = ExtResource("1_rt6ih")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b6mp"]
+atlas = ExtResource("1_rt6ih")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6ahg"]
+atlas = ExtResource("1_rt6ih")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivedv"]
+atlas = ExtResource("1_rt6ih")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y03u1"]
 atlas = ExtResource("1_rt6ih")
 region = Rect2(160, 0, 32, 32)
 
@@ -179,10 +203,28 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7345g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pijyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xgs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b6mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6ahg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivedv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y03u1")
 }],
 "loop": true,
 "name": &"double_jump",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
