@@ -51,9 +51,9 @@ falling_state = NodePath("../CharacterFallingState")
 idle_state = NodePath("../CharacterIdleState")
 character = NodePath("../..")
 
-[node name="CharacterFallingState" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "running_state", "character") instance=ExtResource("9_3vaq6")]
+[node name="CharacterFallingState" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state", "jumping_state", "running_state", "character") instance=ExtResource("9_3vaq6")]
 idle_state = NodePath("../CharacterIdleState")
-jump_state = NodePath("../CharacterJumpingState")
+jumping_state = NodePath("../CharacterJumpingState")
 running_state = NodePath("../CharacterRunningState")
 character = NodePath("../..")
 

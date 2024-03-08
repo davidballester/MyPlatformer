@@ -2,12 +2,17 @@ extends CharacterState
 class_name CharacterFallingState
 
 @export var idle_state: State
-@export var jump_state: State
+@export var jumping_state: State
 @export var running_state: State
 
 func enter() -> void:
 	character.set_animation(Character.AnimationType.FALL)
 	character.velocity.y = 0
+	
+func process(_delta: float) -> State:
+	if not character_input.wants_to_jump() or not character.can_double_jump:
+		return
+	return jumping_state
 	
 func physics_process(delta: float) -> State:
 	character.velocity.y += character.gravity * 1.5 * delta
@@ -18,6 +23,11 @@ func physics_process(delta: float) -> State:
 	character.move_and_slide()
 	if character.is_on_floor():
 		return running_state if direction else idle_state
-	if character.on_coyote_time and character_input.wants_to_jump():
-		return jump_state
+	if character_input.wants_to_jump():
+		if character.on_coyote_time:
+			character.can_double_jump = true
+			return jumping_state
+		if character.can_double_jump:
+			character.can_double_jump = false
+			return jumping_state
 	return null

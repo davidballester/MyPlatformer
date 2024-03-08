@@ -19,8 +19,10 @@ func physics_process(_delta: float) -> State:
 	character.velocity.x = direction * character.speed
 	character.move_and_slide()
 	if character_input.wants_to_jump():
+		character.can_double_jump = true
 		return jumping_state
 	if not character.is_on_floor():
-		character.set_coyote_time()
+		character.set_coyote_time(true)
+		character.can_double_jump = true
 		return falling_state
 	return null

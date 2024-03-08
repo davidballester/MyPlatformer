@@ -22,6 +22,7 @@ enum Direction { LEFT, RIGHT }
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite2d: AnimatedSprite2D = get_node("AnimatedSprite2D")
 var on_coyote_time: bool = false
+var can_double_jump: bool = false
 
 func _ready():
 	animated_sprite2d.sprite_frames = sprite_frames
@@ -37,13 +38,11 @@ func take_damage():
 	print("Character.take_damage")
 	pass
 	
-func set_coyote_time():
-	on_coyote_time = true
-	get_tree().create_timer(coyote_time_s).timeout.connect(unset_coyote_time)
-	
-func unset_coyote_time():
-	on_coyote_time = false
-
+func set_coyote_time(enabled: bool) -> void:
+	on_coyote_time = enabled
+	if on_coyote_time:
+		get_tree().create_timer(coyote_time_s).timeout.connect(func(): on_coyote_time = false)
+		
 func set_animation(animation: AnimationType):
 	match animation:
 		AnimationType.IDLE:
@@ -62,4 +61,5 @@ func set_animation(animation: AnimationType):
 			sfx_player.play(HURT_SOUND)
 		AnimationType.DOUBLE_JUMP:
 			animated_sprite2d.animation = "double_jump"
+			sfx_player.play(JUMP_SOUND)
 	animated_sprite2d.play()

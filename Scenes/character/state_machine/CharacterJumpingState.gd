@@ -4,9 +4,13 @@ class_name CharacterJumpingState
 @export var falling_state: State
 
 func enter() -> void:
-	character.set_animation(Character.AnimationType.JUMP)
+	if character.can_double_jump:
+		character.set_animation(Character.AnimationType.JUMP)
+	else:
+		character.set_animation(Character.AnimationType.DOUBLE_JUMP)
 	character.velocity.y = character.jump_velocity
-
+	character.set_coyote_time(false)
+	
 func physics_process(delta: float) -> State:
 	character.velocity.y += character.gravity * delta
 	if character.velocity.y > 0:
@@ -15,5 +19,8 @@ func physics_process(delta: float) -> State:
 	if direction:
 		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
 		character.velocity.x = direction * character.speed
+	if character_input.wants_to_jump() and character.can_double_jump:
+		character.can_double_jump = false
+		return self
 	character.move_and_slide()
 	return null
