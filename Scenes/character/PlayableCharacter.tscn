@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://boym5f7fnma0i"]
+[gd_scene load_steps=12 format=3 uid="uid://boym5f7fnma0i"]
 
 [ext_resource type="Script" path="res://scenes/character/PlayableCharacter.gd" id="1_y8we7"]
 [ext_resource type="PackedScene" uid="uid://cmwu0g1ltbi2n" path="res://scenes/character/Camera.tscn" id="3_2rhu2"]
@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://04k08ultqr01" path="res://scenes/character/state_machine/CharacterIdleState.tscn" id="5_k6g8f"]
 [ext_resource type="PackedScene" uid="uid://ct3fhd2pyp6ob" path="res://scenes/character/state_machine/CharacterJumpingState.tscn" id="6_ni2y6"]
 [ext_resource type="PackedScene" uid="uid://b2yxgbk16m6g0" path="res://scenes/character/state_machine/CharacterRunningState.tscn" id="7_l6dqn"]
-[ext_resource type="PackedScene" uid="uid://bx32ifi760js7" path="res://scenes/character/state_machine/CharacterFallingState.tscn" id="8_va1sg"]
-[ext_resource type="PackedScene" uid="uid://fggw8iwnbh3o" path="res://scenes/character/state_machine/CharacterFallingWithCoyoteTimeState.tscn" id="9_3vaq6"]
+[ext_resource type="PackedScene" uid="uid://bx32ifi760js7" path="res://scenes/character/state_machine/CharacterFallingState.tscn" id="9_3vaq6"]
 [ext_resource type="PackedScene" uid="uid://c75qm4sjac4k3" path="res://scenes/character/state_machine/CharacterHurtState.tscn" id="10_22142"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikvj"]
@@ -38,7 +37,7 @@ initial_state = NodePath("CharacterIdleState")
 
 [node name="CharacterIdleState" parent="CharacterStateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "running_state", "character") instance=ExtResource("5_k6g8f")]
 jumping_state = NodePath("../CharacterJumpingState")
-falling_state = NodePath("../CharacterFallingWithCoyoteTimeState")
+falling_state = NodePath("../CharacterFallingState")
 running_state = NodePath("../CharacterRunningState")
 character = NodePath("../..")
 
@@ -48,19 +47,13 @@ character = NodePath("../..")
 
 [node name="CharacterRunningState" parent="CharacterStateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "idle_state", "character") instance=ExtResource("7_l6dqn")]
 jumping_state = NodePath("../CharacterJumpingState")
-falling_state = NodePath("../CharacterFallingWithCoyoteTimeState")
-idle_state = NodePath("../CharacterIdleState")
-character = NodePath("../..")
-
-[node name="CharacterFallingState" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state", "running_state", "character") instance=ExtResource("8_va1sg")]
-idle_state = NodePath("../CharacterIdleState")
-running_state = NodePath("../CharacterRunningState")
-character = NodePath("../..")
-
-[node name="CharacterFallingWithCoyoteTimeState" parent="CharacterStateMachine" node_paths=PackedStringArray("falling_state", "jump_state", "idle_state", "running_state", "character") instance=ExtResource("9_3vaq6")]
 falling_state = NodePath("../CharacterFallingState")
-jump_state = NodePath("../CharacterJumpingState")
 idle_state = NodePath("../CharacterIdleState")
+character = NodePath("../..")
+
+[node name="CharacterFallingState" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "running_state", "character") instance=ExtResource("9_3vaq6")]
+idle_state = NodePath("../CharacterIdleState")
+jump_state = NodePath("../CharacterJumpingState")
 running_state = NodePath("../CharacterRunningState")
 character = NodePath("../..")
 

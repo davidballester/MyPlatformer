@@ -21,5 +21,6 @@ func physics_process(_delta: float) -> State:
 	if character_input.wants_to_jump():
 		return jumping_state
 	if not character.is_on_floor():
+		character.set_coyote_time()
 		return falling_state
 	return null
