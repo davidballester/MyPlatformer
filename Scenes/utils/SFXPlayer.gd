@@ -1,7 +1,7 @@
 extends Node
 class_name SFXPlayer
 
-const PLAYERS_COUNT = 10
+const PLAYERS_COUNT = 5
 
 var players = Array()
 var current_player = 0

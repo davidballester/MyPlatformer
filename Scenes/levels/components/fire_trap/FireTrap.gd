@@ -6,7 +6,8 @@ enum Sound { START, MIDDLE, END }
 
 @export var idle_time_s: float = 3
 @export var active_time_s: float = 2
-@export var sfx_player: SFXPlayer
+@export var sfx_player: VisibilityAwareSFXPlayer
+@onready var visibility_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var state_machine: FireTrapStateMachine = $FireTrapStateMachine
 @onready var fire_area: FireArea = $FireArea
@@ -23,10 +24,11 @@ func set_animation(animation: AnimationType) -> void:
 				stop_current_sound.call()
 			animated_sprite.animation = "off"
 		AnimationType.ACTIVE:
-			stop_current_sound = sfx_player.play(
-				"res://assets/sounds/fire.wav", 
-				0.2
-			)
+			var sfx = VisibilityAwareSFX.new()
+			sfx.sound_path = "res://assets/sounds/fire.wav"
+			sfx.visibility_notifier = visibility_notifier
+			sfx.volume = 0.2
+			stop_current_sound = sfx_player.play(sfx)
 			animated_sprite.animation = "on"
 	animated_sprite.play()
 

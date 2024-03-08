@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ebejs8lnkm"]
+
+[ext_resource type="Script" path="res://scenes/utils/VisibilityAwareSFXPlayer.gd" id="1_ocisr"]
+
+[node name="VisibilityAwareSfxPlayer" type="Node"]
+script = ExtResource("1_ocisr")

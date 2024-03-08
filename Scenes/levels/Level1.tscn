@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkupofjn60utk"]
+[gd_scene load_steps=10 format=3 uid="uid://dkupofjn60utk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/SFXPlayer.tscn" id="2_i1833"]
 [ext_resource type="PackedScene" uid="uid://cn750prf67vvm" path="res://scenes/levels/components/Background.tscn" id="2_sh2wq"]
 [ext_resource type="Texture2D" uid="uid://7q37jrt7l5ke" path="res://assets/background/Blue.png" id="2_umv73"]
+[ext_resource type="PackedScene" uid="uid://d3ebejs8lnkm" path="res://scenes/utils/VisibilityAwareSFXPlayer.tscn" id="3_a2lqe"]
 [ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/levels/components/Terrain.tscn" id="4_bfn1s"]
 [ext_resource type="PackedScene" uid="uid://b7eioj6stcag6" path="res://scenes/levels/components/Collectible.tscn" id="5_s3bhn"]
 [ext_resource type="SpriteFrames" uid="uid://sexk6vm845el" path="res://assets/items/fruits/Apple.tres" id="6_osw57"]
@@ -13,6 +14,8 @@
 script = ExtResource("1_ql2yr")
 
 [node name="SFXPlayer" parent="." instance=ExtResource("2_i1833")]
+
+[node name="VisibilityAwareSfxPlayer" parent="." instance=ExtResource("3_a2lqe")]
 
 [node name="Background" parent="." instance=ExtResource("2_sh2wq")]
 offset_right = 2400.0
@@ -32,4 +35,4 @@ sprite_frames = ExtResource("6_osw57")
 
 [node name="FireTrap" parent="Traps" node_paths=PackedStringArray("sfx_player") instance=ExtResource("8_pfqmr")]
 position = Vector2(335, 644)
-sfx_player = NodePath("../../SFXPlayer")
+sfx_player = NodePath("../../VisibilityAwareSfxPlayer")

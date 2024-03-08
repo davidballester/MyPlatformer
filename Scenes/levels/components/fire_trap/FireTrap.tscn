@@ -45,5 +45,7 @@ script = ExtResource("6_l18mx")
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_s6ndl")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="FireArea" to="FireArea" method="_on_body_entered"]
 [connection signal="body_exited" from="FireArea" to="FireArea" method="_on_body_exited"]
