@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fggw8iwnbh3o"]
+
+[ext_resource type="Script" path="res://scenes/character/state_machine/CharacterFallingWithCoyoteTimeState.gd" id="1_k4dxe"]
+
+[node name="CharacterFallingWithCoyoteTimeState" type="Node"]
+script = ExtResource("1_k4dxe")

@@ -30,5 +30,6 @@ sprite_frames = ExtResource("6_osw57")
 
 [node name="Traps" type="Node" parent="."]
 
-[node name="FireTrap" parent="Traps" instance=ExtResource("8_pfqmr")]
+[node name="FireTrap" parent="Traps" node_paths=PackedStringArray("sfx_player") instance=ExtResource("8_pfqmr")]
 position = Vector2(335, 644)
+sfx_player = NodePath("../../SFXPlayer")

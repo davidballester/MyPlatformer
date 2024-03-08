@@ -12,11 +12,14 @@ func _init():
 		add_child(player)
 		players.append(player)
 		
-func play(sfx_path: String):
-	print("SFXPlayer.play ", sfx_path)
+func play(sfx_path: String, volume: float = 1.0) -> Callable:
+	print("SFXPlayer.play ", sfx_path, " ", volume)
 	var audio_stream = load(sfx_path)
 	var player: AudioStreamPlayer = players[current_player]
 	player.stream = audio_stream
+	player.volume_db = 10.0 * log(volume)
 	player.play()
 	current_player = (current_player + 1) % PLAYERS_COUNT
-
+	return func():
+		if player.stream == audio_stream:
+			player.stop()
