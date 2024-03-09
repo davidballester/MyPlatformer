@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkupofjn60utk"]
+[gd_scene load_steps=12 format=3 uid="uid://dkupofjn60utk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/SFXPlayer.tscn" id="2_i1833"]
@@ -10,6 +10,7 @@
 [ext_resource type="SpriteFrames" uid="uid://sexk6vm845el" path="res://assets/items/fruits/Apple.tres" id="6_osw57"]
 [ext_resource type="PackedScene" uid="uid://ccg4etn06jrcg" path="res://scenes/levels/components/fire_trap/FireTrap.tscn" id="8_pfqmr"]
 [ext_resource type="PackedScene" uid="uid://dqjv1d4flxe77" path="res://scenes/levels/components/spikes/Spikes.tscn" id="10_w0lfa"]
+[ext_resource type="PackedScene" uid="uid://eo5cqaxtccty" path="res://scenes/levels/components/contraptions/Trampoline.tscn" id="11_qy84l"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_ql2yr")
@@ -40,3 +41,7 @@ sfx_player = NodePath("../../VisibilityAwareSfxPlayer")
 
 [node name="Spikes" parent="Traps" instance=ExtResource("10_w0lfa")]
 position = Vector2(572, 536)
+
+[node name="Trampoline" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_qy84l")]
+position = Vector2(432, 612)
+sfx_player = NodePath("../SFXPlayer")

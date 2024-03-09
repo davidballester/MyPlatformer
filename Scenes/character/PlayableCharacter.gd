@@ -6,3 +6,6 @@ class_name PlayableCharacter
 
 func take_damage() -> void:
 	state_machine.take_damage()
+
+func trampoline() -> void:
+	state_machine.trampoline()

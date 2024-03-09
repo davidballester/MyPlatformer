@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://eo5cqaxtccty"]
+
+[ext_resource type="SpriteFrames" uid="uid://cmuyjnd2qwjgh" path="res://assets/contraptions/trampoline/sprite_frames.tres" id="1_bffjg"]
+[ext_resource type="Script" path="res://scenes/levels/components/contraptions/Trampoline.gd" id="1_gr2x1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdo78"]
+size = Vector2(26, 16)
+
+[node name="Trampoline" type="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_gr2x1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_bffjg")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_rdo78")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

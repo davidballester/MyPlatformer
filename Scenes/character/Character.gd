@@ -18,11 +18,13 @@ enum Direction { LEFT, RIGHT }
 @export var speed: float = 300.0
 @export var inertia: float = 50.0
 @export var jump_velocity: float = -900.0
+@export var trampoline_velocity: float = jump_velocity * 2
 @export var coyote_time_s: float = 0.15
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite2d: AnimatedSprite2D = get_node("AnimatedSprite2D")
 var on_coyote_time: bool = false
 var can_double_jump: bool = false
+var on_trampoline: bool = false
 
 func _ready():
 	animated_sprite2d.sprite_frames = sprite_frames
@@ -36,6 +38,10 @@ func get_height():
 	
 func take_damage():
 	print("Character.take_damage")
+	pass
+	
+func trampoline():
+	print("Character.trampoline")
 	pass
 	
 func set_coyote_time(enabled: bool) -> void:

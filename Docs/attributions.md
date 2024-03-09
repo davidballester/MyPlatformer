@@ -13,3 +13,4 @@
 - Damage sound: [8-bit damage sound by EVRetro](https://freesound.org/people/EVRetro/sounds/501104/)
 - Fire sound: [Fire_Trap by Killersmurf96](https://freesound.org/people/Killersmurf96/sounds/423124/)
 - Level cleared fanfare: [Tada Fanfare A by plasterbrain](https://freesound.org/people/plasterbrain/sounds/397355/)
+- Trampoline sound: [Jump_C_03 by cabled_mess](https://freesound.org/people/cabled_mess/sounds/350903/)

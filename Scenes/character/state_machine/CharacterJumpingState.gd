@@ -8,7 +8,8 @@ func enter() -> void:
 		character.set_animation(Character.AnimationType.JUMP)
 	else:
 		character.set_animation(Character.AnimationType.DOUBLE_JUMP)
-	character.velocity.y = character.jump_velocity
+	character.velocity.y = character.jump_velocity if not character.on_trampoline else character.trampoline_velocity
+	character.on_trampoline = false
 	character.set_coyote_time(false)
 	
 func physics_process(delta: float) -> State:
