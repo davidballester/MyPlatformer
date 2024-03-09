@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://65mb0nf6rebx"]
+
+[ext_resource type="Script" path="res://scenes/game/state_machine/LevelState.gd" id="1_tha0j"]
+
+[node name="LevelState" type="Node"]
+script = ExtResource("1_tha0j")

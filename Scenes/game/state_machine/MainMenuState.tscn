@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjb2vt8acl2nc"]
+
+[ext_resource type="Script" path="res://scenes/game/state_machine/MainMenuState.gd" id="1_o080p"]
+
+[node name="MainMenuState" type="Node"]
+script = ExtResource("1_o080p")

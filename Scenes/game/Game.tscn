@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfqri5qkehrvj"]
+
+[ext_resource type="Script" path="res://scenes/game/Game.gd" id="1_mbnal"]
+[ext_resource type="PackedScene" uid="uid://clbkanu5n06eh" path="res://scenes/game/state_machine/GameStateMachine.tscn" id="3_ffd7s"]
+[ext_resource type="PackedScene" uid="uid://cjb2vt8acl2nc" path="res://scenes/game/state_machine/MainMenuState.tscn" id="4_jr3jn"]
+[ext_resource type="PackedScene" uid="uid://clbhtuqxxk4bm" path="res://scenes/utils/MusicPlayer.tscn" id="4_pvx8x"]
+[ext_resource type="PackedScene" uid="uid://65mb0nf6rebx" path="res://scenes/game/state_machine/LevelState.tscn" id="5_vko61"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_mbnal")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("4_pvx8x")]
+
+[node name="GameStateMachine" parent="." node_paths=PackedStringArray("game", "initial_state") instance=ExtResource("3_ffd7s")]
+game = NodePath("..")
+initial_state = NodePath("MainMenuState")
+
+[node name="MainMenuState" parent="GameStateMachine" node_paths=PackedStringArray("level_state", "game") instance=ExtResource("4_jr3jn")]
+level_state = NodePath("../LevelState")
+game = NodePath("../..")
+
+[node name="LevelState" parent="GameStateMachine" node_paths=PackedStringArray("game") instance=ExtResource("5_vko61")]
+game = NodePath("../..")
