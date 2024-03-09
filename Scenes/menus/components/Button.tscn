@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmloaom3ldpht"]
+
+[ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="1_oagff"]
+[ext_resource type="StyleBox" uid="uid://dgbq8mehxuunh" path="res://scenes/menus/components/ButtonNormal.tres" id="2_25sse"]
+[ext_resource type="StyleBox" uid="uid://uli3m7j8icfm" path="res://scenes/menus/components/ButtonHover.tres" id="3_t8i2d"]
+[ext_resource type="StyleBox" uid="uid://dlhbn3tdypub5" path="res://scenes/menus/components/ButtonPressed.tres" id="4_arccv"]
+[ext_resource type="StyleBox" uid="uid://b4my1so474vaa" path="res://scenes/menus/components/ButtonDisabled.tres" id="5_6b83j"]
+[ext_resource type="StyleBox" uid="uid://dbt77w355nrb" path="res://scenes/menus/components/ButtonFocus.tres" id="6_4hnlb"]
+
+[node name="MenuButton" type="Button"]
+texture_filter = 1
+offset_right = 221.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.988235, 0.819608, 0.141176, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_oagff")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("2_25sse")
+theme_override_styles/hover = ExtResource("3_t8i2d")
+theme_override_styles/pressed = ExtResource("4_arccv")
+theme_override_styles/disabled = ExtResource("5_6b83j")
+theme_override_styles/focus = ExtResource("6_4hnlb")
+text = "TODO"

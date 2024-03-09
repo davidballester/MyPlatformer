@@ -1,5 +1,5 @@
 extends State
 class_name GameState
 
-signal stated_changed
+signal state_changed
 @export var game: Game

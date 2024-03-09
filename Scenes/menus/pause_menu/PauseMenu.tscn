@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://dey115k07fmm"]
+
+[ext_resource type="Script" path="res://scenes/menus/pause_menu/PauseMenu.gd" id="1_rr6pm"]
+[ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_jbtpt"]
+[ext_resource type="PackedScene" uid="uid://bmloaom3ldpht" path="res://scenes/menus/components/Button.tscn" id="3_tfhee"]
+[ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="4_8jbkf"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_rr6pm")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_jbtpt")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Background"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -167.5
+offset_right = 117.0
+offset_bottom = -72.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.988235, 0.807843, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("4_8jbkf")
+theme_override_font_sizes/font_size = 120
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="Resume" parent="Background" instance=ExtResource("3_tfhee")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -24.0
+offset_right = 110.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESUME"
+
+[node name="Exit" parent="Background" instance=ExtResource("3_tfhee")]
+modulate = Color(0.737255, 0.737255, 0.737255, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = 104.0
+offset_right = 110.5
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "EXIT"
+
+[connection signal="pressed" from="Background/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Background/Exit" to="." method="_on_exit_pressed"]

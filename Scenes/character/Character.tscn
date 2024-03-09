@@ -8,6 +8,11 @@
 [node name="Character" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_cml5k")
+direction = null
+speed = null
+inertia = null
+jump_velocity = null
+coyote_time_s = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
