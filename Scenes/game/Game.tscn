@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfqri5qkehrvj"]
+[gd_scene load_steps=8 format=3 uid="uid://bfqri5qkehrvj"]
 
 [ext_resource type="Script" path="res://scenes/game/Game.gd" id="1_mbnal"]
 [ext_resource type="PackedScene" uid="uid://clbkanu5n06eh" path="res://scenes/game/state_machine/GameStateMachine.tscn" id="3_ffd7s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clbhtuqxxk4bm" path="res://scenes/utils/MusicPlayer.tscn" id="4_pvx8x"]
 [ext_resource type="PackedScene" uid="uid://65mb0nf6rebx" path="res://scenes/game/state_machine/LevelState.tscn" id="5_vko61"]
 [ext_resource type="PackedScene" uid="uid://csk5purl4gnkx" path="res://scenes/game/state_machine/PauseMenuState.tscn" id="6_8nn0t"]
+[ext_resource type="PackedScene" uid="uid://cb3bp4222w1is" path="res://scenes/game/state_machine/QuitMenuState.tscn" id="7_vfo8g"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mbnal")
@@ -34,8 +35,13 @@ pause_menu_state = NodePath("../PauseMenuState")
 level_container = NodePath("../../LevelContainer")
 game = NodePath("../..")
 
-[node name="PauseMenuState" parent="GameStateMachine" node_paths=PackedStringArray("level_state", "main_menu_state", "container", "game") instance=ExtResource("6_8nn0t")]
+[node name="PauseMenuState" parent="GameStateMachine" node_paths=PackedStringArray("level_state", "quit_menu_state", "container", "game") instance=ExtResource("6_8nn0t")]
 level_state = NodePath("../LevelState")
-main_menu_state = NodePath("../MainMenuState")
+quit_menu_state = NodePath("../QuitMenuState")
 container = NodePath("../../MenuContainer")
 game = NodePath("../..")
+
+[node name="QuitMenuState" parent="GameStateMachine" node_paths=PackedStringArray("pause_menu_state", "main_menu_state", "container") instance=ExtResource("7_vfo8g")]
+pause_menu_state = NodePath("../PauseMenuState")
+main_menu_state = NodePath("../MainMenuState")
+container = NodePath("../../MenuContainer")
