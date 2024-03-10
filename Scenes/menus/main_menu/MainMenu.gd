@@ -4,6 +4,7 @@ class_name MainMenu
 signal started
 
 @onready var start: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Start
+@onready var quit: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Quit
 @onready var character_selection_buttons_container = $CharacterSelectionButtons
 var character_selection_buttons: Array:
 	get: 
@@ -16,6 +17,7 @@ var current_character_selected_button: CharacterSelectionButton:
 func _ready():
 	current_character_selected_button.set_selected(true)
 	start.clicked.connect(on_start_clicked)
+	quit.clicked.connect(func(): get_tree().quit())
 	
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("go_left"):
