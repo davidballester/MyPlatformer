@@ -14,5 +14,6 @@ func _ready():
 	for collectible in collectibles.get_children():
 		if collectible is Collectible:
 			collectible.sfx_player = sfx_player
+			collectible.animated_sprite.animation = "default"
 	if character:
 		character.sfx_player = sfx_player

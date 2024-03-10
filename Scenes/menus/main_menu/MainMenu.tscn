@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://oowbs41rockj"]
+[gd_scene load_steps=12 format=3 uid="uid://oowbs41rockj"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu/MainMenu.gd" id="1_xpoal"]
 [ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_oo0j7"]
 [ext_resource type="PackedScene" uid="uid://c8awjrpsi2u8v" path="res://scenes/character/Character.tscn" id="3_vgrrc"]
-[ext_resource type="Texture2D" uid="uid://ceqqy6n5n4vq6" path="res://assets/Title.png" id="3_vjg45"]
 [ext_resource type="PackedScene" uid="uid://dvo4ubpso1erk" path="res://scenes/menus/main_menu/CharacterSelectionButton.tscn" id="3_x6da0"]
 [ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="4_yci4o"]
 [ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_esna7"]
@@ -12,9 +11,6 @@
 [ext_resource type="SpriteFrames" uid="uid://d0hb1oe2htjyl" path="res://assets/characters/ninja_frog/sprite_frames.tres" id="7_omffe"]
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="8_xglxu"]
 [ext_resource type="SpriteFrames" uid="uid://cc51fibjygw7" path="res://assets/characters/virtual_guy/sprite_frames.tres" id="9_wodjb"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_1scbi"]
-allow_unpress = true
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_xpoal")
@@ -26,23 +22,25 @@ offset_bottom = 600.0
 texture = ExtResource("2_oo0j7")
 stretch_mode = 1
 
-[node name="Title" type="TextureRect" parent="Background"]
+[node name="Title" type="Label" parent="Background"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -150.0
-offset_right = 300.0
-offset_bottom = -91.0468
+offset_left = -117.0
+offset_top = 88.0
+offset_right = 117.0
+offset_bottom = 117.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_vjg45")
-expand_mode = 5
-stretch_mode = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.988235, 0.807843, 0.0784314, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("4_yci4o")
+theme_override_font_sizes/font_size = 150
+text = "JUMPING GAME"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Background"]
 texture_filter = 1
@@ -82,47 +80,68 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "START"
 
-[node name="CharacterSelectionButton3" parent="." instance=ExtResource("3_x6da0")]
+[node name="CharacterSelectionButtons" type="Node" parent="."]
+
+[node name="CharacterSelectionButton3" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 100.0
 offset_top = 280.0
 offset_right = 220.0
 offset_bottom = 400.0
 
-[node name="Character" parent="CharacterSelectionButton3" instance=ExtResource("3_vgrrc")]
+[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton3" instance=ExtResource("3_vgrrc")]
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("6_1wx1y")
+direction = 1
+speed = 300.0
+inertia = 50.0
+jump_velocity = -900.0
+coyote_time_s = 0.15
 
-[node name="CharacterSelectionButton2" parent="." instance=ExtResource("3_x6da0")]
+[node name="CharacterSelectionButton2" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 260.0
 offset_top = 280.0
 offset_right = 380.0
 offset_bottom = 400.0
-button_group = SubResource("ButtonGroup_1scbi")
 
-[node name="Character" parent="CharacterSelectionButton2" instance=ExtResource("3_vgrrc")]
+[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton2" instance=ExtResource("3_vgrrc")]
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("7_omffe")
+direction = 1
+speed = 300.0
+inertia = 50.0
+jump_velocity = -900.0
+coyote_time_s = 0.15
 
-[node name="CharacterSelectionButton" parent="." instance=ExtResource("3_x6da0")]
+[node name="CharacterSelectionButton" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 420.0
 offset_top = 280.0
 offset_right = 540.0
 offset_bottom = 400.0
 
-[node name="Character" parent="CharacterSelectionButton" instance=ExtResource("3_vgrrc")]
+[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton" instance=ExtResource("3_vgrrc")]
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_xglxu")
+direction = 1
+speed = 300.0
+inertia = 50.0
+jump_velocity = -900.0
+coyote_time_s = 0.15
 
-[node name="CharacterSelectionButton4" parent="." instance=ExtResource("3_x6da0")]
+[node name="CharacterSelectionButton4" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 580.0
 offset_top = 280.0
 offset_right = 700.0
 offset_bottom = 400.0
 
-[node name="Character" parent="CharacterSelectionButton4" instance=ExtResource("3_vgrrc")]
+[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton4" instance=ExtResource("3_vgrrc")]
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("9_wodjb")
+direction = 1
+speed = 300.0
+inertia = 50.0
+jump_velocity = -900.0
+coyote_time_s = 0.15

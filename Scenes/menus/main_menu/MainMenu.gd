@@ -4,34 +4,29 @@ class_name MainMenu
 signal started
 
 @onready var start: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Start
-var character_sprite_frames: SpriteFrames
+@onready var character_selection_buttons_container = $CharacterSelectionButtons
+var character_selection_buttons: Array:
+	get: 
+		return character_selection_buttons_container.get_children()
+var selected_character_index = 0
+var current_character_selected_button: CharacterSelectionButton:
+	get:
+		return character_selection_buttons[selected_character_index]
 
 func _ready():
-	for character_selection_button: CharacterSelectionButton in get_character_selection_buttons():
-		character_selection_button.toggled.connect(on_character_selection_button_toggled.bind(character_selection_button))
-	var first_character_selection_button: Button = get_character_selection_buttons()[0]
-	first_character_selection_button.button_pressed = true
+	current_character_selected_button.set_selected(true)
 	start.clicked.connect(on_start_clicked)
+	
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("go_left"):
+		current_character_selected_button.set_selected(false)
+		selected_character_index = (selected_character_index - 1) % character_selection_buttons.size()
+		current_character_selected_button.set_selected(true)
+	if Input.is_action_just_pressed("go_right"):
+		current_character_selected_button.set_selected(false)
+		selected_character_index = (selected_character_index + 1) % character_selection_buttons.size()
+		current_character_selected_button.set_selected(true)
 
-func on_character_selection_button_toggled(toggled: bool, character_selection_button: CharacterSelectionButton):
-	for another_character_selection_button: CharacterSelectionButton in get_character_selection_buttons():
-		if another_character_selection_button != character_selection_button:
-			another_character_selection_button.set_pressed_no_signal(false)
-	if toggled:
-		var character: Character = character_selection_button.get_node("Character")
-		character_sprite_frames = character.sprite_frames
-	else:
-		character_sprite_frames = null
-		
 func on_start_clicked():
-	if not character_sprite_frames:
-		pass
-	started.emit(character_sprite_frames)
-
-func get_character_selection_buttons():
-	var character_selection_buttons: Array = Array()
-	for child in get_children():
-		if child is CharacterSelectionButton:
-			var character_selection_button: CharacterSelectionButton = child
-			character_selection_buttons.push_back(character_selection_button)
-	return character_selection_buttons
+	var sprite_frames = current_character_selected_button.get_sprite_frames()
+	started.emit(sprite_frames)

@@ -2,9 +2,168 @@
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu/CharacterSelectionButton.gd" id="1_h0fnf"]
 
-[node name="CharacterSelectionButton" type="Button"]
+[node name="CharacterSelectionButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 120.0
 offset_bottom = 120.0
 theme_type_variation = &"FlatButton"
-toggle_mode = true
 script = ExtResource("1_h0fnf")
+
+[node name="Corners" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 120.0
+
+[node name="TopLeft" type="Control" parent="Corners"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="Side1" type="ColorRect" parent="Corners/TopLeft"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 44.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/TopLeft/Side1"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 8.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="Side2" type="ColorRect" parent="Corners/TopLeft"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 4.0
+offset_bottom = 44.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/TopLeft/Side2"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 44.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="TopRight" type="Control" parent="Corners"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+
+[node name="Side1" type="ColorRect" parent="Corners/TopRight"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 52.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/TopRight/Side1"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 8.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="Side2" type="ColorRect" parent="Corners/TopRight"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 4.0
+offset_right = 56.0
+offset_bottom = 44.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/TopRight/Side2"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 44.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="BottomLeft" type="Control" parent="Corners"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 48.0
+grow_vertical = 0
+
+[node name="Side1" type="ColorRect" parent="Corners/BottomLeft"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 52.0
+offset_right = 44.0
+offset_bottom = 56.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/BottomLeft/Side1"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 8.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="Side2" type="ColorRect" parent="Corners/BottomLeft"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 4.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/BottomLeft/Side2"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 40.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="BottomRight" type="Control" parent="Corners"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Side1" type="ColorRect" parent="Corners/BottomRight"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 52.0
+offset_right = 52.0
+offset_bottom = 56.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/BottomRight/Side1"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 8.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
+
+[node name="Side2" type="ColorRect" parent="Corners/BottomRight"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 12.0
+offset_right = 56.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Corners/BottomRight/Side2"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 44.0
+color = Color(0.988235, 0.807843, 0.0784314, 1)
