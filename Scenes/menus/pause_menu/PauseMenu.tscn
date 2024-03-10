@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dey115k07fmm"]
+[gd_scene load_steps=6 format=3 uid="uid://dey115k07fmm"]
 
 [ext_resource type="Script" path="res://scenes/menus/pause_menu/PauseMenu.gd" id="1_rr6pm"]
 [ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_jbtpt"]
-[ext_resource type="PackedScene" uid="uid://bmloaom3ldpht" path="res://scenes/menus/components/Button.tscn" id="3_tfhee"]
 [ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="4_8jbkf"]
+[ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="4_f1u0v"]
+[ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_xoxv4"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_rr6pm")
@@ -36,37 +37,20 @@ theme_override_font_sizes/font_size = 120
 text = "PAUSE"
 horizontal_alignment = 1
 
-[node name="Resume" parent="Background" instance=ExtResource("3_tfhee")]
+[node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("4_f1u0v")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = -24.0
-offset_right = 110.5
-offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Resume" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_xoxv4")]
 text = "RESUME"
 
-[node name="Exit" parent="Background" instance=ExtResource("3_tfhee")]
-modulate = Color(0.737255, 0.737255, 0.737255, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = 104.0
-offset_right = 110.5
-offset_bottom = 184.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "EXIT"
-
-[connection signal="pressed" from="Background/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Background/Exit" to="." method="_on_exit_pressed"]
+[node name="Quit" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_xoxv4")]
+offset_top = 100.0
+offset_bottom = 164.0
+text = "QUIT"

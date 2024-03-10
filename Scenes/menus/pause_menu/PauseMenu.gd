@@ -3,9 +3,9 @@ class_name PauseMenu
 
 signal resume_clicked
 signal exit_clicked
+@onready var resume: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Resume
+@onready var quit: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Quit
 
-func _on_resume_pressed():
-	resume_clicked.emit()
-	
-func _on_exit_pressed():
-	exit_clicked.emit()
+func _ready() -> void:
+	resume.clicked.connect(func(): resume_clicked.emit())
+	quit.clicked.connect(func(): exit_clicked.emit())

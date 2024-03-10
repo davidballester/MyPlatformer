@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oowbs41rockj"]
+[gd_scene load_steps=14 format=3 uid="uid://oowbs41rockj"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu/MainMenu.gd" id="1_xpoal"]
 [ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_oo0j7"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://ceqqy6n5n4vq6" path="res://assets/Title.png" id="3_vjg45"]
 [ext_resource type="PackedScene" uid="uid://dvo4ubpso1erk" path="res://scenes/menus/main_menu/CharacterSelectionButton.tscn" id="3_x6da0"]
 [ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="4_yci4o"]
-[ext_resource type="PackedScene" uid="uid://bmloaom3ldpht" path="res://scenes/menus/components/Button.tscn" id="5_i41iv"]
+[ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_esna7"]
+[ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="5_ms33v"]
 [ext_resource type="SpriteFrames" uid="uid://wq3ich3ye1ax" path="res://assets/characters/pink_man/sprite_frames.tres" id="6_1wx1y"]
 [ext_resource type="SpriteFrames" uid="uid://d0hb1oe2htjyl" path="res://assets/characters/ninja_frog/sprite_frames.tres" id="7_omffe"]
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="8_xglxu"]
 [ext_resource type="SpriteFrames" uid="uid://cc51fibjygw7" path="res://assets/characters/virtual_guy/sprite_frames.tres" id="9_wodjb"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ormh3"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_1scbi"]
 allow_unpress = true
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -64,19 +65,21 @@ theme_override_font_sizes/font_size = 35
 text = "choose your player"
 horizontal_alignment = 1
 
-[node name="Start" parent="Background" instance=ExtResource("5_i41iv")]
+[node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("5_ms33v")]
+
+[node name="Start" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = 152.0
-offset_right = 110.5
-offset_bottom = 232.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = 440.0
+offset_right = 476.0
+offset_bottom = 504.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 text = "START"
 
 [node name="CharacterSelectionButton3" parent="." instance=ExtResource("3_x6da0")]
@@ -95,7 +98,7 @@ offset_left = 260.0
 offset_top = 280.0
 offset_right = 380.0
 offset_bottom = 400.0
-button_group = SubResource("ButtonGroup_ormh3")
+button_group = SubResource("ButtonGroup_1scbi")
 
 [node name="Character" parent="CharacterSelectionButton2" instance=ExtResource("3_vgrrc")]
 position = Vector2(60, 56)

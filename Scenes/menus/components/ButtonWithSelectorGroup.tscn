@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2w46ejjb0j1x"]
+
+[ext_resource type="Script" path="res://scenes/menus/components/ButtonWithSelectorGroup.gd" id="1_72hj5"]
+
+[node name="ButtonWithSelectorGroup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_72hj5")
