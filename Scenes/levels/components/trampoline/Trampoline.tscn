@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://eo5cqaxtccty"]
 
-[ext_resource type="SpriteFrames" uid="uid://cmuyjnd2qwjgh" path="res://assets/contraptions/trampoline/sprite_frames.tres" id="1_bffjg"]
-[ext_resource type="Script" path="res://scenes/levels/components/contraptions/Trampoline.gd" id="1_gr2x1"]
+[ext_resource type="SpriteFrames" uid="uid://cmuyjnd2qwjgh" path="res://assets/traps/trampoline/sprite_frames.tres" id="1_bffjg"]
+[ext_resource type="Script" path="res://scenes/levels/components/trampoline/Trampoline.gd" id="1_gr2x1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdo78"]
 size = Vector2(26, 16)

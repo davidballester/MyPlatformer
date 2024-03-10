@@ -8,9 +8,7 @@ var level: Level
 var pause_menu: PauseMenu
 
 func enter() -> void:
-	game.hud = load("res://scenes/levels/HUD.tscn").instantiate()
-	game.hud.offset.x = 25
-	game.hud.offset.y = 25
+	game.hud = load("res://scenes/levels/components/hud/HUD.tscn").instantiate()
 	game.add_child(game.hud)
 	if game.saved_level_scene:
 		level = game.saved_level_scene

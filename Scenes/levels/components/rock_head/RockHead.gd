@@ -15,16 +15,15 @@ func _ready() -> void:
 	animated_sprite.play()
 	timer.start(BLINK_PERIOD_S)
 	timer.timeout.connect(blink)
+	animated_sprite.animation_looped.connect(idle)
 
 func _process(delta):
 	path_follow.progress += delta * speed
 
 func blink() -> void:
 	animated_sprite.animation = "blink"
-	animated_sprite.animation_looped.connect(idle)
 	
 func idle() -> void:
-	animated_sprite.animation_looped.disconnect(idle)
 	animated_sprite.animation = "idle"
 	
 func _on_top_body_entered(body):
