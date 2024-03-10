@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2ykese2pclup"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/rock_head/RockHead.gd" id="1_h23j5"]
+[ext_resource type="SpriteFrames" uid="uid://bqok0smbl54mk" path="res://assets/traps/rock_head/rock_head.tres" id="1_v0ono"]
+
+[sub_resource type="Curve2D" id="Curve2D_t1xju"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69.3333, 0, 0, 0, 0, 160, 69.3333, 0, 0, 0, 0, 160, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsbst"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls7no"]
+size = Vector2(2.66667, 26.6667)
+
+[node name="RockHead" type="Path2D"]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+curve = SubResource("Curve2D_t1xju")
+script = ExtResource("1_h23j5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = 1.5708
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../RockHead")
+
+[node name="RockHead" type="AnimatableBody2D" parent="."]
+rotation = 1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RockHead"]
+rotation = 4.71239
+sprite_frames = ExtResource("1_v0ono")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockHead"]
+shape = SubResource("RectangleShape2D_rsbst")
+
+[node name="Top" type="Area2D" parent="RockHead"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockHead/Top"]
+position = Vector2(-17.3333, 6.27465e-05)
+shape = SubResource("RectangleShape2D_ls7no")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="body_entered" from="RockHead/Top" to="." method="_on_top_body_entered"]
