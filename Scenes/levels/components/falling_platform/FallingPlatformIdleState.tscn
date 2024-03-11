@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba77kfwyvd2te"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/falling_platform/FallingPlatformIdleState.gd" id="1_51yu2"]
+
+[node name="FallingPlatformIdleState" type="Node"]
+script = ExtResource("1_51yu2")

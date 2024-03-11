@@ -13,21 +13,21 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if not current_state:
-		pass
+		return
 	var next_state = current_state.process(delta)
 	if next_state:
 		transition_to_state(next_state)
 		
 func _physics_process(delta) -> void:
 	if not current_state:
-		pass
+		return
 	var next_state = current_state.physics_process(delta)
 	if next_state:
 		transition_to_state(next_state)
 		
 func _input(event: InputEvent) -> void:
 	if not current_state:
-		pass
+		return
 	var next_state = current_state.input(event)
 	if next_state:
 		transition_to_state(next_state)

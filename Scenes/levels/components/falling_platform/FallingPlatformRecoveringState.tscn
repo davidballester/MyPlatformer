@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvgftymr4yq3n"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/falling_platform/FallingPlatformRecoveringState.gd" id="1_fbic3"]
+
+[node name="FallingPlatformRecoveringState" type="Node"]
+script = ExtResource("1_fbic3")

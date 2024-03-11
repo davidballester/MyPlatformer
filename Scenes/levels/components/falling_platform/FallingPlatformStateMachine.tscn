@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwf7mfm0f0wba"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/falling_platform/FallingPlatformStateMachine.gd" id="1_vlvj1"]
+
+[node name="FallingPlatformStateMachine" type="Node"]
+script = ExtResource("1_vlvj1")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqqy6n5n4vq6"
-path="res://.godot/imported/Title.png-5a2bc7eff91db31adcded1fcae6ae2c7.ctex"
+uid="uid://jw13s8w6ha6x"
+path="res://.godot/imported/Off.png-e3c1379f888629761d8a3f4d258d427b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Title.png"
-dest_files=["res://.godot/imported/Title.png-5a2bc7eff91db31adcded1fcae6ae2c7.ctex"]
+source_file="res://assets/traps/falling_platform/Off.png"
+dest_files=["res://.godot/imported/Off.png-e3c1379f888629761d8a3f4d258d427b.ctex"]
 
 [params]
 
