@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://oowbs41rockj"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu/MainMenu.gd" id="1_xpoal"]
-[ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_oo0j7"]
+[ext_resource type="PackedScene" uid="uid://whqs8ap51i4p" path="res://scenes/utils/background/Background.tscn" id="2_xewfa"]
 [ext_resource type="PackedScene" uid="uid://c8awjrpsi2u8v" path="res://scenes/character/Character.tscn" id="3_vgrrc"]
 [ext_resource type="PackedScene" uid="uid://dvo4ubpso1erk" path="res://scenes/menus/main_menu/CharacterSelectionButton.tscn" id="3_x6da0"]
 [ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="4_yci4o"]
@@ -15,12 +15,7 @@
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_xpoal")
 
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 800.0
-offset_bottom = 600.0
-texture = ExtResource("2_oo0j7")
-stretch_mode = 1
+[node name="Background" parent="." instance=ExtResource("2_xewfa")]
 
 [node name="Title" type="Label" parent="Background"]
 texture_filter = 1
@@ -45,17 +40,14 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="Background"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -117.0
-offset_top = -86.5
+offset_top = 200.0
 offset_right = 117.0
-offset_bottom = -57.5
+offset_bottom = 229.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.988235, 0.807843, 0.0784314, 1)
 theme_override_fonts/font = ExtResource("4_yci4o")

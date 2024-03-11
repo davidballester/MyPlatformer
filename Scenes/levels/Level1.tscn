@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/SFXPlayer.tscn" id="2_i1833"]
-[ext_resource type="PackedScene" uid="uid://cn750prf67vvm" path="res://scenes/levels/components/Background.tscn" id="2_sh2wq"]
 [ext_resource type="Texture2D" uid="uid://7q37jrt7l5ke" path="res://assets/background/Blue.png" id="2_umv73"]
 [ext_resource type="PackedScene" uid="uid://d3ebejs8lnkm" path="res://scenes/utils/VisibilityAwareSFXPlayer.tscn" id="3_a2lqe"]
 [ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/levels/components/Terrain.tscn" id="4_bfn1s"]
+[ext_resource type="PackedScene" uid="uid://whqs8ap51i4p" path="res://scenes/utils/background/Background.tscn" id="4_p0nup"]
 [ext_resource type="PackedScene" uid="uid://b7eioj6stcag6" path="res://scenes/levels/components/Collectible.tscn" id="5_s3bhn"]
 [ext_resource type="PackedScene" uid="uid://ccg4etn06jrcg" path="res://scenes/levels/components/fire_trap/FireTrap.tscn" id="8_pfqmr"]
 [ext_resource type="PackedScene" uid="uid://b2ykese2pclup" path="res://scenes/levels/components/rock_head/RockHead.tscn" id="10_tv0ph"]
@@ -21,7 +21,7 @@ script = ExtResource("1_ql2yr")
 
 [node name="VisibilityAwareSfxPlayer" parent="." instance=ExtResource("3_a2lqe")]
 
-[node name="Background" parent="." instance=ExtResource("2_sh2wq")]
+[node name="Background" parent="." instance=ExtResource("4_p0nup")]
 offset_right = 2400.0
 offset_bottom = 800.0
 texture = ExtResource("2_umv73")
