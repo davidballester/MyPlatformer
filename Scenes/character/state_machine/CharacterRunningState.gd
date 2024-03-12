@@ -7,16 +7,17 @@ class_name CharacterRunningState
 
 func enter():
 	var direction = character_input.get_running_direction()
-	character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
-	character.velocity.x = direction * character.speed
+	if direction:
+		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
 	character.set_animation(Character.AnimationType.RUN)
+	character.accelerate_x()
 	
 func physics_process(_delta: float) -> State:
 	var direction = character_input.get_running_direction()
 	if not direction:
 		return idle_state
 	character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
-	character.velocity.x = direction * character.speed
+	character.accelerate_x()
 	character.move_and_slide()
 	if character_input.wants_to_jump():
 		character.can_double_jump = true

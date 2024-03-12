@@ -9,7 +9,7 @@ func enter() -> void:
 	character.set_animation(Character.AnimationType.IDLE)
 
 func physics_process(_delta: float) -> State:
-	character.velocity.x = move_toward(character.velocity.x, 0, character.inertia)
+	character.inertia_x()
 	character.move_and_slide()
 	var direction = character_input.get_running_direction()
 	if direction:

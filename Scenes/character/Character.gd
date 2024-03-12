@@ -15,8 +15,10 @@ enum Direction { LEFT, RIGHT }
 			return
 		animated_sprite2d.flip_h = true if new_direction == Direction.LEFT else false
 		direction = new_direction
-@export var speed: float = 300.0
-@export var inertia: float = 50.0
+@export var speed: float = 350.0
+@export var inertia: float = 30.0
+@export var acceleration: float = 10.0
+@export var on_air_acceleration: float = 30.0
 @export var jump_velocity: float = -900.0
 @export var trampoline_velocity: float = jump_velocity * 2
 @export var coyote_time_s: float = 0.15
@@ -43,6 +45,25 @@ func take_damage():
 func trampoline():
 	print("Character.trampoline")
 	pass
+	
+	
+func accelerate_x() -> void:
+	var multiplier = -1 if direction == Direction.LEFT else 1
+	var acc = acceleration if is_on_floor() else on_air_acceleration
+	velocity.x = multiplier * min(
+		abs(velocity.x) + acc, 
+		speed
+	)
+	
+func inertia_x() -> void:
+	velocity.x = move_toward(velocity.x, 0, inertia)
+	
+func jump() -> void:
+	velocity.y = jump_velocity if not on_trampoline else trampoline_velocity
+	
+func inertia_y(delta: float) -> void:
+	var applied_gravity = gravity * 1.5 if velocity.y >= 0 else gravity
+	velocity.y += applied_gravity * delta
 	
 func set_coyote_time(enabled: bool) -> void:
 	on_coyote_time = enabled
