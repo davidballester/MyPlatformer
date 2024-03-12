@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qlc4vjwn328s"]
+
+[ext_resource type="Script" path="res://scenes/utils/path_follower/PathFollower.gd" id="1_5unat"]
+
+[node name="PathFollower" type="Node"]
+script = ExtResource("1_5unat")

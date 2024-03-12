@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkupofjn60utk"]
+[gd_scene load_steps=16 format=3 uid="uid://dkupofjn60utk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/SFXPlayer.tscn" id="2_i1833"]
@@ -13,6 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://eo5cqaxtccty" path="res://scenes/levels/components/trampoline/Trampoline.tscn" id="11_qy84l"]
 [ext_resource type="PackedScene" uid="uid://bw1cag7c6f04m" path="res://scenes/levels/components/spike_head/SpikeHead.tscn" id="11_udo38"]
 [ext_resource type="PackedScene" uid="uid://bu5hw2w8hdto6" path="res://scenes/levels/components/falling_platform/FallingPlatform.tscn" id="12_hm4v1"]
+[ext_resource type="PackedScene" uid="uid://qlc4vjwn328s" path="res://scenes/utils/path_follower/PathFollower.tscn" id="13_rbu53"]
+
+[sub_resource type="Curve2D" id="Curve2D_npbfn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 312, 552, 0, 0, 0, 0, 72, 552, 0, 0, 0, 0, 312, 552)
+}
+point_count = 3
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_ql2yr")
@@ -43,17 +50,37 @@ sfx_player = NodePath("../../VisibilityAwareSfxPlayer")
 [node name="Spikes" parent="Traps" instance=ExtResource("10_w0lfa")]
 position = Vector2(572, 536)
 
-[node name="RockHead" parent="Traps" node_paths=PackedStringArray("sfx_player") instance=ExtResource("10_tv0ph")]
-position = Vector2(80, 400)
-sfx_player = NodePath("../../SFXPlayer")
-
 [node name="SpikeHead" parent="Traps" instance=ExtResource("11_udo38")]
 position = Vector2(704, 616)
 
 [node name="FallingPlatform2" parent="Traps" node_paths=PackedStringArray("sfx_player") instance=ExtResource("12_hm4v1")]
-position = Vector2(96, 668)
+position = Vector2(1160, 616)
 scale = Vector2(2, 2)
 sfx_player = NodePath("../../SFXPlayer")
+
+[node name="RockHead" type="Node" parent="Traps"]
+
+[node name="RockHead" parent="Traps/RockHead" node_paths=PackedStringArray("sfx_player", "path") instance=ExtResource("10_tv0ph")]
+position = Vector2(312, 552)
+sfx_player = NodePath("../../../SFXPlayer")
+path = NodePath("../Path2D")
+
+[node name="Path2D" type="Path2D" parent="Traps/RockHead"]
+curve = SubResource("Curve2D_npbfn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Traps/RockHead/Path2D"]
+position = Vector2(312, 552)
+rotation = 3.14159
+rotates = false
+
+[node name="PathFollower" parent="Traps/RockHead/Path2D/PathFollow2D" node_paths=PackedStringArray("path_follow") instance=ExtResource("13_rbu53")]
+path_follow = NodePath("..")
+speed = 75.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Traps/RockHead/Path2D/PathFollow2D"]
+remote_path = NodePath("../../../RockHead")
+update_rotation = false
+update_scale = false
 
 [node name="Trampoline" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_qy84l")]
 position = Vector2(432, 612)

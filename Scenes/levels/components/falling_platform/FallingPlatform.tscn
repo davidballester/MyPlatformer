@@ -18,7 +18,7 @@ size = Vector2(5.33334, 32)
 _data = [Vector2(0.676768, 1), 0.0, -3.09375, 0, 1, Vector2(1, 0), 0.0, -0.087033, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_q7lw6"]
+[sub_resource type="CurveTexture" id="CurveTexture_pbbhf"]
 curve = SubResource("Curve_sn241")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s5278"]
@@ -29,7 +29,7 @@ emission_box_extents = Vector3(10, 0, 0)
 direction = Vector3(0, 1, 0)
 spread = 0.0
 gravity = Vector3(0, 30, 0)
-scale_curve = SubResource("CurveTexture_q7lw6")
+scale_curve = SubResource("CurveTexture_pbbhf")
 
 [node name="FallingPlatform" type="AnimatableBody2D"]
 texture_filter = 1
