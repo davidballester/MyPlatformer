@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dx8kj1gm7kk5y" path="res://assets/traps/falling_platform/Dust Particle.png" id="7_2tfip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gpjj"]
-size = Vector2(26.6667, 2.66667)
+size = Vector2(28, 0.666665)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3dac"]
 size = Vector2(5.33334, 32)
@@ -28,7 +28,7 @@ emission_shape = 3
 emission_box_extents = Vector3(10, 0, 0)
 direction = Vector3(0, 1, 0)
 spread = 0.0
-gravity = Vector3(0, 30, 0)
+gravity = Vector3(0, 300, 0)
 scale_curve = SubResource("CurveTexture_pbbhf")
 
 [node name="FallingPlatform" type="AnimatableBody2D"]
@@ -41,7 +41,7 @@ script = ExtResource("1_36spx")
 position = Vector2(-1.4456e-19, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformActivationArea"]
-position = Vector2(0, -6.66667)
+position = Vector2(4.76837e-07, -5.66667)
 shape = SubResource("RectangleShape2D_1gpjj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -71,7 +71,6 @@ falling_platform = NodePath("../..")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 texture_filter = 1
 position = Vector2(0, 8)
-amount = 3
 process_material = SubResource("ParticleProcessMaterial_s5278")
 texture = ExtResource("7_2tfip")
 lifetime = 3.0

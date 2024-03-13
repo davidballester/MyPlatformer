@@ -23,4 +23,8 @@ func physics_process(delta: float) -> State:
 			func(): is_recovering = true
 		)
 		has_collided = true
+		get_tree().create_timer(0.05).timeout.connect(func():
+			if falling_platform.character:
+				falling_platform.character.take_damage()
+		)
 	return null
