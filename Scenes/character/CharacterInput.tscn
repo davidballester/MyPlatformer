@@ -8,5 +8,6 @@ script = ExtResource("1_73gks")
 
 [node name="InputBuffer" parent="." instance=ExtResource("2_p4qfx")]
 action_to_grace_period_ms = {
+"go_down": 150.0,
 "jump": 150.0
 }

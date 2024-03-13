@@ -23,7 +23,9 @@ enum Direction { LEFT, RIGHT }
 @export var trampoline_velocity: float = jump_velocity * 2
 @export var coyote_time_s: float = 0.15
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animated_sprite2d: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@export var one_way_tilemap: TileMap
+@onready var animated_sprite2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 var on_coyote_time: bool = false
 var can_double_jump: bool = false
 var on_trampoline: bool = false
@@ -46,7 +48,6 @@ func trampoline():
 	print("Character.trampoline")
 	pass
 	
-	
 func accelerate_x() -> void:
 	var multiplier = -1 if direction == Direction.LEFT else 1
 	var acc = acceleration if is_on_floor() else on_air_acceleration
@@ -64,6 +65,20 @@ func jump() -> void:
 func inertia_y(delta: float) -> void:
 	var applied_gravity = gravity * 1.5 if velocity.y >= 0 else gravity
 	velocity.y += applied_gravity * delta
+
+func drop() -> bool:
+	if (
+		not one_way_tilemap 
+		or not is_on_floor() 
+		or get_slide_collision_count() == 0
+		or get_slide_collision(0).get_collider().name != "OneWayTerrain"
+	):
+		return false
+	print("Character.drop")
+	# XXX: This looks dangerous!
+	collision_shape.disabled = true
+	get_tree().create_timer(0.1).timeout.connect(func(): collision_shape.disabled = false)
+	return true
 	
 func set_coyote_time(enabled: bool) -> void:
 	on_coyote_time = enabled

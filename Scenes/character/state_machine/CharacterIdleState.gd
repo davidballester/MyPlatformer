@@ -17,8 +17,15 @@ func physics_process(_delta: float) -> State:
 	if character_input.wants_to_jump():
 		character.can_double_jump = true
 		return jumping_state
+	if character_input.wants_to_drop():
+		var can_drop = character.drop()
+		if can_drop:
+			return fall()
 	if not character.is_on_floor():
-		character.set_coyote_time(true)
-		character.can_double_jump = true
-		return falling_state
+		return fall()
 	return null
+
+func fall() -> State:
+	character.set_coyote_time(true)
+	character.can_double_jump = true
+	return falling_state

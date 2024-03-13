@@ -8,3 +8,6 @@ func get_running_direction() -> float:
 	
 func wants_to_jump() -> bool:
 	return input_buffer and input_buffer.is_action_buffered("jump")
+
+func wants_to_drop() -> bool:
+	return input_buffer and input_buffer.is_action_buffered("go_down")
