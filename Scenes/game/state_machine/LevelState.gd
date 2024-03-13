@@ -16,18 +16,18 @@ func enter() -> void:
 	else:
 		var level_path = "res://scenes/levels/Level" + str(game.level) + ".tscn"
 		level = load(level_path).instantiate()
-		set_up_character()
 		level_container.add_child(level)
+		level.character.sprite_frames = game.character_sprite
+		set_up_camera()
 		manage_collectibles()
-	
+
 func exit() -> void:
 	if game.hud:
 		game.hud.queue_free()
 		game.hud = null
 	if game.saved_level_scene == level:
 		return
-	game.character.ready.disconnect(position_character)
-	game.character.ready.disconnect(set_up_camera)
+	level.character.ready.disconnect(set_up_camera)
 	game.recreate_character()
 	level.queue_free()
 		
@@ -36,22 +36,9 @@ func input(_event) -> State:
 		return null
 	game.save_level(level)
 	return pause_menu_state
-
-func set_up_character() -> void:
-	level.character = game.character
-	game.character.ready.connect(position_character)
-	game.character.ready.connect(set_up_camera)
-	
-func position_character() -> void:
-	var level_background: TextureRect = level.get_node("Background")
-	var y = level_background.offset_bottom - game.character.get_height() - 100
-	var x = 100
-	game.character.position.x = x
-	game.character.position.y = y
-	game.character.camera.reset_smoothing()
 	
 func set_up_camera() -> void:
-	var camera: Camera2D = game.character.camera
+	var camera: Camera2D = level.character.camera
 	camera.limit_left = 0
 	camera.limit_top = 0
 	var level_background: TextureRect = level.get_node("Background")

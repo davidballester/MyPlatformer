@@ -16,6 +16,6 @@ func exit() -> void:
 	
 func on_started(sprite_frames: SpriteFrames) -> void:
 	print("MainMenuState.on_started")
-	game.create_character(sprite_frames)
+	game.set_character_sprite(sprite_frames)
 	game.level = 1
 	state_changed.emit(level_state)

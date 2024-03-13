@@ -7,7 +7,11 @@ const HURT_SOUND = "res://assets/sounds/hurt.wav"
 enum AnimationType { IDLE, RUN, JUMP, FALL, HURT, DOUBLE_JUMP }
 enum Direction { LEFT, RIGHT }
 
-@export var sprite_frames: SpriteFrames
+@export var sprite_frames: SpriteFrames:
+	set(new_sprite_frames):
+		sprite_frames = new_sprite_frames
+		if animated_sprite2d:
+			animated_sprite2d.sprite_frames = new_sprite_frames
 @export var sfx_player: SFXPlayer
 @export var direction: Direction = Direction.RIGHT:
 	set(new_direction):
@@ -29,15 +33,18 @@ enum Direction { LEFT, RIGHT }
 var on_coyote_time: bool = false
 var can_double_jump: bool = false
 var on_trampoline: bool = false
+var height: float = 0.0
 
 func _ready():
+	if not sprite_frames:
+		return
 	animated_sprite2d.sprite_frames = sprite_frames
 	animated_sprite2d.animation = "idle"
 	animated_sprite2d.play()
 
 func get_height():
-	var height = sprite_frames.get_frame_texture("idle", 0).get_height()
-	print("Character.get_height ", height)
+	if height == 0.0:
+		height = sprite_frames.get_frame_texture("idle", 0).get_height()
 	return height
 	
 func take_damage():
