@@ -8,7 +8,7 @@ signal collected
 
 func _ready():
 	animated_sprite.sprite_frames = sprite_frames
-	animated_sprite.animation = "default"
+	animated_sprite.animation = "idle"
 	animated_sprite.play()
 
 func _on_body_entered(body):
@@ -16,4 +16,5 @@ func _on_body_entered(body):
 		return
 	collected.emit()
 	sfx_player.play("res://assets/sounds/collectible.wav")
-	queue_free()
+	animated_sprite.animation = "collected"
+	animated_sprite.animation_looped.connect(func(): queue_free())	

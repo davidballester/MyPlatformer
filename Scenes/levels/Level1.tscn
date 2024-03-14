@@ -37,8 +37,105 @@ texture = ExtResource("2_umv73")
 
 [node name="Collectibles" type="Node" parent="."]
 
-[node name="Collectible" parent="Collectibles" instance=ExtResource("5_s3bhn")]
+[node name="Collectible" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
 position = Vector2(209, 747)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible2" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1624, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible3" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1664, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible4" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1704, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible5" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1744, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible6" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1784, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible7" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1824, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible8" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1864, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible9" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1904, 748)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible10" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1624, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible11" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1664, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible12" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1704, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible13" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1744, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible14" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1784, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible15" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1824, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible16" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1864, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible17" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1904, 708)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible18" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1624, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible19" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1664, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible20" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1704, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible21" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1744, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible22" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1784, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible23" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1824, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible24" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1864, 668)
+sfx_player = NodePath("../../SFXPlayer")
+
+[node name="Collectible25" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("5_s3bhn")]
+position = Vector2(1904, 668)
+sfx_player = NodePath("../../SFXPlayer")
 
 [node name="Traps" type="Node" parent="."]
 
@@ -97,10 +194,6 @@ layer_0/tile_data = PackedInt32Array(1179650, 1114112, 1, 1179651, 1179648, 1, 1
 
 [node name="Trampoline" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_qy84l")]
 position = Vector2(432, 612)
-sfx_player = NodePath("../SFXPlayer")
-
-[node name="Trampoline2" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_qy84l")]
-position = Vector2(1512, 740)
 sfx_player = NodePath("../SFXPlayer")
 
 [node name="PlayableCharacter" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_eamsj")]
