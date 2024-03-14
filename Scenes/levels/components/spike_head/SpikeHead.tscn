@@ -1,41 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw1cag7c6f04m"]
+[gd_scene load_steps=3 format=3 uid="uid://bw1cag7c6f04m"]
 
 [ext_resource type="Script" path="res://scenes/levels/components/spike_head/SpikeHead.gd" id="1_jd6kl"]
 [ext_resource type="SpriteFrames" uid="uid://h8ttrctwytcg" path="res://assets/traps/spike_head/spike_head.tres" id="2_dsp68"]
 
-[sub_resource type="Curve2D" id="Curve2D_400e1"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 0, 0, 0, 0, 0, 224, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 4
-
-[node name="SpikeHead" type="Path2D"]
+[node name="SpikeHead" type="Area2D"]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
-curve = SubResource("Curve2D_400e1")
 script = ExtResource("1_jd6kl")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-rotation = 1.5708
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
-remote_path = NodePath("../../SpikeHead")
-
-[node name="SpikeHead" type="Area2D" parent="."]
-rotation = 1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpikeHead"]
-rotation = -1.5708
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-14, -14, -8, -20, 10, -20, 22, -8, 22, 8, 10, 22, -8, 22, -20, 8, -20, -8)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpikeHead"]
-rotation = -1.5708
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_dsp68")
 animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 
-[connection signal="area_entered" from="SpikeHead" to="." method="_on_spike_head_area_entered"]
-[connection signal="body_entered" from="SpikeHead" to="." method="_on_spike_head_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -19,9 +19,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_npbfn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 624, 336, 0, 0, 0, 0, 88, 336, 0, 0, 0, 0, 624, 336)
+"points": PackedVector2Array(0, 0, 0, 0, 88, 336, 0, 0, 0, 0, 624, 336, 0, 0, 0, 0, 624, 236, 0, 0, 0, 0, 88, 236, 0, 0, 0, 0, 88, 336)
 }
-point_count = 3
+point_count = 5
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_ql2yr")
@@ -146,9 +146,6 @@ sfx_player = NodePath("../../VisibilityAwareSfxPlayer")
 [node name="Spikes" parent="Traps" instance=ExtResource("10_w0lfa")]
 position = Vector2(572, 536)
 
-[node name="SpikeHead" parent="Traps" instance=ExtResource("11_udo38")]
-position = Vector2(704, 616)
-
 [node name="FallingPlatform" parent="Traps" node_paths=PackedStringArray("sfx_player", "main_character") instance=ExtResource("12_hm4v1")]
 position = Vector2(1160, 704)
 scale = Vector2(2, 2)
@@ -164,7 +161,7 @@ main_character = NodePath("../../PlayableCharacter")
 [node name="RockHead" type="Node" parent="Traps"]
 
 [node name="RockHead" parent="Traps/RockHead" node_paths=PackedStringArray("sfx_player", "path") instance=ExtResource("10_tv0ph")]
-position = Vector2(624, 336)
+position = Vector2(88, 336)
 sfx_player = NodePath("../../../SFXPlayer")
 path = NodePath("../Path2D")
 
@@ -172,7 +169,7 @@ path = NodePath("../Path2D")
 curve = SubResource("Curve2D_npbfn")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Traps/RockHead/Path2D"]
-position = Vector2(624, 336)
+position = Vector2(88, 336)
 rotation = 3.14159
 rotates = false
 
@@ -182,6 +179,29 @@ speed = 75.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Traps/RockHead/Path2D/PathFollow2D"]
 remote_path = NodePath("../../../RockHead")
+update_rotation = false
+update_scale = false
+
+[node name="SpikeHead" type="Node" parent="Traps"]
+
+[node name="SpikeHead" parent="Traps/SpikeHead" instance=ExtResource("11_udo38")]
+position = Vector2(940, 656)
+
+[node name="Path2D" type="Path2D" parent="Traps/SpikeHead"]
+position = Vector2(852, 320)
+curve = SubResource("Curve2D_npbfn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Traps/SpikeHead/Path2D"]
+position = Vector2(88, 336)
+rotation = 3.14159
+rotates = false
+
+[node name="PathFollower" parent="Traps/SpikeHead/Path2D/PathFollow2D" node_paths=PackedStringArray("path_follow") instance=ExtResource("13_rbu53")]
+path_follow = NodePath("..")
+speed = 75.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Traps/SpikeHead/Path2D/PathFollow2D"]
+remote_path = NodePath("../../../SpikeHead")
 update_rotation = false
 update_scale = false
 
