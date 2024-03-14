@@ -184,8 +184,9 @@ update_scale = false
 
 [node name="SpikeHead" type="Node" parent="Traps"]
 
-[node name="SpikeHead" parent="Traps/SpikeHead" instance=ExtResource("11_udo38")]
+[node name="SpikeHead" parent="Traps/SpikeHead" node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_udo38")]
 position = Vector2(940, 656)
+sfx_player = NodePath("../../../SFXPlayer")
 
 [node name="Path2D" type="Path2D" parent="Traps/SpikeHead"]
 position = Vector2(852, 320)

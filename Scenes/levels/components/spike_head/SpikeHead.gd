@@ -4,6 +4,7 @@ class_name SpikeHead
 const BLINK_PERIOD_S = 3
 
 @export var speed: float = 50.0
+@export var sfx_player: SFXPlayer
 @onready var timer = $Timer
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -26,3 +27,11 @@ func _on_body_entered(body):
 		return
 	var character: Character = body
 	character.take_damage()
+	blink()
+	timer.stop()
+	timer.start()
+	if sfx_player:
+		sfx_player.play("res://assets/sounds/rockhead.wav", 1.0)
+	var initial_rotation = rotation
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation", initial_rotation + 2.5 * PI, 0.5)
