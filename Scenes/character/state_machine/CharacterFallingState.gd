@@ -19,7 +19,7 @@ func physics_process(delta: float) -> State:
 	var direction = character_input.get_running_direction()
 	if direction:
 		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
-		character.accelerate_x()
+		character.accelerate_x(delta)
 	character.move_and_slide()
 	if character.is_on_floor():
 		return running_state if direction else idle_state

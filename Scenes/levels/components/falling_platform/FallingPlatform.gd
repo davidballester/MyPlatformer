@@ -55,7 +55,7 @@ func shake() -> void:
 func _physics_process(_delta) -> void:
 	if not main_character:
 		return
-	var is_character_above_platform = main_character.position.y + main_character.get_height() > position.y
+	var is_character_above_platform = main_character.position.y + Constants.PLAYER_HEIGHT > position.y
 	collision_shape.disabled = is_character_above_platform
 	activation_area_collision_shape = is_character_above_platform
 		

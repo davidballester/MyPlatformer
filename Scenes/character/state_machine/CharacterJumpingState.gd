@@ -9,17 +9,18 @@ func enter() -> void:
 	else:
 		character.set_animation(Character.AnimationType.DOUBLE_JUMP)
 	character.jump()
-	character.on_trampoline = false
 	character.set_coyote_time(false)
 	
 func physics_process(delta: float) -> State:
+	if character_input.released_jump():
+		character.cut_jump()
 	character.inertia_y(delta)
 	if character.velocity.y > 0:
 		return falling_state
 	var direction = character_input.get_running_direction()
 	if direction:
 		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
-		character.accelerate_x()
+		character.accelerate_x(delta)
 	if character_input.wants_to_jump() and character.can_double_jump:
 		character.can_double_jump = false
 		return self

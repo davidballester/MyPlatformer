@@ -19,21 +19,14 @@ enum Direction { LEFT, RIGHT }
 			return
 		animated_sprite2d.flip_h = true if new_direction == Direction.LEFT else false
 		direction = new_direction
-@export var speed: float = 350.0
-@export var inertia: float = 30.0
-@export var acceleration: float = 10.0
-@export var on_air_acceleration: float = 30.0
-@export var jump_velocity: float = -900.0
-@export var trampoline_velocity: float = jump_velocity * 2
 @export var coyote_time_s: float = 0.15
-@export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var one_way_tilemap: TileMap
 @onready var animated_sprite2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
 var on_coyote_time: bool = false
 var can_double_jump: bool = false
-var on_trampoline: bool = false
-var height: float = 0.0
+var extra_jump_velocity: float = 0.0
 
 func _ready():
 	if not sprite_frames:
@@ -41,37 +34,34 @@ func _ready():
 	animated_sprite2d.sprite_frames = sprite_frames
 	animated_sprite2d.animation = "idle"
 	animated_sprite2d.play()
-
-func get_height():
-	if height == 0.0:
-		height = sprite_frames.get_frame_texture("idle", 0).get_height()
-	return height
 	
 func take_damage():
 	print("Character.take_damage")
 	pass
 	
-func trampoline():
-	print("Character.trampoline")
+func accelerate_x(_delta: float) -> void:
 	pass
 	
-func accelerate_x() -> void:
-	var multiplier = -1 if direction == Direction.LEFT else 1
-	var acc = acceleration if is_on_floor() else on_air_acceleration
-	velocity.x = multiplier * min(
-		abs(velocity.x) + acc, 
-		speed
-	)
-	
 func inertia_x() -> void:
-	velocity.x = move_toward(velocity.x, 0, inertia)
+	pass
 	
 func jump() -> void:
-	velocity.y = jump_velocity if not on_trampoline else trampoline_velocity
+	pass
 	
-func inertia_y(delta: float) -> void:
-	var applied_gravity = gravity * 1.5 if velocity.y >= 0 else gravity
-	velocity.y += applied_gravity * delta
+func enter_jump_state() -> void:
+	pass
+	
+func cut_jump() -> void:
+	pass
+	
+func inertia_y(_delta: float) -> void:
+	pass
+	
+func add_jump_velocity(value: float, duration_s: float) -> void:
+	extra_jump_velocity += value
+	get_tree().create_timer(duration_s).timeout.connect(
+		func(): extra_jump_velocity -= value
+	)
 
 func drop() -> bool:
 	if (

@@ -53,7 +53,13 @@ position = Vector2(572, 536)
 position = Vector2(704, 616)
 
 [node name="FallingPlatform" parent="Traps" node_paths=PackedStringArray("sfx_player", "main_character") instance=ExtResource("12_hm4v1")]
-position = Vector2(1160, 616)
+position = Vector2(1160, 704)
+scale = Vector2(2, 2)
+sfx_player = NodePath("../../SFXPlayer")
+main_character = NodePath("../../PlayableCharacter")
+
+[node name="FallingPlatform2" parent="Traps" node_paths=PackedStringArray("sfx_player", "main_character") instance=ExtResource("12_hm4v1")]
+position = Vector2(1264, 704)
 scale = Vector2(2, 2)
 sfx_player = NodePath("../../SFXPlayer")
 main_character = NodePath("../../PlayableCharacter")
@@ -91,6 +97,10 @@ layer_0/tile_data = PackedInt32Array(1179650, 1114112, 1, 1179651, 1179648, 1, 1
 
 [node name="Trampoline" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_qy84l")]
 position = Vector2(432, 612)
+sfx_player = NodePath("../SFXPlayer")
+
+[node name="Trampoline2" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("11_qy84l")]
+position = Vector2(1512, 740)
 sfx_player = NodePath("../SFXPlayer")
 
 [node name="PlayableCharacter" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_eamsj")]

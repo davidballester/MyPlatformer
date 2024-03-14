@@ -16,6 +16,6 @@ func physics_process(delta: float) -> State:
 	character.inertia_y(delta)
 	if character.velocity.y > 0:
 		character.set_animation(Character.AnimationType.FALL)
-	character.accelerate_x()
+	character.accelerate_x(delta)
 	character.move_and_slide()
 	return running_state if character.is_on_floor() else null

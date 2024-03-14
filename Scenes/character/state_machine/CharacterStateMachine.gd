@@ -14,14 +14,12 @@ func _ready():
 			state.character_input = character_input
 
 func take_damage() -> void:
-	if not hurt_state or current_state == hurt_state:
-		return
-	transition_to_state(hurt_state)
-
-func trampoline() -> void:
 	if current_state == hurt_state:
 		return
-	character.on_trampoline = true
-	character.can_double_jump = true
-	transition_to_state(jumping_state)
+	transition_to_state(hurt_state)
 		
+func jump() -> void:
+	if current_state == jumping_state or current_state == hurt_state:
+		return
+	transition_to_state(jumping_state)
+
