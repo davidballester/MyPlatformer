@@ -26,3 +26,7 @@ func reset() -> void:
 	if saved_level_scene:
 		saved_level_scene.queue_free()
 		saved_level_scene = null
+		
+func next_level(new_collectibles_carried_over) -> void:
+	level += 1
+	collectibles_carried_over = new_collectibles_carried_over

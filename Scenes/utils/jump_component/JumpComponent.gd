@@ -2,7 +2,7 @@ extends Node
 class_name JumpComponent
 
 @export var character: CharacterBody2D
-@export var jump_height: float = Constants.TILE_SIZE * 3
+@export var jump_height: float = Globals.TILE_SIZE * 3
 @export var jump_time_to_peak_s: float = 0.5
 @export var jump_time_to_descent_s: float = 0.3
 

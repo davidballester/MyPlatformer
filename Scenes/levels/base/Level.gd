@@ -7,6 +7,7 @@ var collectibles_collected: int = 0
 @onready var sfx_player = $SFXPlayer
 @onready var character: Character = $PlayableCharacter
 @onready var hud: HUD = $HUD
+@onready var exit: Exit = $Exit
 
 func can_exit() -> bool:
 	return collectibles_collected >= collectibles_required

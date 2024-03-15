@@ -3,6 +3,7 @@ class_name LevelState
 
 @export var main_menu_state: State
 @export var pause_menu_state: State
+@export var level_state: State
 @export var level_container: Node
 var level: Level
 var pause_menu: PauseMenu
@@ -21,12 +22,12 @@ func enter() -> void:
 		level.character.sprite_frames = game.character_sprite
 		set_up_camera()
 		manage_collectibles()
+		level.exit.entered.connect(on_exit_entered)
 
 func exit() -> void:
 	if game.saved_level_scene == level:
 		level.hide_hud()
 		return
-	game.collectibles_carried_over = level.collectibles_collected - level.collectibles_required
 	level.queue_free()
 		
 func input(_event) -> State:
@@ -51,3 +52,13 @@ func manage_collectibles() -> void:
 func on_collectible_collected() -> void:
 	level.collectibles_collected += 1
 	level.hud.update()
+
+func on_exit_entered() -> void:
+	if not level.can_exit():
+		return
+	Globals.character_input_enabled = false
+	await level.exit.play()
+	var collectibles_carried_over = level.collectibles_collected - level.collectibles_required
+	game.next_level(collectibles_carried_over)
+	state_changed.emit(level_state)
+	Globals.character_input_enabled = true
