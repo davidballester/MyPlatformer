@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://sluuwc6m70xj"]
 
-[ext_resource type="Script" path="res://scenes/character/CharacterInput.gd" id="1_73gks"]
-[ext_resource type="PackedScene" uid="uid://bkskyp351t7t4" path="res://scenes/utils/InputBuffer.tscn" id="2_p4qfx"]
+[ext_resource type="Script" path="res://scenes/character/components/character_input/CharacterInput.gd" id="1_73gks"]
+[ext_resource type="PackedScene" uid="uid://bkskyp351t7t4" path="res://scenes/utils/input_buffer/InputBuffer.tscn" id="2_p4qfx"]
 
 [node name="CharacterInput" type="Node"]
 script = ExtResource("1_73gks")

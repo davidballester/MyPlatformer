@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://boym5f7fnma0i"]
 
 [ext_resource type="Script" path="res://scenes/character/PlayableCharacter.gd" id="1_y8we7"]
-[ext_resource type="PackedScene" uid="uid://cmwu0g1ltbi2n" path="res://scenes/character/Camera.tscn" id="3_2rhu2"]
+[ext_resource type="PackedScene" uid="uid://cmwu0g1ltbi2n" path="res://scenes/character/components/Camera.tscn" id="3_2rhu2"]
 [ext_resource type="PackedScene" uid="uid://ckslosri37bqy" path="res://scenes/utils/jump_component/JumpComponent.tscn" id="4_2x6i6"]
-[ext_resource type="PackedScene" uid="uid://sluuwc6m70xj" path="res://scenes/character/CharacterInput.tscn" id="4_a6ohb"]
+[ext_resource type="PackedScene" uid="uid://sluuwc6m70xj" path="res://scenes/character/components/character_input/CharacterInput.tscn" id="4_a6ohb"]
 [ext_resource type="PackedScene" uid="uid://c6f3akonhwprv" path="res://scenes/character/state_machine/CharacterStateMachine.tscn" id="4_kr8i7"]
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="4_pfd68"]
 [ext_resource type="PackedScene" uid="uid://04k08ultqr01" path="res://scenes/character/state_machine/CharacterIdleState.tscn" id="5_k6g8f"]

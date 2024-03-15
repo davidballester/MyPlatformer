@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy2fi8qtuieuu"]
-
-[ext_resource type="Script" path="res://scenes/levels/components/Collectible.gd" id="1_g6440"]
-[ext_resource type="SpriteFrames" uid="uid://sexk6vm845el" path="res://assets/items/fruits/Apple.tres" id="2_wt5vs"]
-
-[node name="AppleCollectible" type="StaticBody2D"]
-script = ExtResource("1_g6440")
-sprite_frames = ExtResource("2_wt5vs")
