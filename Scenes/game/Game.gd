@@ -3,7 +3,7 @@ class_name Game
 
 @onready var level_container: Node = $LevelContainer
 var level: int = 0
-var points: int = 0
+var collectibles_carried_over: int = 0
 var character_sprite: SpriteFrames
 var saved_level_scene: Node
 
@@ -22,7 +22,7 @@ func resume() -> void:
 	
 func reset() -> void:
 	level = 0
-	points = 0
+	collectibles_carried_over = 0
 	if saved_level_scene:
 		saved_level_scene.queue_free()
 		saved_level_scene = null

@@ -10,10 +10,13 @@ var pause_menu: PauseMenu
 func enter() -> void:
 	if game.saved_level_scene:
 		level = game.saved_level_scene
+		level.show_hud()
 		game.saved_level_scene = null
 	else:
 		var level_path = "res://scenes/levels/Level" + str(game.level) + ".tscn"
 		level = load(level_path).instantiate()
+		level.collectibles_collected = game.collectibles_carried_over
+		game.collectibles_carried_over = 0
 		level_container.add_child(level)
 		level.character.sprite_frames = game.character_sprite
 		set_up_camera()
@@ -21,8 +24,9 @@ func enter() -> void:
 
 func exit() -> void:
 	if game.saved_level_scene == level:
+		level.hide_hud()
 		return
-	game.recreate_character()
+	game.collectibles_carried_over = level.collectibles_collected - level.collectibles_required
 	level.queue_free()
 		
 func input(_event) -> State:

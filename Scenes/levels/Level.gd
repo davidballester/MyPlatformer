@@ -10,3 +10,9 @@ var collectibles_collected: int = 0
 
 func can_exit() -> bool:
 	return collectibles_collected >= collectibles_required
+
+func hide_hud() -> void:
+	hud.hide()
+	
+func show_hud() -> void:
+	hud.show()
