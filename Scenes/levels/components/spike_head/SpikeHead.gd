@@ -6,7 +6,7 @@ const BLINK_PERIOD_S = 3
 @export var speed: float = 50.0
 @export var sfx_player: SFXPlayer
 @onready var timer = $Timer
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	animated_sprite.animation = "idle"
@@ -16,10 +16,9 @@ func _ready() -> void:
 
 func blink() -> void:
 	animated_sprite.animation = "blink"
-	animated_sprite.animation_looped.connect(idle)
+	animated_sprite.animation_looped.connect(idle, CONNECT_ONE_SHOT)
 	
 func idle() -> void:
-	animated_sprite.animation_looped.disconnect(idle)
 	animated_sprite.animation = "idle"
 
 func _on_body_entered(body):

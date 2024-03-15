@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkupofjn60utk"]
+[gd_scene load_steps=19 format=3 uid="uid://dkupofjn60utk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/SFXPlayer.tscn" id="2_i1833"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5hw2w8hdto6" path="res://scenes/levels/components/falling_platform/FallingPlatform.tscn" id="12_hm4v1"]
 [ext_resource type="PackedScene" uid="uid://qlc4vjwn328s" path="res://scenes/utils/path_follower/PathFollower.tscn" id="13_rbu53"]
 [ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/PlayableCharacter.tscn" id="16_eamsj"]
+[ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/levels/components/hud/HUD.tscn" id="17_6gfcy"]
 
 [sub_resource type="Curve2D" id="Curve2D_npbfn"]
 _data = {
@@ -25,6 +26,7 @@ point_count = 5
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_ql2yr")
+collectibles_required = 10
 
 [node name="SFXPlayer" parent="." instance=ExtResource("2_i1833")]
 
@@ -221,3 +223,6 @@ sfx_player = NodePath("../SFXPlayer")
 position = Vector2(1352, 408)
 sfx_player = NodePath("../SFXPlayer")
 one_way_tilemap = NodePath("../OneWayTerrain")
+
+[node name="HUD" parent="." node_paths=PackedStringArray("level") instance=ExtResource("17_6gfcy")]
+level = NodePath("..")

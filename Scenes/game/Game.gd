@@ -6,7 +6,6 @@ var level: int = 0
 var points: int = 0
 var character_sprite: SpriteFrames
 var saved_level_scene: Node
-var hud: HUD
 
 func set_character_sprite(sprite_frames: SpriteFrames) -> void:
 	character_sprite = sprite_frames
@@ -27,6 +26,3 @@ func reset() -> void:
 	if saved_level_scene:
 		saved_level_scene.queue_free()
 		saved_level_scene = null
-	if hud:
-		hud.queue_free()
-		hud = null
