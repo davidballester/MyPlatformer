@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfqri5qkehrvj"]
+[gd_scene load_steps=9 format=3 uid="uid://bfqri5qkehrvj"]
 
 [ext_resource type="Script" path="res://scenes/game/Game.gd" id="1_mbnal"]
 [ext_resource type="PackedScene" uid="uid://clbkanu5n06eh" path="res://scenes/game/state_machine/GameStateMachine.tscn" id="3_ffd7s"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://65mb0nf6rebx" path="res://scenes/game/state_machine/LevelState.tscn" id="5_vko61"]
 [ext_resource type="PackedScene" uid="uid://csk5purl4gnkx" path="res://scenes/game/state_machine/PauseMenuState.tscn" id="6_8nn0t"]
 [ext_resource type="PackedScene" uid="uid://cb3bp4222w1is" path="res://scenes/game/state_machine/QuitMenuState.tscn" id="7_vfo8g"]
+[ext_resource type="PackedScene" uid="uid://dv4drrkbfp02i" path="res://scenes/game/state_machine/FinishedState.tscn" id="8_xww1b"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mbnal")
@@ -29,10 +30,11 @@ level_state = NodePath("../LevelState")
 container = NodePath("../../MenuContainer")
 game = NodePath("../..")
 
-[node name="LevelState" parent="GameStateMachine" node_paths=PackedStringArray("main_menu_state", "pause_menu_state", "level_state", "level_container", "game") instance=ExtResource("5_vko61")]
+[node name="LevelState" parent="GameStateMachine" node_paths=PackedStringArray("main_menu_state", "pause_menu_state", "level_state", "finished_state", "level_container", "game") instance=ExtResource("5_vko61")]
 main_menu_state = NodePath("../MainMenuState")
 pause_menu_state = NodePath("../PauseMenuState")
 level_state = NodePath(".")
+finished_state = NodePath("../FinishedState")
 level_container = NodePath("../../LevelContainer")
 game = NodePath("../..")
 
@@ -44,5 +46,9 @@ game = NodePath("../..")
 
 [node name="QuitMenuState" parent="GameStateMachine" node_paths=PackedStringArray("pause_menu_state", "main_menu_state", "container") instance=ExtResource("7_vfo8g")]
 pause_menu_state = NodePath("../PauseMenuState")
+main_menu_state = NodePath("../MainMenuState")
+container = NodePath("../../MenuContainer")
+
+[node name="FinishedState" parent="GameStateMachine" node_paths=PackedStringArray("main_menu_state", "container") instance=ExtResource("8_xww1b")]
 main_menu_state = NodePath("../MainMenuState")
 container = NodePath("../../MenuContainer")

@@ -4,6 +4,7 @@ class_name LevelState
 @export var main_menu_state: State
 @export var pause_menu_state: State
 @export var level_state: State
+@export var finished_state: FinishedState
 @export var level_container: Node
 var level: Level
 var pause_menu: PauseMenu
@@ -15,6 +16,9 @@ func enter() -> void:
 		game.saved_level_scene = null
 	else:
 		var level_path = "res://scenes/levels/Level" + str(game.level) + ".tscn"
+		if not FileAccess.file_exists(level_path):
+			state_changed.emit(finished_state)
+			return
 		level = load(level_path).instantiate()
 		level.collectibles_collected = game.collectibles_carried_over
 		game.collectibles_carried_over = 0

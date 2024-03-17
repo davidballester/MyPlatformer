@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://baqrt1l066p6b"]
+
+[ext_resource type="Script" path="res://scenes/menus/finished_menu/FinishedMenu.gd" id="1_2ro0x"]
+[ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_sisbe"]
+[ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="3_cp2cc"]
+[ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="4_oujfl"]
+[ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_8i3np"]
+
+[node name="FinishedMenu" type="CanvasLayer"]
+script = ExtResource("1_2ro0x")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_sisbe")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="Background"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.5
+offset_top = 110.0
+offset_right = 164.5
+offset_bottom = 220.0
+grow_horizontal = 2
+theme = ExtResource("3_cp2cc")
+theme_override_font_sizes/font_size = 125
+text = "THE END"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="Background"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -26.0
+offset_right = 209.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_cp2cc")
+text = "thank you for playing!"
+horizontal_alignment = 1
+
+[node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("4_oujfl")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -194.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Quit" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_8i3np")]
+text = "QUIT"
+
+[connection signal="clicked" from="Background/ButtonWithSelectorGroup/Quit" to="." method="_on_quit_clicked"]
