@@ -17,3 +17,4 @@
 - Damage sound: [8-bit damage sound by EVRetro](https://freesound.org/people/EVRetro/sounds/501104/)
 - Rock head grunt: [growl3 by ryansnook](https://freesound.org/people/ryansnook/sounds/103575/)
 - Falling platform: [BeepFalling by acclivity](https://freesound.org/people/acclivity/sounds/25884/)
+- Swinging spike ball: [Swoosh by ImATaco](https://freesound.org/people/ImATaco/sounds/724527/)

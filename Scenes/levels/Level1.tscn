@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkupofjn60utk"]
+[gd_scene load_steps=21 format=3 uid="uid://dkupofjn60utk"]
 
 [ext_resource type="Script" path="res://scenes/levels/base/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/sfx_player/SFXPlayer.tscn" id="2_i1833"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://eo5cqaxtccty" path="res://scenes/levels/components/trampoline/Trampoline.tscn" id="11_qy84l"]
 [ext_resource type="PackedScene" uid="uid://bw1cag7c6f04m" path="res://scenes/levels/components/spike_head/SpikeHead.tscn" id="11_udo38"]
 [ext_resource type="PackedScene" uid="uid://bu5hw2w8hdto6" path="res://scenes/levels/components/falling_platform/FallingPlatform.tscn" id="12_hm4v1"]
+[ext_resource type="PackedScene" uid="uid://cwwbjhtmxyfn4" path="res://scenes/levels/components/spiked_ball/SpikedBall.tscn" id="13_mne3g"]
 [ext_resource type="PackedScene" uid="uid://qlc4vjwn328s" path="res://scenes/utils/path_follower/PathFollower.tscn" id="13_rbu53"]
 [ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/PlayableCharacter.tscn" id="16_eamsj"]
 [ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/levels/components/hud/HUD.tscn" id="17_6gfcy"]
@@ -208,6 +209,10 @@ speed = 75.0
 remote_path = NodePath("../../../SpikeHead")
 update_rotation = false
 update_scale = false
+
+[node name="SpikedBall" parent="Traps" instance=ExtResource("13_mne3g")]
+position = Vector2(1764, 560)
+speed = 1.3
 
 [node name="SolidTerrain" parent="." instance=ExtResource("4_bfn1s")]
 layer_0/name = "Base"

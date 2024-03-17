@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwwbjhtmxyfn4"]
+
+[ext_resource type="Texture2D" uid="uid://b5agohqtrqle0" path="res://assets/traps/spiked_ball/Chain.png" id="1_qayfy"]
+[ext_resource type="Script" path="res://scenes/levels/components/spiked_ball/SpikedBall.gd" id="1_rc3sn"]
+[ext_resource type="Texture2D" uid="uid://cje8qopx3osvd" path="res://assets/traps/spiked_ball/Spiked Ball.png" id="2_8hsqx"]
+[ext_resource type="AudioStream" uid="uid://gus5xevjfenv" path="res://assets/sounds/chain.wav" id="4_qreir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tekm8"]
+radius = 17.0294
+
+[sub_resource type="Animation" id="Animation_5lgj5"]
+resource_name = "swing"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [1.15192, -1.15192]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_qreir")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_qreir")
+}],
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/use_blend = false
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_irapb"]
+_data = {
+"swing": SubResource("Animation_5lgj5")
+}
+
+[node name="SpikedBall" type="Node2D"]
+rotation = 0.816942
+script = ExtResource("1_rc3sn")
+
+[node name="Chain" type="Node2D" parent="."]
+position = Vector2(-9, 0)
+
+[node name="Link1" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link2" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 56.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link3" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 32.0
+offset_right = 40.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link4" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 88.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link5" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 64.0
+offset_right = 40.0
+offset_bottom = 104.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link6" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 120.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link7" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 96.0
+offset_right = 40.0
+offset_bottom = 136.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Link8" type="TextureRect" parent="Chain"]
+texture_filter = 1
+offset_top = 112.0
+offset_right = 40.0
+offset_bottom = 152.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qayfy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ball" type="Area2D" parent="."]
+position = Vector2(0, 156)
+scale = Vector2(1.5, 1.5)
+
+[node name="TextureRect" type="TextureRect" parent="Ball"]
+texture_filter = 1
+offset_left = -21.3333
+offset_top = -20.0
+offset_right = 18.6667
+offset_bottom = 20.0
+texture = ExtResource("2_8hsqx")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_tekm8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_irapb")
+}
+autoplay = "swing"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-7.10358, 178.062)
+scale = Vector2(31.2174, 18.8096)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[connection signal="body_entered" from="Ball" to="." method="_on_ball_body_entered"]
