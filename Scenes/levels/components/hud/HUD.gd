@@ -15,9 +15,7 @@ func update():
 	label.text = str(level.collectibles_collected) + "/" + str(level.collectibles_required)
 	if not has_passed_requirement and level.can_exit():
 		has_passed_requirement = true
-		var label_color = label.get_theme_color("font_color")
-		var new_label_color = Color(label_color, 1.0)
-		label.add_theme_color_override("font_color", new_label_color)
+		label.modulate.a = 1.0
 		flash()
 		
 func flash() -> void:

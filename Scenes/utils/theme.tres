@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cnkw4cow13pl0"]
+
+[ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="1_bj3un"]
+
+[resource]
+Label/colors/font_color = Color(0.12549, 0.121569, 0.188235, 1)
+Label/colors/font_shadow_color = Color(0.819608, 0.576471, 0.14902, 1)
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_bj3un")

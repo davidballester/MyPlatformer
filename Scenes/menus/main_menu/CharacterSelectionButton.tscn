@@ -27,7 +27,7 @@ layout_mode = 0
 offset_left = 4.0
 offset_right = 44.0
 offset_bottom = 4.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/TopLeft/Side1"]
 layout_mode = 0
@@ -35,14 +35,14 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 44.0
 offset_bottom = 8.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="Side2" type="ColorRect" parent="Corners/TopLeft"]
 layout_mode = 0
 offset_top = 4.0
 offset_right = 4.0
 offset_bottom = 44.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/TopLeft/Side2"]
 layout_mode = 0
@@ -50,7 +50,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 8.0
 offset_bottom = 44.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="TopRight" type="Control" parent="Corners"]
 layout_mode = 1
@@ -66,7 +66,7 @@ layout_mode = 0
 offset_left = 12.0
 offset_right = 52.0
 offset_bottom = 4.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/TopRight/Side1"]
 layout_mode = 0
@@ -74,7 +74,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 44.0
 offset_bottom = 8.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="Side2" type="ColorRect" parent="Corners/TopRight"]
 layout_mode = 0
@@ -82,7 +82,7 @@ offset_left = 52.0
 offset_top = 4.0
 offset_right = 56.0
 offset_bottom = 44.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/TopRight/Side2"]
 layout_mode = 0
@@ -90,7 +90,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 8.0
 offset_bottom = 44.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="BottomLeft" type="Control" parent="Corners"]
 layout_mode = 1
@@ -107,7 +107,7 @@ offset_left = 4.0
 offset_top = 52.0
 offset_right = 44.0
 offset_bottom = 56.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/BottomLeft/Side1"]
 layout_mode = 0
@@ -115,14 +115,14 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 44.0
 offset_bottom = 8.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="Side2" type="ColorRect" parent="Corners/BottomLeft"]
 layout_mode = 0
 offset_top = 12.0
 offset_right = 4.0
 offset_bottom = 52.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/BottomLeft/Side2"]
 layout_mode = 0
@@ -130,7 +130,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 8.0
 offset_bottom = 40.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="BottomRight" type="Control" parent="Corners"]
 layout_mode = 1
@@ -150,7 +150,7 @@ offset_left = 12.0
 offset_top = 52.0
 offset_right = 52.0
 offset_bottom = 56.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/BottomRight/Side1"]
 layout_mode = 0
@@ -158,7 +158,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 44.0
 offset_bottom = 8.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)
 
 [node name="Side2" type="ColorRect" parent="Corners/BottomRight"]
 layout_mode = 0
@@ -166,7 +166,7 @@ offset_left = 52.0
 offset_top = 12.0
 offset_right = 56.0
 offset_bottom = 52.0
-color = Color(0, 0, 0, 1)
+color = Color(0.12549, 0.121569, 0.188235, 1)
 
 [node name="Shadow" type="ColorRect" parent="Corners/BottomRight/Side2"]
 layout_mode = 0
@@ -174,4 +174,4 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 8.0
 offset_bottom = 44.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+color = Color(0.811765, 0.545098, 0.0862745, 1)

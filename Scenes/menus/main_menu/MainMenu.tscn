@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://whqs8ap51i4p" path="res://scenes/utils/background/Background.tscn" id="2_xewfa"]
 [ext_resource type="PackedScene" uid="uid://c8awjrpsi2u8v" path="res://scenes/character/Character.tscn" id="3_vgrrc"]
 [ext_resource type="PackedScene" uid="uid://dvo4ubpso1erk" path="res://scenes/menus/main_menu/CharacterSelectionButton.tscn" id="3_x6da0"]
-[ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="4_yci4o"]
+[ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="4_6nm2n"]
 [ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_esna7"]
 [ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="5_ms33v"]
 [ext_resource type="SpriteFrames" uid="uid://wq3ich3ye1ax" path="res://assets/characters/pink_man/sprite_frames.tres" id="6_1wx1y"]
@@ -28,12 +28,10 @@ offset_top = 64.0
 offset_right = 336.0
 offset_bottom = 183.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.988235, 0.807843, 0.0784314, 1)
+theme = ExtResource("4_6nm2n")
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("4_yci4o")
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 125
 text = "JUMPING GAME"
 horizontal_alignment = 1
 
@@ -48,14 +46,14 @@ offset_top = 200.0
 offset_right = 117.0
 offset_bottom = 229.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.988235, 0.807843, 0.0784314, 1)
-theme_override_fonts/font = ExtResource("4_yci4o")
+theme = ExtResource("4_6nm2n")
 theme_override_font_sizes/font_size = 35
 text = "choose your player"
 horizontal_alignment = 1
 
 [node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("5_ms33v")]
+offset_left = 32.0
+offset_right = 32.0
 
 [node name="Start" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
 layout_mode = 1
@@ -99,11 +97,6 @@ offset_bottom = 384.0
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("6_1wx1y")
-direction = 1
-speed = 300.0
-inertia = 50.0
-jump_velocity = -900.0
-coyote_time_s = 0.15
 
 [node name="CharacterSelectionButton2" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 260.0
@@ -115,11 +108,6 @@ offset_bottom = 384.0
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("7_omffe")
-direction = 1
-speed = 300.0
-inertia = 50.0
-jump_velocity = -900.0
-coyote_time_s = 0.15
 
 [node name="CharacterSelectionButton" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 420.0
@@ -131,11 +119,6 @@ offset_bottom = 384.0
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_xglxu")
-direction = 1
-speed = 300.0
-inertia = 50.0
-jump_velocity = -900.0
-coyote_time_s = 0.15
 
 [node name="CharacterSelectionButton4" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
 offset_left = 580.0
@@ -147,8 +130,3 @@ offset_bottom = 384.0
 position = Vector2(60, 56)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("9_wodjb")
-direction = 1
-speed = 300.0
-inertia = 50.0
-jump_velocity = -900.0
-coyote_time_s = 0.15

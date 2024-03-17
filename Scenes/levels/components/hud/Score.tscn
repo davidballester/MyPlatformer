@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnqomci16atfg"]
+[gd_scene load_steps=6 format=3 uid="uid://cnqomci16atfg"]
 
+[ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/levels/components/Terrain.tscn" id="1_cp5ue"]
 [ext_resource type="Texture2D" uid="uid://bnt025qmc1vkm" path="res://assets/items/fruits/Strawberry.png" id="1_v8lwb"]
-[ext_resource type="FontFile" uid="uid://cc0ejiog8k7oe" path="res://assets/fonts/monogram.ttf" id="2_hf1es"]
+[ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="2_gdalq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e268o"]
 atlas = ExtResource("1_v8lwb")
@@ -26,35 +27,18 @@ offset_right = 90.0
 offset_bottom = 40.0
 size_flags_horizontal = 8
 
-[node name="Bg1" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_right = 136.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="Bg2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 140.0
-offset_bottom = 36.0
-color = Color(0, 0, 0, 1)
-
-[node name="Bg3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 136.0
-offset_bottom = 36.0
-color = Color(0.988235, 0.807843, 0.0784314, 1)
+[node name="Terrain" parent="." instance=ExtResource("1_cp5ue")]
+scale = Vector2(3, 3)
+layer_0/tile_data = PackedInt32Array(0, 1114112, 8, 1, 1179648, 8, 2, 1245184, 8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(20, 20)
+position = Vector2(20, 24)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_60gdu")
 
 [node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.686275)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 6
@@ -62,14 +46,13 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -99.0
-offset_top = -16.0
-offset_right = 42.0
-offset_bottom = 13.0
+offset_left = -94.0
+offset_top = -12.0
+offset_right = 47.0
+offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.588235)
-theme_override_fonts/font = ExtResource("2_hf1es")
+theme = ExtResource("2_gdalq")
 theme_override_font_sizes/font_size = 35
 text = "15 / 30"
 horizontal_alignment = 2
