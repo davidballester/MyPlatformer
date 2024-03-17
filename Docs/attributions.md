@@ -6,8 +6,8 @@
 # Music
 
 - Theme song: [Bubbglegum Pop Song by Seth_Makes_Sounds](https://freesound.org/people/Seth_Makes_Sounds/sounds/686610/)
-- Level 1: [Fun Little Happy Song](https://freesound.org/people/Seth_Makes_Sounds/sounds/722428/)
-- Level 2: [lofi](https://freesound.org/people/Seth_Makes_Sounds/sounds/587897/)
+- Level 1: [Fun Little Happy Song by Seth_Makes_Sounds](https://freesound.org/people/Seth_Makes_Sounds/sounds/722428/)
+- Level 2: [lofi by Seth_Makes_Sounds](https://freesound.org/people/Seth_Makes_Sounds/sounds/587897/)
 - Level cleared jingle: [tadaa by Maikkihapsis](https://freesound.org/people/Maikkihapsis/sounds/626950/)
 
 # Sound effects
