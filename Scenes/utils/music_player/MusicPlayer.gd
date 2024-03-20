@@ -20,4 +20,4 @@ func play_song():
 	var song_path = songs_paths[current_song_path_index]
 	print("MusicPlayer.play_song ", song_path)
 	stream = load(song_path)
-	play()
+	# play()

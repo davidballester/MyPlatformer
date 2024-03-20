@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mu3ut7r6i8iu"]
+
+[ext_resource type="Script" path="res://scenes/utils/scene_transition/SceneTransition.gd" id="1_ie5ok"]
+
+[node name="SceneTransition" type="CanvasLayer"]
+script = ExtResource("1_ie5ok")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfqri5qkehrvj"]
+[gd_scene load_steps=10 format=3 uid="uid://bfqri5qkehrvj"]
 
 [ext_resource type="Script" path="res://scenes/game/Game.gd" id="1_mbnal"]
 [ext_resource type="PackedScene" uid="uid://clbkanu5n06eh" path="res://scenes/game/state_machine/GameStateMachine.tscn" id="3_ffd7s"]
+[ext_resource type="PackedScene" uid="uid://mu3ut7r6i8iu" path="res://scenes/utils/scene_transition/SceneTransition.tscn" id="3_vrtu8"]
 [ext_resource type="PackedScene" uid="uid://cjb2vt8acl2nc" path="res://scenes/game/state_machine/MainMenuState.tscn" id="4_jr3jn"]
 [ext_resource type="PackedScene" uid="uid://clbhtuqxxk4bm" path="res://scenes/utils/music_player/MusicPlayer.tscn" id="4_pvx8x"]
 [ext_resource type="PackedScene" uid="uid://65mb0nf6rebx" path="res://scenes/game/state_machine/LevelState.tscn" id="5_vko61"]
@@ -20,9 +21,12 @@ process_mode = 3
 [node name="MenuContainer" type="Node" parent="."]
 process_mode = 3
 
-[node name="GameStateMachine" parent="." node_paths=PackedStringArray("game", "initial_state") instance=ExtResource("3_ffd7s")]
+[node name="SceneTransition" parent="." instance=ExtResource("3_vrtu8")]
+
+[node name="GameStateMachine" parent="." node_paths=PackedStringArray("game", "scene_transition", "initial_state") instance=ExtResource("3_ffd7s")]
 process_mode = 3
 game = NodePath("..")
+scene_transition = NodePath("../SceneTransition")
 initial_state = NodePath("MainMenuState")
 
 [node name="MainMenuState" parent="GameStateMachine" node_paths=PackedStringArray("level_state", "container", "game") instance=ExtResource("4_jr3jn")]
