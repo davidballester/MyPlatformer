@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf5di5hamv5p3"]
+
+[ext_resource type="Script" path="res://scenes/levels/components/camera_travelling/CameraTravelling.gd" id="1_tvddt"]
+[ext_resource type="PackedScene" uid="uid://qlc4vjwn328s" path="res://scenes/utils/path_follower/PathFollower.tscn" id="2_o4sim"]
+
+[node name="CameraTravelling" type="Node2D"]
+script = ExtResource("1_tvddt")
+
+[node name="PathFollower" parent="." instance=ExtResource("2_o4sim")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

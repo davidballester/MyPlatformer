@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkupofjn60utk"]
+[gd_scene load_steps=23 format=3 uid="uid://dkupofjn60utk"]
 
 [ext_resource type="Script" path="res://scenes/levels/base/Level.gd" id="1_ql2yr"]
 [ext_resource type="PackedScene" uid="uid://b1px3shy4hfup" path="res://scenes/utils/sfx_player/SFXPlayer.tscn" id="2_i1833"]
@@ -19,12 +19,19 @@
 [ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/PlayableCharacter.tscn" id="16_eamsj"]
 [ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/levels/components/hud/HUD.tscn" id="17_6gfcy"]
 [ext_resource type="PackedScene" uid="uid://bb1ppd0brykqa" path="res://scenes/levels/components/exit/Exit.tscn" id="18_mnnuf"]
+[ext_resource type="PackedScene" uid="uid://cf5di5hamv5p3" path="res://scenes/levels/components/camera_travelling/CameraTravelling.tscn" id="20_5akpy"]
 
 [sub_resource type="Curve2D" id="Curve2D_npbfn"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 88, 336, 0, 0, 0, 0, 624, 336, 0, 0, 0, 0, 624, 236, 0, 0, 0, 0, 88, 236, 0, 0, 0, 0, 88, 336)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_hmxvy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2088, 548, 0, 0, 0, 0, 184, 548)
+}
+point_count = 2
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_ql2yr")
@@ -226,7 +233,7 @@ position = Vector2(432, 612)
 sfx_player = NodePath("../SFXPlayer")
 
 [node name="PlayableCharacter" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_eamsj")]
-position = Vector2(1352, 408)
+position = Vector2(100, 660)
 sfx_player = NodePath("../SFXPlayer")
 one_way_tilemap = NodePath("../OneWayTerrain")
 
@@ -236,3 +243,16 @@ level = NodePath("..")
 [node name="Exit" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("18_mnnuf")]
 position = Vector2(2092, 720)
 sfx_player = NodePath("../SFXPlayer")
+
+[node name="CameraTravellingContainer" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="CameraTravellingContainer"]
+curve = SubResource("Curve2D_hmxvy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CameraTravellingContainer/Path2D"]
+position = Vector2(2088, 548)
+rotation = 3.14159
+rotates = false
+
+[node name="CameraTravelling" parent="CameraTravellingContainer" node_paths=PackedStringArray("path_follow") instance=ExtResource("20_5akpy")]
+path_follow = NodePath("../Path2D/PathFollow2D")

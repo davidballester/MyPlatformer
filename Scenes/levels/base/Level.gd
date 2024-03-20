@@ -5,7 +5,7 @@ class_name Level
 var collectibles_collected: int = 0
 @onready var collectibles = $Collectibles
 @onready var sfx_player = $SFXPlayer
-@onready var character: Character = $PlayableCharacter
+@onready var character: PlayableCharacter = $PlayableCharacter
 @onready var hud: HUD = $HUD
 @onready var exit: Exit = $Exit
 

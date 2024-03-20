@@ -24,9 +24,10 @@ func enter() -> void:
 		game.collectibles_carried_over = 0
 		level_container.add_child(level)
 		level.character.sprite_frames = game.character_sprite
-		set_up_camera()
 		manage_collectibles()
 		level.exit.entered.connect(on_exit_entered)
+		set_up_camera()
+		do_camera_traveling()
 
 func exit() -> void:
 	if game.saved_level_scene == level:
@@ -66,3 +67,12 @@ func on_exit_entered() -> void:
 	game.next_level(collectibles_carried_over)
 	state_changed.emit(level_state)
 	Globals.character_input_enabled = true
+
+func do_camera_traveling() -> void:
+	var camera_travelling: CameraTravelling = level.get_node("CameraTravellingContainer/CameraTravelling")
+	camera_travelling.camera = level.character.camera
+	Globals.character_input_enabled = false
+	camera_travelling.start()
+	await camera_travelling.finished
+	Globals.character_input_enabled = true
+	
