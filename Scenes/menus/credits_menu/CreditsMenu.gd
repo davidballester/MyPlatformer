@@ -1,10 +1,7 @@
-extends CanvasLayer
+extends Node2D
 class_name CreditsMenu
 
-signal back_clicked
+signal back_clicked()
 
-@onready var back: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Back
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	back.clicked.connect(func(): back_clicked.emit())
+func _ready() -> void:
+	%BackButton.clicked.connect(func(): back_clicked.emit())
