@@ -2,7 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/menus/components/ButtonWithSelectorGroup.gd" id="1_72hj5"]
 
-[node name="ButtonWithSelectorGroup" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="ButtonWithSelectorGroup" type="VBoxContainer"]
 script = ExtResource("1_72hj5")

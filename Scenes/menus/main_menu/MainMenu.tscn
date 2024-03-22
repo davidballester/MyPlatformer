@@ -1,132 +1,113 @@
-[gd_scene load_steps=12 format=3 uid="uid://oowbs41rockj"]
+[gd_scene load_steps=11 format=3 uid="uid://bkpgsvn8mtv7t"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu/MainMenu.gd" id="1_xpoal"]
 [ext_resource type="PackedScene" uid="uid://whqs8ap51i4p" path="res://scenes/utils/background/Background.tscn" id="2_xewfa"]
-[ext_resource type="PackedScene" uid="uid://c8awjrpsi2u8v" path="res://scenes/character/Character.tscn" id="3_vgrrc"]
-[ext_resource type="PackedScene" uid="uid://dvo4ubpso1erk" path="res://scenes/menus/main_menu/CharacterSelectionButton.tscn" id="3_x6da0"]
+[ext_resource type="PackedScene" uid="uid://xp5q1kc4jo7y" path="res://scenes/menus/main_menu/CharacterSelectionButton.tscn" id="3_x6da0"]
 [ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="4_6nm2n"]
 [ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_esna7"]
-[ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="5_ms33v"]
 [ext_resource type="SpriteFrames" uid="uid://wq3ich3ye1ax" path="res://assets/characters/pink_man/sprite_frames.tres" id="6_1wx1y"]
 [ext_resource type="SpriteFrames" uid="uid://d0hb1oe2htjyl" path="res://assets/characters/ninja_frog/sprite_frames.tres" id="7_omffe"]
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="8_xglxu"]
+[ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="9_jipuc"]
 [ext_resource type="SpriteFrames" uid="uid://cc51fibjygw7" path="res://assets/characters/virtual_guy/sprite_frames.tres" id="9_wodjb"]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MainMenu" type="Node2D"]
 script = ExtResource("1_xpoal")
 
 [node name="Background" parent="." instance=ExtResource("2_xewfa")]
 
-[node name="Title" type="Label" parent="Background"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -336.0
-offset_top = 64.0
-offset_right = 336.0
-offset_bottom = 183.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
 theme = ExtResource("4_6nm2n")
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
-theme_override_font_sizes/font_size = 125
+theme_override_font_sizes/font_size = 100
 text = "JUMPING GAME"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Background"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -117.0
-offset_top = 200.0
-offset_right = 117.0
-offset_bottom = 229.0
-grow_horizontal = 2
-theme = ExtResource("4_6nm2n")
-theme_override_font_sizes/font_size = 35
-text = "choose your player"
-horizontal_alignment = 1
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
 
-[node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("5_ms33v")]
-offset_left = 32.0
-offset_right = 32.0
+[node name="CharacterSelectionButtonsContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
 
-[node name="Start" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 212.0
-offset_top = 416.0
-offset_right = 476.0
-offset_bottom = 480.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "START"
-
-[node name="Quit" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 212.0
-offset_top = 504.0
-offset_right = 476.0
-offset_bottom = 568.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "QUIT"
-
-[node name="CharacterSelectionButtons" type="Node" parent="."]
-
-[node name="CharacterSelectionButton3" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
-offset_left = 100.0
-offset_top = 264.0
-offset_right = 220.0
-offset_bottom = 384.0
-
-[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton3" instance=ExtResource("3_vgrrc")]
-position = Vector2(60, 56)
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("6_1wx1y")
-
-[node name="CharacterSelectionButton2" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
-offset_left = 260.0
-offset_top = 264.0
-offset_right = 380.0
-offset_bottom = 384.0
-
-[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton2" instance=ExtResource("3_vgrrc")]
-position = Vector2(60, 56)
-scale = Vector2(3, 3)
+[node name="CharacterSelectionButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer/CharacterSelectionButtonsContainer" instance=ExtResource("3_x6da0")]
+layout_mode = 2
+size_flags_horizontal = 6
 sprite_frames = ExtResource("7_omffe")
 
-[node name="CharacterSelectionButton" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
-offset_left = 420.0
-offset_top = 264.0
-offset_right = 540.0
-offset_bottom = 384.0
+[node name="CharacterSelectionButton2" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer/CharacterSelectionButtonsContainer" instance=ExtResource("3_x6da0")]
+layout_mode = 2
+size_flags_horizontal = 6
+sprite_frames = ExtResource("6_1wx1y")
 
-[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton" instance=ExtResource("3_vgrrc")]
-position = Vector2(60, 56)
-scale = Vector2(3, 3)
+[node name="CharacterSelectionButton3" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer/CharacterSelectionButtonsContainer" instance=ExtResource("3_x6da0")]
+layout_mode = 2
+size_flags_horizontal = 6
+sprite_frames = ExtResource("9_wodjb")
+
+[node name="CharacterSelectionButton4" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer/CharacterSelectionButtonsContainer" instance=ExtResource("3_x6da0")]
+layout_mode = 2
+size_flags_horizontal = 6
 sprite_frames = ExtResource("8_xglxu")
 
-[node name="CharacterSelectionButton4" parent="CharacterSelectionButtons" instance=ExtResource("3_x6da0")]
-offset_left = 580.0
-offset_top = 264.0
-offset_right = 700.0
-offset_bottom = 384.0
+[node name="ButtonsContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
 
-[node name="Character" parent="CharacterSelectionButtons/CharacterSelectionButton4" instance=ExtResource("3_vgrrc")]
-position = Vector2(60, 56)
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("9_wodjb")
+[node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource("9_jipuc")]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="StartButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "START"
+
+[node name="CreditsButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "CREDITS"
+
+[node name="QuitButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "QUIT"

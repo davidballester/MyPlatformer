@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdyx5dnugld7m"]
+
+[ext_resource type="Script" path="res://scenes/game/state_machine/CreditsState.gd" id="1_tv412"]
+
+[node name="CreditsState" type="Node"]
+script = ExtResource("1_tv412")

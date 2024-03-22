@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/menus/quit_menu/QuitMenu.gd" id="1_xydkr"]
 [ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_0hto1"]
-[ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="3_355y6"]
+[ext_resource type="PackedScene" uid="uid://2lfkacbuety4" path="res://scenes/menus/components/Title.tscn" id="3_khsbh"]
 [ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="4_1ore8"]
 [ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_drg23"]
 
@@ -16,25 +16,11 @@ offset_bottom = 600.0
 texture = ExtResource("2_0hto1")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="Background"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -305.5
-offset_top = -245.5
-offset_right = 305.5
-offset_bottom = -42.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_355y6")
-theme_override_font_sizes/font_size = 125
-text = "DO YOU
-WANT TO QUIT?"
-horizontal_alignment = 1
+[node name="Title" parent="Background" instance=ExtResource("3_khsbh")]
+layout_mode = 0
+anchors_preset = 0
+text = "DO YOU WANT
+TO QUIT?"
 
 [node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("4_1ore8")]
 layout_mode = 1
@@ -47,9 +33,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Yes" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_drg23")]
+offset_left = -188.0
+offset_right = 76.0
 text = "YES"
 
 [node name="No" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_drg23")]
+offset_left = -188.0
 offset_top = 100.0
+offset_right = 76.0
 offset_bottom = 164.0
 text = "NO"

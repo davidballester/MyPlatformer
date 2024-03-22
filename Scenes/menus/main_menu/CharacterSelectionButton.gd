@@ -1,19 +1,19 @@
 extends Control
 class_name CharacterSelectionButton
 
-@onready var corners: Control = $Corners
+@export var sprite_frames: SpriteFrames
 
 func _ready() -> void:
-	corners.hide()
+	%SelectionIndicator.hide()
+	%AnimatedSprite2D.sprite_frames = sprite_frames
+	%AnimatedSprite2D.animation = "idle"
+	%AnimatedSprite2D.play()
 
 func set_selected(selected: bool) -> void:
 	if selected:
-		corners.show()
+		%SelectionIndicator.show()
 	else:
-		corners.hide()
+		%SelectionIndicator.hide()
 		
 func get_sprite_frames() -> SpriteFrames:
-	for child in get_children():
-		if child is Character:
-			return child.sprite_frames
-	return null
+	return %AnimatedSprite2D.sprite_frames

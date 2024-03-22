@@ -24,6 +24,7 @@ func select_next_button() -> void:
 		
 func select_previous_button() -> void:
 	var next_index = (current_button_focused_index - 1) % buttons.size()
+	next_index = buttons.size() - 1 if next_index < 0 else next_index
 	select_button(next_index)
 	
 func select_button(next_index: int) -> void:

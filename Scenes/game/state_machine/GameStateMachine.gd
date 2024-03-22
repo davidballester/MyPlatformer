@@ -13,7 +13,8 @@ func _ready() -> void:
 
 func transition_to_state(state: State) -> void:
 	var is_transition_between_levels = current_state is LevelState and state is LevelState
-	var should_use_transition = current_state is MainMenuState or is_transition_between_levels
+	var is_game_start = current_state is MainMenuState and state is LevelState
+	var should_use_transition = is_game_start or is_transition_between_levels
 	if should_use_transition:
 		await scene_transition.roll_in()
 	super.transition_to_state(state)

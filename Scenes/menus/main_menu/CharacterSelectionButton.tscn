@@ -1,177 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvo4ubpso1erk"]
+[gd_scene load_steps=4 format=3 uid="uid://xp5q1kc4jo7y"]
 
-[ext_resource type="Script" path="res://scenes/menus/main_menu/CharacterSelectionButton.gd" id="1_h0fnf"]
+[ext_resource type="Script" path="res://scenes/menus/main_menu/CharacterSelectionButton.gd" id="1_3wdt3"]
+[ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="2_nglcu"]
+[ext_resource type="Texture2D" uid="uid://vs33a8o83y0d" path="res://assets/items/selector.png" id="3_skd5a"]
 
 [node name="CharacterSelectionButton" type="Control"]
+custom_minimum_size = Vector2(112, 112)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 120.0
-offset_bottom = 120.0
-theme_type_variation = &"FlatButton"
-script = ExtResource("1_h0fnf")
+script = ExtResource("1_3wdt3")
 
-[node name="Corners" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 0
-offset_right = 120.0
-offset_bottom = 120.0
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_right = 96.0
+offset_bottom = 96.0
 
-[node name="TopLeft" type="Control" parent="Corners"]
-layout_mode = 1
-anchors_preset = 0
-offset_right = 48.0
-offset_bottom = 48.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(56, 42)
+scale = Vector2(3.5, 3.5)
+sprite_frames = ExtResource("2_nglcu")
+animation = &"idle"
 
-[node name="Side1" type="ColorRect" parent="Corners/TopLeft"]
-layout_mode = 0
-offset_left = 4.0
-offset_right = 44.0
-offset_bottom = 4.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/TopLeft/Side1"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 44.0
-offset_bottom = 8.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="Side2" type="ColorRect" parent="Corners/TopLeft"]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 4.0
-offset_bottom = 44.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/TopLeft/Side2"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 8.0
-offset_bottom = 44.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="TopRight" type="Control" parent="Corners"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -48.0
-offset_bottom = 48.0
-grow_horizontal = 0
-
-[node name="Side1" type="ColorRect" parent="Corners/TopRight"]
-layout_mode = 0
-offset_left = 12.0
-offset_right = 52.0
-offset_bottom = 4.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/TopRight/Side1"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 44.0
-offset_bottom = 8.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="Side2" type="ColorRect" parent="Corners/TopRight"]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 4.0
-offset_right = 56.0
-offset_bottom = 44.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/TopRight/Side2"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 8.0
-offset_bottom = 44.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="BottomLeft" type="Control" parent="Corners"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -48.0
-offset_right = 48.0
-grow_vertical = 0
-
-[node name="Side1" type="ColorRect" parent="Corners/BottomLeft"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 52.0
-offset_right = 44.0
-offset_bottom = 56.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/BottomLeft/Side1"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 44.0
-offset_bottom = 8.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="Side2" type="ColorRect" parent="Corners/BottomLeft"]
-layout_mode = 0
-offset_top = 12.0
-offset_right = 4.0
-offset_bottom = 52.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/BottomLeft/Side2"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 8.0
-offset_bottom = 40.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="BottomRight" type="Control" parent="Corners"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -48.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Side1" type="ColorRect" parent="Corners/BottomRight"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 52.0
-offset_right = 52.0
-offset_bottom = 56.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/BottomRight/Side1"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 44.0
-offset_bottom = 8.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
-
-[node name="Side2" type="ColorRect" parent="Corners/BottomRight"]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 12.0
-offset_right = 56.0
-offset_bottom = 52.0
-color = Color(0.12549, 0.121569, 0.188235, 1)
-
-[node name="Shadow" type="ColorRect" parent="Corners/BottomRight/Side2"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 8.0
-offset_bottom = 44.0
-color = Color(0.811765, 0.545098, 0.0862745, 1)
+[node name="SelectionIndicator" type="TextureRect" parent="CenterContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(112, 112)
+layout_mode = 2
+texture = ExtResource("3_skd5a")
