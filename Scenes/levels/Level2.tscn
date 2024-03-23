@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/levels/components/Terrain.tscn" id="13_ejkqc"]
 [ext_resource type="PackedScene" uid="uid://dhdxgq5ds7w3e" path="res://scenes/levels/components/OneWayTerrain.tscn" id="14_y15nw"]
 [ext_resource type="PackedScene" uid="uid://eo5cqaxtccty" path="res://scenes/levels/components/trampoline/Trampoline.tscn" id="15_7i4nb"]
-[ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/PlayableCharacter.tscn" id="16_ta35o"]
+[ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/Character.tscn" id="16_ta35o"]
 [ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/levels/components/hud/HUD.tscn" id="17_22iw7"]
 [ext_resource type="PackedScene" uid="uid://bb1ppd0brykqa" path="res://scenes/levels/components/exit/Exit.tscn" id="18_1aoth"]
 
@@ -153,13 +153,13 @@ position = Vector2(572, 536)
 position = Vector2(1160, 704)
 scale = Vector2(2, 2)
 sfx_player = NodePath("../../SFXPlayer")
-main_character = NodePath("../../PlayableCharacter")
+main_character = NodePath("../../Character")
 
 [node name="FallingPlatform2" parent="Traps" node_paths=PackedStringArray("sfx_player", "main_character") instance=ExtResource("9_dt3po")]
 position = Vector2(1264, 704)
 scale = Vector2(2, 2)
 sfx_player = NodePath("../../SFXPlayer")
-main_character = NodePath("../../PlayableCharacter")
+main_character = NodePath("../../Character")
 
 [node name="RockHead" type="Node" parent="Traps"]
 
@@ -220,7 +220,7 @@ layer_0/tile_data = PackedInt32Array(1179650, 1114112, 1, 1179651, 1179648, 1, 1
 position = Vector2(432, 612)
 sfx_player = NodePath("../SFXPlayer")
 
-[node name="PlayableCharacter" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_ta35o")]
+[node name="Character" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_ta35o")]
 position = Vector2(1352, 408)
 sfx_player = NodePath("../SFXPlayer")
 one_way_tilemap = NodePath("../OneWayTerrain")

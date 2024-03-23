@@ -21,8 +21,13 @@ enum Direction { LEFT, RIGHT }
 		direction = new_direction
 @export var coyote_time_s: float = 0.15
 @export var one_way_tilemap: TileMap
+
 @onready var animated_sprite2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var camera: Camera2D = $Camera
+@onready var state_machine: CharacterStateMachine = $CharacterStateMachine
+@onready var jump_component: JumpComponent = $JumpComponent
+@onready var running_component: RunningComponent = $RunningComponent
 
 var on_coyote_time: bool = false
 var can_double_jump: bool = false
@@ -34,29 +39,29 @@ func _ready():
 	animated_sprite2d.sprite_frames = sprite_frames
 	animated_sprite2d.animation = "idle"
 	animated_sprite2d.play()
-	
-func take_damage():
-	print("Character.take_damage")
-	pass
-	
-func accelerate_x(_delta: float) -> void:
-	pass
-	
-func inertia_x() -> void:
-	pass
-	
+
+func take_damage() -> void:
+	state_machine.take_damage()
+
 func jump() -> void:
-	pass
+	jump_component.jump(extra_jump_velocity)
 	
 func enter_jump_state() -> void:
-	pass
+	can_double_jump = true
+	state_machine.jump()
 	
 func cut_jump() -> void:
-	pass
+	jump_component.cut_jump()
 	
-func inertia_y(_delta: float) -> void:
-	pass
+func inertia_y(delta: float) -> void:
+	jump_component.inertia(delta)
+
+func accelerate_x(delta: float) -> void:
+	running_component.accelerate(delta)
 	
+func inertia_x() -> void:
+	running_component.inertia()
+
 func add_jump_velocity(value: float, duration_s: float) -> void:
 	extra_jump_velocity += value
 	get_tree().create_timer(duration_s).timeout.connect(

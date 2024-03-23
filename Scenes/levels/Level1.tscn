@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5hw2w8hdto6" path="res://scenes/levels/components/falling_platform/FallingPlatform.tscn" id="12_hm4v1"]
 [ext_resource type="PackedScene" uid="uid://cwwbjhtmxyfn4" path="res://scenes/levels/components/spiked_ball/SpikedBall.tscn" id="13_mne3g"]
 [ext_resource type="PackedScene" uid="uid://qlc4vjwn328s" path="res://scenes/utils/path_follower/PathFollower.tscn" id="13_rbu53"]
-[ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/PlayableCharacter.tscn" id="16_eamsj"]
+[ext_resource type="PackedScene" uid="uid://boym5f7fnma0i" path="res://scenes/character/Character.tscn" id="16_eamsj"]
 [ext_resource type="PackedScene" uid="uid://o4cv1lb30iw5" path="res://scenes/levels/components/hud/HUD.tscn" id="17_6gfcy"]
 [ext_resource type="PackedScene" uid="uid://bb1ppd0brykqa" path="res://scenes/levels/components/exit/Exit.tscn" id="18_mnnuf"]
 [ext_resource type="PackedScene" uid="uid://cf5di5hamv5p3" path="res://scenes/levels/components/camera_travelling/CameraTravelling.tscn" id="20_5akpy"]
@@ -161,13 +161,13 @@ position = Vector2(572, 536)
 position = Vector2(1160, 704)
 scale = Vector2(2, 2)
 sfx_player = NodePath("../../SFXPlayer")
-main_character = NodePath("../../PlayableCharacter")
+main_character = NodePath("../../Character")
 
 [node name="FallingPlatform2" parent="Traps" node_paths=PackedStringArray("sfx_player", "main_character") instance=ExtResource("12_hm4v1")]
 position = Vector2(1264, 704)
 scale = Vector2(2, 2)
 sfx_player = NodePath("../../SFXPlayer")
-main_character = NodePath("../../PlayableCharacter")
+main_character = NodePath("../../Character")
 
 [node name="RockHead" type="Node" parent="Traps"]
 
@@ -232,7 +232,7 @@ layer_0/tile_data = PackedInt32Array(1179650, 1114112, 1, 1179651, 1179648, 1, 1
 position = Vector2(432, 612)
 sfx_player = NodePath("../SFXPlayer")
 
-[node name="PlayableCharacter" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_eamsj")]
+[node name="Character" parent="." node_paths=PackedStringArray("sfx_player", "one_way_tilemap") instance=ExtResource("16_eamsj")]
 position = Vector2(100, 660)
 sfx_player = NodePath("../SFXPlayer")
 one_way_tilemap = NodePath("../OneWayTerrain")
