@@ -49,16 +49,114 @@ theme_override_font_sizes/font_size = 100
 text = "CREDITS"
 horizontal_alignment = 1
 
-[node name="ButtonsContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_s3nxo")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource("4_pufcc")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PixelArt" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/PixelArt"]
+layout_mode = 2
+
+[node name="PixelArt" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/PixelArt/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+text = "Pixel Art"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/PixelArt/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="Text" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/PixelArt/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+theme_override_font_sizes/font_size = 36
+text = "Pixel adventure 1 by Pixel Frog
+Universal Icon Pack: 8 x 8 by SHMORGUS"
+
+[node name="Music" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/Music"]
+layout_mode = 2
+
+[node name="PixelArt" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/Music/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+text = "Music
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/Music/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="Text" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/Music/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+theme_override_font_sizes/font_size = 36
+text = "Bubbglegum Pop Song by Seth_Makes_Sounds
+Fun Little Happy Song by Seth_Makes_Sounds
+Some Game Music [120bpm] by Seth_Makes_Sounds"
+
+[node name="SFX" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/SFX"]
+layout_mode = 2
+
+[node name="PixelArt" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/SFX/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+text = "Sound effects"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/SFX/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="Text" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/SFX/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+theme_override_font_sizes/font_size = 36
+text = "Jump_C_07 by cabled_mess
+crunch 2 by theplax
+8-bit damage sound by EVRetro
+growl3 by ryansnook
+BeepFalling by acclivity
+Swoosh by ImATaco
+tadaa by Maikkihapsis"
+
+[node name="ButtonsContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonsContainer" instance=ExtResource("4_pufcc")]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 
-[node name="BackButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_eaneq")]
+[node name="BackButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_eaneq")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

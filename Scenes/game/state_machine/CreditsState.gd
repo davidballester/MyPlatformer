@@ -17,3 +17,8 @@ func exit() -> void:
 func on_back_clicked() -> void:
 	print("CreditsState.on_back_clicked")
 	state_changed.emit(main_menu_state)
+
+func _input(_event: InputEvent) -> void:
+	if not Input.is_action_pressed("pause"):
+		return
+	state_changed.emit(main_menu_state)
