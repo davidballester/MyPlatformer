@@ -1,44 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://dey115k07fmm"]
+[gd_scene load_steps=6 format=3 uid="uid://cqsufhngofm3d"]
 
+[ext_resource type="PackedScene" uid="uid://whqs8ap51i4p" path="res://scenes/utils/background/Background.tscn" id="1_lxipx"]
 [ext_resource type="Script" path="res://scenes/menus/pause_menu/PauseMenu.gd" id="1_rr6pm"]
-[ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_jbtpt"]
-[ext_resource type="PackedScene" uid="uid://2lfkacbuety4" path="res://scenes/menus/components/Title.tscn" id="3_n400a"]
+[ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="2_85b4s"]
 [ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="4_f1u0v"]
 [ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_xoxv4"]
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="Node2D"]
 script = ExtResource("1_rr6pm")
 
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 800.0
-offset_bottom = 600.0
-texture = ExtResource("2_jbtpt")
-stretch_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Title" parent="Background" instance=ExtResource("3_n400a")]
-layout_mode = 0
-anchors_preset = 0
-text = "PAUSE"
+[node name="Background" parent="CanvasLayer" instance=ExtResource("1_lxipx")]
 
-[node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("4_f1u0v")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_xoxv4")]
-offset_left = -192.0
-offset_right = 72.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("2_85b4s")
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 100
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/CenterContainer" instance=ExtResource("4_f1u0v")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="ResumeButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/CenterContainer/ButtonWithSelectorGroup" instance=ExtResource("5_xoxv4")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 text = "RESUME"
 
-[node name="Quit" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_xoxv4")]
-offset_left = -192.0
-offset_top = 100.0
-offset_right = 72.0
-offset_bottom = 164.0
+[node name="QuitButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/CenterContainer/ButtonWithSelectorGroup" instance=ExtResource("5_xoxv4")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 text = "QUIT"

@@ -1,11 +1,9 @@
-extends CanvasLayer
+extends Node2D
 class_name QuitMenu
 
-signal yes_clicked
-signal no_clicked
-@onready var yes: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Yes
-@onready var no: ButtonWithSelector = $Background/ButtonWithSelectorGroup/No
+signal yes_clicked()
+signal no_clicked()
 
-func _ready() -> void:
-	yes.clicked.connect(func(): yes_clicked.emit())
-	no.clicked.connect(func(): no_clicked.emit())
+func _ready():
+	%YesButton.clicked.connect(func(): yes_clicked.emit())
+	%NoButton.clicked.connect(func(): no_clicked.emit())

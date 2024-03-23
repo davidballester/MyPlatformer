@@ -1,63 +1,76 @@
-[gd_scene load_steps=7 format=3 uid="uid://baqrt1l066p6b"]
+[gd_scene load_steps=6 format=3 uid="uid://lubacmd7inoe"]
 
 [ext_resource type="Script" path="res://scenes/menus/finished_menu/FinishedMenu.gd" id="1_2ro0x"]
-[ext_resource type="Texture2D" uid="uid://b2uvam3t2k4oy" path="res://assets/background/Yellow.png" id="2_sisbe"]
+[ext_resource type="PackedScene" uid="uid://whqs8ap51i4p" path="res://scenes/utils/background/Background.tscn" id="2_70wyw"]
 [ext_resource type="Theme" uid="uid://cnkw4cow13pl0" path="res://scenes/utils/theme.tres" id="3_cp2cc"]
-[ext_resource type="PackedScene" uid="uid://2lfkacbuety4" path="res://scenes/menus/components/Title.tscn" id="3_ue5h1"]
 [ext_resource type="PackedScene" uid="uid://2w46ejjb0j1x" path="res://scenes/menus/components/ButtonWithSelectorGroup.tscn" id="4_oujfl"]
 [ext_resource type="PackedScene" uid="uid://b7f51g32vqtrp" path="res://scenes/menus/components/ButtonWithSelector.tscn" id="5_8i3np"]
 
-[node name="FinishedMenu" type="CanvasLayer"]
+[node name="FinishedMenu" type="Node2D"]
 script = ExtResource("1_2ro0x")
 
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 800.0
-offset_bottom = 600.0
-texture = ExtResource("2_sisbe")
-stretch_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Title2" parent="Background" instance=ExtResource("3_ue5h1")]
-layout_mode = 1
-offset_top = 19.0
-offset_bottom = 143.0
-text = "THE END"
+[node name="Background" parent="CanvasLayer" instance=ExtResource("2_70wyw")]
 
-[node name="Text" type="Label" parent="Background"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -209.0
-offset_top = -26.0
-offset_right = 209.0
-offset_bottom = 26.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
 theme = ExtResource("3_cp2cc")
-text = "thank you for playing!"
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 100
+text = "THE END"
 horizontal_alignment = 1
 
-[node name="ButtonWithSelectorGroup" parent="Background" instance=ExtResource("4_oujfl")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
 
-[node name="Quit" parent="Background/ButtonWithSelectorGroup" instance=ExtResource("5_8i3np")]
-offset_left = -184.0
-offset_top = 212.0
-offset_right = 80.0
-offset_bottom = 276.0
-text = "QUIT"
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "thanks for playing!"
+horizontal_alignment = 1
 
-[connection signal="clicked" from="Background/ButtonWithSelectorGroup/Quit" to="." method="_on_quit_clicked"]
+[node name="ButtonsContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource("4_oujfl")]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="BackButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_8i3np")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "BACK"

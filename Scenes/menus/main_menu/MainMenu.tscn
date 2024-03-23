@@ -14,9 +14,9 @@
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_xpoal")
 
-[node name="Background" parent="." instance=ExtResource("2_xewfa")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("2_xewfa")]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

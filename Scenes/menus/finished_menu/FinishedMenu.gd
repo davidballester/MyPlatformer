@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name FinishedMenu
 
-signal finished
+signal finished()
 
-func _on_quit_clicked():
-	finished.emit()
+func _ready() -> void:
+	%BackButton.clicked.connect(func(): finished.emit())

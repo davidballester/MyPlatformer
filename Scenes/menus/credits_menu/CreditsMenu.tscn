@@ -9,9 +9,9 @@
 [node name="CreditsMenu" type="Node2D"]
 script = ExtResource("1_4uqr5")
 
-[node name="Background" parent="." instance=ExtResource("2_vub8n")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("2_vub8n")]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -49,16 +49,13 @@ theme_override_font_sizes/font_size = 100
 text = "CREDITS"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+[node name="ButtonsContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 64
-
-[node name="ButtonsContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 32
+size_flags_vertical = 3
 
 [node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource("4_pufcc")]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 16
 
 [node name="BackButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_eaneq")]

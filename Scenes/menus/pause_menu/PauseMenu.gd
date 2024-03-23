@@ -1,11 +1,9 @@
-extends CanvasLayer
+extends Node2D
 class_name PauseMenu
 
-signal resume_clicked
-signal exit_clicked
-@onready var resume: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Resume
-@onready var quit: ButtonWithSelector = $Background/ButtonWithSelectorGroup/Quit
+signal resume_clicked()
+signal exit_clicked()
 
 func _ready() -> void:
-	resume.clicked.connect(func(): resume_clicked.emit())
-	quit.clicked.connect(func(): exit_clicked.emit())
+	%ResumeButton.clicked.connect(func(): resume_clicked.emit())
+	%QuitButton.clicked.connect(func(): exit_clicked.emit())
