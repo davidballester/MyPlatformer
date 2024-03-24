@@ -13,7 +13,6 @@ func _init():
 		players.append(player)
 		
 func play(sfx: VisibilityAwareSFX) -> Callable:
-	print("VisibilityAwareSFXPlayer.play ", sfx)
 	var audio_stream = load(sfx.sound_path)
 	var player: AudioStreamPlayer = players[current_player]
 	player.stream = audio_stream

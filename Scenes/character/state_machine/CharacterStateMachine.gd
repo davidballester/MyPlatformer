@@ -9,7 +9,6 @@ class_name CharacterStateMachine
 func _ready():
 	for state in get_children():
 		if state is CharacterState:
-			print("CharacterStateMachine._ready ", state)
 			state.character = character
 			state.character_input = character_input
 

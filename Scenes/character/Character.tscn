@@ -38,9 +38,9 @@ jump_time_to_descent_s = 0.2
 [node name="RunningComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("5_k7bkq")]
 character = NodePath("..")
 on_floor_acceleration = 100.0
-on_air_acceleration = 500.0
-min_speed = 250.0
-max_speed = 500.0
+on_air_acceleration = 350.0
+min_speed = 150.0
+max_speed = 300.0
 
 [node name="CharacterInput" parent="." instance=ExtResource("4_a6ohb")]
 

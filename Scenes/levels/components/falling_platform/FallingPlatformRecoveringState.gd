@@ -4,7 +4,6 @@ class_name FallingPlatformRecoveringState
 @export var idle_state: State
 
 func enter() -> void:
-	print("FallingPlatformRecoveringState.enter")
 	falling_platform.play_animation(FallingPlatform.AnimationType.ON)
 	
 func physics_process(delta: float) -> State:

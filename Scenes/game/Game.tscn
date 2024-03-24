@@ -36,8 +36,7 @@ credits_state = NodePath("../CreditsState")
 container = NodePath("../../MenuContainer")
 game = NodePath("../..")
 
-[node name="LevelState" parent="GameStateMachine" node_paths=PackedStringArray("main_menu_state", "pause_menu_state", "level_state", "finished_state", "level_container", "game") instance=ExtResource("5_vko61")]
-main_menu_state = NodePath("../MainMenuState")
+[node name="LevelState" parent="GameStateMachine" node_paths=PackedStringArray("pause_menu_state", "level_state", "finished_state", "level_container", "game") instance=ExtResource("5_vko61")]
 pause_menu_state = NodePath("../PauseMenuState")
 level_state = NodePath(".")
 finished_state = NodePath("../FinishedState")

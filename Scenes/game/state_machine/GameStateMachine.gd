@@ -12,6 +12,7 @@ func _ready() -> void:
 	super._ready()
 
 func transition_to_state(state: State) -> void:
+	print("GameStateMachine.transition_to_state ", state)
 	var is_transition_between_levels = current_state is LevelState and state is LevelState
 	var is_game_start = current_state is MainMenuState and state is LevelState
 	var should_use_transition = is_game_start or is_transition_between_levels

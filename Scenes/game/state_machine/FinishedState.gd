@@ -16,6 +16,5 @@ func exit() -> void:
 	game.resume()
 	
 func go_to_main_menu():
-	print("QuitMenuState.go_to_main_menu")
 	game.reset()
 	state_changed.emit(main_menu_state)

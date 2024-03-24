@@ -23,11 +23,9 @@ func input(_event: InputEvent) -> State:
 	return null
 	
 func go_to_pause_menu():
-	print("QuitMenuState.go_to_pause_menu")
 	state_changed.emit(pause_menu_state)
 
 func go_to_main_menu():
-	print("QuitMenuState.go_to_main_menu")
 	game.reset()
 	state_changed.emit(main_menu_state)
 	game.resume()

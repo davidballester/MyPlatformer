@@ -23,10 +23,8 @@ func input(_event: InputEvent) -> State:
 	return null
 	
 func resume():
-	print("PauseMenuState.resume")
 	game.resume()
 	state_changed.emit(level_state)
 
 func go_to_quit_menu():
-	print("PauseMenuState.quit_menu_state")
 	state_changed.emit(quit_menu_state)

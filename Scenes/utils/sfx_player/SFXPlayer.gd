@@ -13,7 +13,6 @@ func _init():
 		players.append(player)
 		
 func play(sfx_path: String, volume: float = 1.0) -> Callable:
-	print("SFXPlayer.play ", sfx_path, " ", volume)
 	var audio_stream = load(sfx_path)
 	var player: AudioStreamPlayer = players[current_player]
 	player.stream = audio_stream

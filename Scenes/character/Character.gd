@@ -76,7 +76,6 @@ func drop() -> bool:
 		or get_slide_collision(0).get_collider().name != "OneWayTerrain"
 	):
 		return false
-	print("Character.drop")
 	# XXX: This looks dangerous!
 	collision_shape.disabled = true
 	get_tree().create_timer(0.1).timeout.connect(func(): collision_shape.disabled = false)

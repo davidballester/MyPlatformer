@@ -1,13 +1,11 @@
 extends GameState
 class_name LevelState
 
-@export var main_menu_state: State
 @export var pause_menu_state: State
 @export var level_state: State
 @export var finished_state: FinishedState
 @export var level_container: Node
 var level: Level
-var pause_menu: PauseMenu
 
 func enter() -> void:
 	if game.saved_level_scene:
@@ -60,6 +58,7 @@ func on_collectible_collected() -> void:
 
 func on_exit_entered() -> void:
 	if not level.can_exit():
+		level.hud.flash()
 		return
 	Globals.character_input_enabled = false
 	await level.exit.play()
@@ -70,6 +69,8 @@ func on_exit_entered() -> void:
 
 func do_camera_traveling() -> void:
 	var camera_travelling: CameraTravelling = level.get_node("CameraTravellingContainer/CameraTravelling")
+	if not camera_travelling:
+		return
 	camera_travelling.camera = level.character.camera
 	Globals.character_input_enabled = false
 	camera_travelling.start()

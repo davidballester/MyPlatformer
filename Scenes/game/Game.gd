@@ -11,7 +11,6 @@ func set_character_sprite(sprite_frames: SpriteFrames) -> void:
 	character_sprite = sprite_frames
 	
 func save_level(saved_level: Node) -> void:
-	print("Game.save_level ", saved_level)
 	saved_level_scene = saved_level
 	
 func pause() -> void:
