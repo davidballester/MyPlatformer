@@ -1,15 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://uuiyd1kyurc6"]
+[gd_scene load_steps=28 format=3 uid="uid://uuiyd1kyurc6"]
 
 [ext_resource type="Script" path="res://scenes/levels/base/Level.gd" id="1_ql2yr"]
 [ext_resource type="Script" path="res://scenes/utils/sfx_player/SFXPlayer.gd" id="2_s3tqs"]
 [ext_resource type="Texture2D" uid="uid://7q37jrt7l5ke" path="res://assets/background/Blue.png" id="2_umv73"]
 [ext_resource type="Script" path="res://scenes/utils/visibility_aware_sfx_player/VisibilityAwareSFXPlayer.gd" id="3_0uuvq"]
 [ext_resource type="PackedScene" uid="uid://cn750prf67vvm" path="res://scenes/levels/components/Background.tscn" id="4_miqbc"]
+[ext_resource type="Shader" path="res://scenes/utils/background/Background.gdshader" id="5_a5yrf"]
 [ext_resource type="PackedScene" uid="uid://b2ykese2pclup" path="res://scenes/levels/components/rock_head/RockHead.tscn" id="6_cebst"]
 [ext_resource type="PackedScene" uid="uid://b7eioj6stcag6" path="res://scenes/levels/components/collectibles/Collectible.tscn" id="6_gbfvq"]
 [ext_resource type="PackedScene" uid="uid://eo5cqaxtccty" path="res://scenes/levels/components/trampoline/Trampoline.tscn" id="6_h83r5"]
 [ext_resource type="PackedScene" uid="uid://61qahnul6lty" path="res://scenes/levels/components/Terrain.tscn" id="6_n7i2i"]
-[ext_resource type="Script" path="res://scenes/levels/components/rock_head/RockHeadPathFollow.gd" id="7_71tx2"]
 [ext_resource type="PackedScene" uid="uid://bu5hw2w8hdto6" path="res://scenes/levels/components/falling_platform/FallingPlatform.tscn" id="7_hwyed"]
 [ext_resource type="PackedScene" uid="uid://dhdxgq5ds7w3e" path="res://scenes/levels/components/OneWayTerrain.tscn" id="7_nbw4u"]
 [ext_resource type="SpriteFrames" uid="uid://cw7caka07ir2t" path="res://assets/items/fruits/Cherries.tres" id="7_sak8v"]
@@ -22,7 +22,12 @@
 [ext_resource type="SpriteFrames" uid="uid://ck5xac0x7t4xq" path="res://assets/items/fruits/Strawberry.tres" id="11_og7no"]
 [ext_resource type="SpriteFrames" uid="uid://ddk6eaw31duid" path="res://assets/items/fruits/Melon.tres" id="12_xhicd"]
 [ext_resource type="SpriteFrames" uid="uid://dvmn5egyqo87t" path="res://assets/items/fruits/Bananas.tres" id="13_bjgml"]
+[ext_resource type="PackedScene" uid="uid://qlc4vjwn328s" path="res://scenes/utils/path_follower/PathFollower.tscn" id="15_buesr"]
 [ext_resource type="PackedScene" uid="uid://cf5di5hamv5p3" path="res://scenes/levels/components/camera_travelling/CameraTravelling.tscn" id="23_onrmb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktmfw"]
+shader = ExtResource("5_a5yrf")
+shader_parameter/scroll_speed = 0.2
 
 [sub_resource type="Curve2D" id="Curve2D_mmelc"]
 _data = {
@@ -47,6 +52,7 @@ script = ExtResource("2_s3tqs")
 script = ExtResource("3_0uuvq")
 
 [node name="Background" parent="." instance=ExtResource("4_miqbc")]
+material = SubResource("ShaderMaterial_ktmfw")
 offset_left = 1.0
 offset_right = 1201.0
 offset_bottom = 3868.0
@@ -178,16 +184,15 @@ sfx_player = NodePath("../../SFXPlayer")
 [node name="RockHead" parent="Traps/RockHead" node_paths=PackedStringArray("sfx_player", "path") instance=ExtResource("6_cebst")]
 sfx_player = NodePath("../../../SFXPlayer")
 path = NodePath("../Path2D")
-speed = 125.0
 
 [node name="Path2D" type="Path2D" parent="Traps/RockHead"]
 curve = SubResource("Curve2D_mmelc")
 
-[node name="RockHeadPathFollow" type="PathFollow2D" parent="Traps/RockHead/Path2D" node_paths=PackedStringArray("rock_head")]
+[node name="PathFollower" parent="Traps/RockHead/Path2D" node_paths=PackedStringArray("node") instance=ExtResource("15_buesr")]
 position = Vector2(1136, 3460)
 rotation = -1.5708
-script = ExtResource("7_71tx2")
-rock_head = NodePath("../../RockHead")
+speed = 100.0
+node = NodePath("../../RockHead")
 
 [node name="Trampoline" parent="Traps" node_paths=PackedStringArray("sfx_player") instance=ExtResource("6_h83r5")]
 position = Vector2(833, 3748)
@@ -243,10 +248,5 @@ sfx_player = NodePath("../SFXPlayer")
 [node name="Path2D" type="Path2D" parent="CameraTravellingContainer"]
 curve = SubResource("Curve2D_pdqxg")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="CameraTravellingContainer/Path2D"]
-position = Vector2(970, 2240)
-rotation = -2.18446
-
-[node name="CameraTravelling" parent="CameraTravellingContainer" node_paths=PackedStringArray("path_follow") instance=ExtResource("23_onrmb")]
-path_follow = NodePath("../Path2D/PathFollow2D")
-speed = 350
+[node name="CameraTravelling" parent="CameraTravellingContainer" node_paths=PackedStringArray("path") instance=ExtResource("23_onrmb")]
+path = NodePath("../Path2D")

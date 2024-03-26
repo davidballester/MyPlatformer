@@ -16,7 +16,7 @@ func _on_body_entered(body):
 	if not body is Character:
 		return
 	var character: Character = body
-	character.add_jump_velocity(jump_velocity, 0.5)
+	character.add_jump_velocity(jump_velocity, 0.05)
 	character.enter_jump_state()
 	set_jumping()
 

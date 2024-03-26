@@ -5,7 +5,6 @@ const BLINK_PERIOD_S = 3
 
 @export var sfx_player: SFXPlayer
 @export var path: Path2D
-@export var speed: float = 50.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var top: Area2D = $Top

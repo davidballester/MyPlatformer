@@ -9,6 +9,10 @@ var collectibles_collected: int = 0
 @onready var hud: HUD = $HUD
 @onready var exit: Exit = $Exit
 
+func _ready() -> void:
+	for collectible in collectibles.get_children():
+		collectible.sfx_player = sfx_player
+
 func can_exit() -> bool:
 	return collectibles_collected >= collectibles_required
 
