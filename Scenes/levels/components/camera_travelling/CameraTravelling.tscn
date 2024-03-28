@@ -7,5 +7,3 @@
 script = ExtResource("1_tvddt")
 
 [node name="PathFollower" parent="." instance=ExtResource("2_o4sim")]
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

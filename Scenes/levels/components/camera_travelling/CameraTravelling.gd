@@ -39,5 +39,4 @@ func finish() -> void:
 	finished.emit()
 	path_follower.queue_free()
 	travelling_camera.replace_by(camera)
-	print(camera.offset)
 	queue_free()

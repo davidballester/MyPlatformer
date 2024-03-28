@@ -250,3 +250,4 @@ curve = SubResource("Curve2D_pdqxg")
 
 [node name="CameraTravelling" parent="CameraTravellingContainer" node_paths=PackedStringArray("path") instance=ExtResource("23_onrmb")]
 path = NodePath("../Path2D")
+speed = 400.0
