@@ -9,18 +9,19 @@ signal finished
 @export var camera: Camera2D
 @export var speed: float = 250.0
 
+var travelling_camera: Camera2D
 var status: Status = Status.NOT_STARTED
 var last_progress_ratio: float = -1.0
-var original_camera: Camera2D
 var path_follower: PathFollower
 
 func start() -> void:
 	status = Status.STARTED
-	original_camera = camera.duplicate()
-	camera.position_smoothing_enabled = false
+	travelling_camera = camera.duplicate()
+	camera.replace_by(travelling_camera)
+	travelling_camera.position_smoothing_enabled = false
 	path_follower = PathFollower.new()
 	path_follower.speed = speed
-	path_follower.node = camera
+	path_follower.node = travelling_camera
 	path_follower.loop = false
 	path.add_child(path_follower)
 
@@ -37,5 +38,6 @@ func finish() -> void:
 	status = Status.FINISHED
 	finished.emit()
 	path_follower.queue_free()
-	camera.replace_by(original_camera)
+	travelling_camera.replace_by(camera)
+	print(camera.offset)
 	queue_free()

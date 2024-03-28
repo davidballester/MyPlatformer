@@ -21,6 +21,8 @@ scale = Vector2(2, 2)
 script = ExtResource("1_y8we7")
 
 [node name="Camera" parent="." instance=ExtResource("3_2rhu2")]
+ignore_rotation = false
+rotation_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

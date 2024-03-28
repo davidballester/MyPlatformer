@@ -39,9 +39,10 @@ func _ready():
 	animated_sprite2d.sprite_frames = sprite_frames
 	animated_sprite2d.animation = "idle"
 	animated_sprite2d.play()
-
+	
 func take_damage() -> void:
 	state_machine.take_damage()
+	CameraShaker.new().shake(camera)
 
 func jump() -> void:
 	jump_component.jump(extra_jump_velocity)
