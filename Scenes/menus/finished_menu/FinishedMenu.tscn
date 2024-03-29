@@ -56,8 +56,56 @@ theme_override_constants/margin_top = 64
 [node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("3_cp2cc")
-text = "thanks for playing!"
+text = "Thanks for playing!"
 horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 32
+columns = 2
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "Time:"
+
+[node name="TimeValue" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "120s"
+horizontal_alignment = 2
+
+[node name="CollectiblesLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "Collectibles:"
+
+[node name="CollectiblesValues" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "50"
+horizontal_alignment = 2
+
+[node name="TimesHitLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "Hits:"
+
+[node name="TimesHitValue" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/MarginContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_cp2cc")
+text = "8
+"
+horizontal_alignment = 2
 
 [node name="ButtonsContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2

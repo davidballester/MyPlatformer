@@ -10,6 +10,7 @@ func enter() -> void:
 	finished_menu = load("res://scenes/menus/finished_menu/FinishedMenu.tscn").instantiate()
 	finished_menu.finished.connect(go_to_main_menu)
 	container.add_child(finished_menu)
+	finished_menu.show_stats(game.stats)
 	
 func exit() -> void:
 	finished_menu.queue_free()
