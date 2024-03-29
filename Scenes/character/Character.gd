@@ -7,6 +7,8 @@ const HURT_SOUND = "res://assets/sounds/hurt.wav"
 enum AnimationType { IDLE, RUN, JUMP, FALL, HURT, DOUBLE_JUMP }
 enum Direction { LEFT, RIGHT }
 
+signal hit()
+
 @export var sprite_frames: SpriteFrames:
 	set(new_sprite_frames):
 		sprite_frames = new_sprite_frames
@@ -42,6 +44,7 @@ func _ready():
 	
 func take_damage() -> void:
 	state_machine.take_damage()
+	hit.emit()
 	CameraShaker.new().shake(camera)
 
 func jump() -> void:

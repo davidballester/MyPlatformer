@@ -16,7 +16,7 @@ func exit() -> void:
 	main_menu.queue_free()
 	
 func on_started(sprite_frames: SpriteFrames) -> void:
-	game.set_character_sprite(sprite_frames)
+	game.start(sprite_frames)
 	game.level = 1
 	state_changed.emit(level_state)
 
