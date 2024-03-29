@@ -3,7 +3,6 @@ class_name SpikeHead
 
 const BLINK_PERIOD_S = 3
 
-@export var speed: float = 50.0
 @export var sfx_player: SFXPlayer
 @onready var timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D

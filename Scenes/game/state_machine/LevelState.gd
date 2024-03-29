@@ -72,7 +72,9 @@ func on_exit_entered() -> void:
 	Globals.character_input_enabled = true
 
 func do_camera_traveling() -> void:
-	var camera_travelling: CameraTravelling = level.get_node("CameraTravellingContainer/CameraTravelling")
+	var camera_travelling: CameraTravelling = level.get_node_or_null(
+		"CameraTravellingContainer/CameraTravelling"
+	)
 	if not camera_travelling:
 		return
 	camera_travelling.camera = level.character.camera
