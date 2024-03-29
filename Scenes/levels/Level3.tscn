@@ -69,9 +69,10 @@ texture = ExtResource("6_ms0pw")
 
 [node name="Collectibles" type="Node" parent="."]
 
-[node name="Pineapple1" parent="Collectibles" instance=ExtResource("7_uibds")]
+[node name="Pineapple1" parent="Collectibles" node_paths=PackedStringArray("sfx_player") instance=ExtResource("7_uibds")]
 position = Vector2(576, 2052)
 sprite_frames = ExtResource("13_2xc6f")
+sfx_player = NodePath("../../SFXPlayer")
 
 [node name="Traps" type="Node" parent="."]
 
@@ -281,7 +282,7 @@ layer_0/tile_data = PackedInt32Array(65536, 524288, 5, 131072, 524288, 5, 196608
 [node name="OneWayTerrain" parent="." instance=ExtResource("20_f7nx6")]
 
 [node name="Character" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("21_rxj78")]
-position = Vector2(536, 748)
+position = Vector2(128, 1468)
 sfx_player = NodePath("../SFXPlayer")
 
 [node name="HUD" parent="." node_paths=PackedStringArray("level") instance=ExtResource("22_buosc")]
