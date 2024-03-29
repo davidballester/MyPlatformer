@@ -7,12 +7,12 @@ class_name SpikedBall
 
 func _ready() -> void:
 	animation_player.play("swing", -1, speed)
-	visibility_notifier.screen_entered.connect(play)
-	visibility_notifier.screen_exited.connect(pause)
+	visibility_notifier.screen_entered.connect(unmute)
+	visibility_notifier.screen_exited.connect(mute)
 	if visibility_notifier.is_on_screen():
-		play()
+		unmute()
 	else:
-		pause()
+		mute()
 
 func _on_ball_body_entered(body):
 	if not body is Character:
@@ -20,9 +20,13 @@ func _on_ball_body_entered(body):
 	var character: Character = body
 	character.take_damage()
 
-func pause() -> void:
-	animation_player.pause()
+func mute() -> void:
+	var animation = get_animation()
+	animation.track_set_enabled(1, false)
 
-func play() -> void:
-	animation_player.play()
+func unmute() -> void:
+	var animation = get_animation()
+	animation.track_set_enabled(1, true)
 	
+func get_animation() -> Animation:
+	return animation_player.get_animation(animation_player.current_animation)

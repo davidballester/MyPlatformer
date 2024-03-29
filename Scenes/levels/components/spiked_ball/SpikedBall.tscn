@@ -50,7 +50,7 @@ _data = {
 }
 
 [node name="SpikedBall" type="Node2D"]
-rotation = 0.816942
+rotation = 1.15192
 script = ExtResource("1_rc3sn")
 
 [node name="Chain" type="Node2D" parent="."]
