@@ -7,7 +7,7 @@ var remaining_coyote_time_ms: float
 
 func enter() -> void:
 	remaining_coyote_time_ms = character.coyote_time_ms
-	character.stop_emitting_dust()
+	character.stop_emitting_running_dust()
 	
 func process(delta: float) -> State:
 	remaining_coyote_time_ms -= delta

@@ -11,7 +11,7 @@ func enter():
 		character.direction = Character.Direction.LEFT if direction < 0 else Character.Direction.RIGHT
 	character.set_animation(Character.AnimationType.RUN)
 	character.accelerate_x(1)
-	character.emit_dust()
+	character.emit_running_dust()
 	
 func physics_process(delta: float) -> State:
 	var direction = character_input.get_running_direction()

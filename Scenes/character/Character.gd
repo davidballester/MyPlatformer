@@ -111,8 +111,11 @@ func set_animation(animation: AnimationType):
 			sfx_player.play(JUMP_SOUND)
 	animated_sprite2d.play()
 
-func emit_dust() -> void:
-	%DustEmitter.emit_dust()
+func emit_running_dust() -> void:
+	%RunningDustEmitter.emit_dust()
 	
-func stop_emitting_dust() -> void:
-	%DustEmitter.stop_emitting_dust()
+func stop_emitting_running_dust() -> void:
+	%RunningDustEmitter.stop_emitting_dust()
+
+func emit_landing_dust() -> void:
+	%LandingDustEmitter.emit_dust()

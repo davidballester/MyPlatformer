@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://boym5f7fnma0i"]
+[gd_scene load_steps=16 format=3 uid="uid://boym5f7fnma0i"]
 
 [ext_resource type="Script" path="res://scenes/character/Character.gd" id="1_y8we7"]
 [ext_resource type="PackedScene" uid="uid://cmwu0g1ltbi2n" path="res://scenes/character/components/Camera.tscn" id="3_2rhu2"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://sluuwc6m70xj" path="res://scenes/character/components/character_input/CharacterInput.tscn" id="4_a6ohb"]
 [ext_resource type="PackedScene" uid="uid://c6f3akonhwprv" path="res://scenes/character/state_machine/CharacterStateMachine.tscn" id="4_kr8i7"]
 [ext_resource type="SpriteFrames" uid="uid://b7h4ud80cnuq8" path="res://assets/characters/mask_dude/sprite_frames.tres" id="4_pfd68"]
-[ext_resource type="PackedScene" uid="uid://bgw7xirddvr5f" path="res://scenes/character/components/dust_emitter/DustEmitter.tscn" id="4_qc82d"]
+[ext_resource type="PackedScene" uid="uid://bgw7xirddvr5f" path="res://scenes/character/components/running_dust_emitter/RunningDustEmitter.tscn" id="4_qc82d"]
 [ext_resource type="PackedScene" uid="uid://04k08ultqr01" path="res://scenes/character/state_machine/CharacterIdleState.tscn" id="5_k6g8f"]
 [ext_resource type="PackedScene" uid="uid://b5p0vxavkokmj" path="res://scenes/utils/running_component/RunningComponent.tscn" id="5_k7bkq"]
 [ext_resource type="PackedScene" uid="uid://ct3fhd2pyp6ob" path="res://scenes/character/state_machine/CharacterJumpingState.tscn" id="6_ni2y6"]
 [ext_resource type="PackedScene" uid="uid://b2yxgbk16m6g0" path="res://scenes/character/state_machine/CharacterRunningState.tscn" id="7_l6dqn"]
 [ext_resource type="PackedScene" uid="uid://bx32ifi760js7" path="res://scenes/character/state_machine/CharacterFallingState.tscn" id="9_3vaq6"]
 [ext_resource type="PackedScene" uid="uid://c75qm4sjac4k3" path="res://scenes/character/state_machine/CharacterHurtState.tscn" id="10_22142"]
+[ext_resource type="PackedScene" uid="uid://bgkl4hxxosii1" path="res://scenes/character/components/landing_dust_emitter/LandingDustEmitter.tscn" id="14_kh7mr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikvj"]
 
@@ -78,6 +79,10 @@ character = NodePath("../..")
 running_state = NodePath("../CharacterRunningState")
 character = NodePath("../..")
 
-[node name="DustEmitter" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_qc82d")]
+[node name="RunningDustEmitter" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_qc82d")]
 unique_name_in_owner = true
 character = NodePath("..")
+
+[node name="LandingDustEmitter" parent="." instance=ExtResource("14_kh7mr")]
+unique_name_in_owner = true
+position = Vector2(0, 16)

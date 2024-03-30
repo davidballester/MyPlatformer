@@ -11,7 +11,7 @@ func enter() -> void:
 			character.direction = Character.Direction.LEFT
 	character.jump()
 	character.set_animation(Character.AnimationType.HURT)
-	character.stop_emitting_dust()
+	character.stop_emitting_running_dust()
 	
 func physics_process(delta: float) -> State:
 	character.inertia_y(delta)

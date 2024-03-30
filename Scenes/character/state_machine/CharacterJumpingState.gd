@@ -10,7 +10,7 @@ func enter() -> void:
 		character.set_animation(Character.AnimationType.DOUBLE_JUMP)
 	character.jump()
 	character.set_coyote_time(false)
-	character.stop_emitting_dust()
+	character.stop_emitting_running_dust()
 	
 func physics_process(delta: float) -> State:
 	if character_input.released_jump():
