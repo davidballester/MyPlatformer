@@ -110,3 +110,9 @@ func set_animation(animation: AnimationType):
 			animated_sprite2d.animation = "double_jump"
 			sfx_player.play(JUMP_SOUND)
 	animated_sprite2d.play()
+
+func emit_dust() -> void:
+	%DustEmitter.emit_dust()
+	
+func stop_emitting_dust() -> void:
+	%DustEmitter.stop_emitting_dust()

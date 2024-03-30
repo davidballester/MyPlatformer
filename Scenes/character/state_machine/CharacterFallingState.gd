@@ -8,6 +8,7 @@ class_name CharacterFallingState
 func enter() -> void:
 	character.set_animation(Character.AnimationType.FALL)
 	character.velocity.y = 0
+	character.stop_emitting_dust()
 	
 func process(_delta: float) -> State:
 	if not character_input.wants_to_jump() or not character.can_double_jump:

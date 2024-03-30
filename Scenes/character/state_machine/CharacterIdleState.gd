@@ -7,6 +7,7 @@ class_name CharacterIdleState
 
 func enter() -> void:
 	character.set_animation(Character.AnimationType.IDLE)
+	character.stop_emitting_dust()
 
 func physics_process(_delta: float) -> State:
 	character.inertia_x()
