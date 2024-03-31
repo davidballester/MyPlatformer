@@ -30,7 +30,9 @@ func enter() -> void:
 	do_camera_traveling()
 
 func exit() -> void:
-	if level and game.saved_level_scene == level:
+	if not level:
+		return
+	if game.saved_level_scene == level:
 		level.hide_hud()
 		return
 	level.queue_free()
@@ -68,7 +70,7 @@ func on_exit_entered() -> void:
 		level.collectibles_required,
 		level.collectibles_collected
 	)
-	state_changed.emit(level_state)
+	state_changed.emit(level_state if LevelLoader.is_there_next_level() else finished_state)
 	Globals.character_input_enabled = true
 
 func do_camera_traveling() -> void:

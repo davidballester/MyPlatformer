@@ -2,7 +2,7 @@ extends Object
 class_name LevelLoader
 
 static var levels_paths = [
-	"res://scenes/levels/Level1.tscn",
+ 	"res://scenes/levels/Level1.tscn",
 	"res://scenes/levels/Level2.tscn",
 	"res://scenes/levels/Level3.tscn"
 ]
@@ -31,3 +31,5 @@ static func get_next_level() -> Level:
 		next_level = null
 	return ans
 	
+static func is_there_next_level() -> bool:
+	return next_level_index < levels_paths.size()
