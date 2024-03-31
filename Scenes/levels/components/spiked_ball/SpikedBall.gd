@@ -22,11 +22,11 @@ func _on_ball_body_entered(body):
 
 func mute() -> void:
 	var animation = get_animation()
-	animation.track_set_enabled(1, false)
+	animation.track_set_enabled(0, false)
 
 func unmute() -> void:
 	var animation = get_animation()
-	animation.track_set_enabled(1, true)
+	animation.track_set_enabled(0, true)
 	
 func get_animation() -> Animation:
 	return animation_player.get_animation(animation_player.current_animation)
