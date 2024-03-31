@@ -16,7 +16,6 @@ func _ready():
 	current_character_selected_button.set_selected(true)
 	%StartButton.clicked.connect(on_start_clicked)
 	%CreditsButton.clicked.connect(on_credits_clicked)
-	%QuitButton.clicked.connect(func(): get_tree().quit())
 	
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("go_left"):

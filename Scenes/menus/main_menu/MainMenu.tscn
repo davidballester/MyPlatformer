@@ -85,10 +85,12 @@ sprite_frames = ExtResource("8_xglxu")
 
 [node name="ButtonsContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 32
+size_flags_vertical = 8
+theme_override_constants/margin_top = 64
 
 [node name="ButtonWithSelectorGroup" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource("9_jipuc")]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_constants/separation = 16
 
 [node name="StartButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
@@ -104,10 +106,3 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "CREDITS"
-
-[node name="QuitButton" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ButtonsContainer/ButtonWithSelectorGroup" instance=ExtResource("5_esna7")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-text = "QUIT"
