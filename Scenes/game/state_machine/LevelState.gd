@@ -13,8 +13,10 @@ func enter() -> void:
 		level.show_hud()
 		game.saved_level_scene = null
 		return
-	var level_path = get_level_path(game.level)
-	level = load(level_path).instantiate()
+	level = LevelLoader.get_next_level()
+	if not level:
+		state_changed.emit(finished_state)
+		return
 	level.collectibles_collected = game.collectibles_carried_over
 	game.collectibles_carried_over = 0
 	level_container.add_child(level)
@@ -26,12 +28,9 @@ func enter() -> void:
 	)
 	set_up_camera()
 	do_camera_traveling()
-		
-func get_level_path(level_number: int) -> String:
-	return "res://scenes/levels/Level" + str(level_number) + ".tscn"	
 
 func exit() -> void:
-	if game.saved_level_scene == level:
+	if level and game.saved_level_scene == level:
 		level.hide_hud()
 		return
 	level.queue_free()
@@ -69,11 +68,7 @@ func on_exit_entered() -> void:
 		level.collectibles_required,
 		level.collectibles_collected
 	)
-	var level_path = get_level_path(game.level)
-	if not FileAccess.file_exists(level_path):
-		state_changed.emit(finished_state)
-	else: 
-		state_changed.emit(level_state)
+	state_changed.emit(level_state)
 	Globals.character_input_enabled = true
 
 func do_camera_traveling() -> void:

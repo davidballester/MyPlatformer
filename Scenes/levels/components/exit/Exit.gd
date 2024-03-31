@@ -5,6 +5,7 @@ signal entered
 
 @export var sfx_player: SFXPlayer
 @onready var emitter: CPUParticles2D = $CPUParticles2D
+var exit_jingle = preload("res://assets/sounds/exit.wav")
 
 func _on_body_entered(body):
 	if not body is Character:
@@ -13,5 +14,5 @@ func _on_body_entered(body):
 	
 func play() -> Signal:
 	emitter.emitting = true
-	sfx_player.play("res://assets/sounds/exit.wav")
+	sfx_player.play_audio_stream(exit_jingle)
 	return get_tree().create_timer(3.0).timeout

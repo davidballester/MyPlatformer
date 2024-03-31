@@ -2,12 +2,14 @@ extends Node
 class_name Game
 
 @onready var level_container: Node = $LevelContainer
-var level: int = 0
 var collectibles_carried_over: int = 0
 var character_sprite: SpriteFrames
 var saved_level_scene: Node
 var stats: Stats = Stats.new()
 var count_time: bool = false
+
+func _ready() -> void:
+	LevelLoader.initialize()
 
 func start(sprite_frames: SpriteFrames) -> void:
 	character_sprite = sprite_frames
@@ -25,15 +27,14 @@ func resume() -> void:
 	count_time = true
 	
 func reset() -> void:
+	LevelLoader.reset()
 	stats.reset()
-	level = 0
 	collectibles_carried_over = 0
 	if saved_level_scene:
 		saved_level_scene.queue_free()
 		saved_level_scene = null
 		
 func next_level(collectibles_required, collectibles_collected) -> void:
-	level += 1
 	collectibles_carried_over = collectibles_collected - collectibles_required
 	stats.collectibles_collected += collectibles_collected
 

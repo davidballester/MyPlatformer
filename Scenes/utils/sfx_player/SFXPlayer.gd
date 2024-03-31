@@ -14,6 +14,9 @@ func _init():
 		
 func play(sfx_path: String, volume: float = 1.0) -> Callable:
 	var audio_stream = load(sfx_path)
+	return play_audio_stream(audio_stream, volume)
+
+func play_audio_stream(audio_stream: AudioStream, volume: float = 1.0) -> Callable:
 	var player: AudioStreamPlayer = players[current_player]
 	player.stream = audio_stream
 	player.volume_db = 10.0 * log(volume)

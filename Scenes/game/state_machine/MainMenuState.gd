@@ -17,7 +17,6 @@ func exit() -> void:
 	
 func on_started(sprite_frames: SpriteFrames) -> void:
 	game.start(sprite_frames)
-	game.level = 1
 	state_changed.emit(level_state)
 
 func on_credits_clicked() -> void:
