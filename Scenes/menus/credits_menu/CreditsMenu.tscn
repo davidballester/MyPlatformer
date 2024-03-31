@@ -65,6 +65,19 @@ size_flags_vertical = 3
 [node name="TextContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="Main" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/Main"]
+layout_mode = 2
+
+[node name="PixelArt" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer/Main/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_s3nxo")
+text = "A game by David Ballester Mena"
+
 [node name="PixelArt" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 16
@@ -88,7 +101,8 @@ size_flags_vertical = 0
 theme = ExtResource("3_s3nxo")
 theme_override_font_sizes/font_size = 36
 text = "Pixel adventure 1 by Pixel Frog
-Universal Icon Pack: 8 x 8 by SHMORGUS"
+Universal Icon Pack: 8 x 8 by SHMORGUS
+Monogram font by Vinicius Menezio"
 
 [node name="Music" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/TextContainer"]
 layout_mode = 2
